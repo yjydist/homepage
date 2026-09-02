@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  /* Courier Prime is the sole typeface, for both sans and mono usage. */
+  --font-sans: "Courier Prime", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-mono: "Courier Prime", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Minimalist palette: warm paper, soft ink, one restrained accent. */
+  --color-paper: #fafaf9;
+  --color-ink: #1c1917;
+  --color-muted: #78716c;
+  --color-accent: #0f766e;
+  --color-line: #e7e5e4;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-paper font-sans text-ink antialiased;
+}
+
+::selection {
+  @apply bg-accent/20;
+}
