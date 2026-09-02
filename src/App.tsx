@@ -16,10 +16,12 @@ export default function App() {
   }, [])
 
   return (
-    <>
+    // min-h-dvh + flex-col + flex-1 main pins the footer to the viewport
+    // bottom even when the page content is shorter than the screen.
+    <div className="flex min-h-dvh flex-col">
       <ScrollToTop />
       <Nav />
-      <main>
+      <main className="flex-1">
         <Routes>
           {routes.map((route) => (
             <Route
@@ -32,6 +34,6 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
-    </>
+    </div>
   )
 }
