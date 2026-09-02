@@ -38,14 +38,6 @@ username = "your-username"
 # Unknown modes fall back to custom. New providers (e.g. "gitee") can be
 # added later without changing the schema.
 [[repos]]
-mode = "github"
-repo = "your-username/project-one"
-# description = "Override the repo's GitHub description."
-# tags = ["TypeScript", "React"]  # overrides API topics
-# pinned = true                   # pinned entries sort first
-# order = 1                       # explicit sort order among unpinned
-
-[[repos]]
 mode = "custom"
 name = "Manual Project"
 url = "https://github.com/your-username/project-two"
