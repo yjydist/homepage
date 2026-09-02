@@ -4,7 +4,7 @@ Personal business-card site. Single scrolling page: hero, about, projects,
 experience.
 
 **Stack**: React + Vite + TypeScript, Tailwind CSS v4, Courier Prime, bun
-(local dev). Content lives in `src/content.toml` — edit that file to change
+(local dev). Content lives in `content.toml` — edit that file to change
 anything displayed; components never hardcode text.
 
 ## Local development
@@ -18,7 +18,7 @@ bun run preview   # serve the production build
 
 ## Editing content
 
-All site content and config are in `src/content.toml`:
+All site content and config are in `content.toml`:
 
 - `[site]` — title, meta description, owner name, year
 - `[profile]` — tagline, bio, avatar path, social links

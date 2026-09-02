@@ -1,5 +1,5 @@
 import { parse } from 'toml'
-import raw from './content.toml?raw'
+import raw from '../content.toml?raw'
 
 export interface SiteConfig {
   title: string
