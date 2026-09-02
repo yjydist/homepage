@@ -1,14 +1,10 @@
-import { Link, NavLink } from 'react-router-dom'
-import { content } from '../content'
+import { NavLink } from 'react-router-dom'
 import { routes } from '../routes'
 
 export default function Nav() {
   return (
     <header className="sticky top-0 z-10 border-b border-line bg-paper/90 backdrop-blur">
-      <nav className="mx-auto flex max-w-2xl items-baseline justify-between px-6 py-4">
-        <Link to="/" className="font-bold">
-          {content.site.name}
-        </Link>
+      <nav className="mx-auto flex max-w-2xl items-baseline justify-center px-6 py-4">
         <ul className="flex gap-6 text-sm text-muted">
           {routes.map((route) => (
             <li key={route.path}>
