@@ -8,7 +8,7 @@ export default function Hero() {
         <img
           src={profile.avatar}
           alt={content.site.name}
-          className="mb-8 size-20 rounded-full"
+          className="mb-8 size-20 rounded-full border border-line bg-line object-cover"
         />
       )}
       <h1 className="text-4xl font-bold">{content.site.name}</h1>
