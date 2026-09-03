@@ -4,18 +4,18 @@ export default function Footer() {
   const { site, profile } = content
   return (
     <footer className="border-t border-line bg-paper">
-      <div className="mx-auto flex max-w-2xl flex-col items-center justify-between gap-4 px-6 py-4 text-sm text-muted sm:flex-row">
+      <div className="mx-auto flex max-w-2xl items-baseline justify-between px-6 py-4 text-sm text-muted">
         <span>
           © {site.year} {site.name}
         </span>
-        <ul className="flex flex-wrap items-center gap-1">
+        <ul className="flex gap-4">
           {profile.socials.map((social) => (
             <li key={social.label}>
               <a
                 href={social.url}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex min-h-[48px] items-center rounded-full px-3 py-2 transition-all duration-medium ease-standard hover:bg-accent/10 hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                className="-mx-1 -my-1.5 inline-block rounded-xs px-1 py-1.5 transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
               >
                 {social.label}
               </a>
