@@ -9,10 +9,9 @@
     },
     "chrome-devtools-mcp": {
       "command": "bunx",
-      "args":[
+      "args": [
         "-y",
-        "chrome-devtools-mcp@latest",
-        "--headless"
+        "chrome-devtools-mcp@latest"
       ]
     }
   }
