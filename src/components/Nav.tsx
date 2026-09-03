@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { routes } from '../routes'
+import Icon from './Icon'
 
 export default function Nav() {
   return (
@@ -12,13 +13,14 @@ export default function Nav() {
                 to={route.path}
                 end={route.path === '/'}
                 className={({ isActive }) =>
-                  `inline-flex min-h-[48px] items-center justify-center rounded-full px-3.5 py-2 text-sm transition-all duration-medium ease-standard focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
+                  `inline-flex min-h-[48px] items-center justify-center gap-1.5 rounded-full px-3.5 py-2 text-sm transition-all duration-medium ease-standard focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
                     isActive
                       ? 'bg-primary-container font-bold text-on-primary-container shadow-xs'
                       : 'text-muted hover:bg-accent/8 hover:text-ink'
                   }`
                 }
               >
+                <Icon name={route.icon} size={18} />
                 {route.label}
               </NavLink>
             </li>
