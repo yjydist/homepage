@@ -3,6 +3,7 @@ import { fetchPublicEvents } from '../lib/github'
 import type { GitHubEvent } from '../lib/github'
 import { timeAgo } from '../lib/time'
 import { Empty, ErrorNotice, Loading } from './AsyncState'
+import Icon from './Icon'
 
 // Payload fields are loosely typed, so reads go through small guards.
 function str(value: unknown): string | undefined {
@@ -15,6 +16,38 @@ function num(value: unknown): number | undefined {
 
 function shortRef(ref: string): string {
   return ref.replace(/^refs\/heads\//, '')
+}
+
+// Maps a GitHub event type to a Material Symbols ligature name. Not
+// exported: keeps this file a single-component module for oxlint's
+// react/only-export-components rule.
+function eventIcon(type: string): string {
+  switch (type) {
+    case 'PushEvent':
+      return 'commit'
+    case 'CreateEvent':
+      return 'add_circle'
+    case 'DeleteEvent':
+      return 'delete'
+    case 'IssuesEvent':
+      return 'report'
+    case 'IssueCommentEvent':
+      return 'mode_comment'
+    case 'PullRequestEvent':
+      return 'call_merge'
+    case 'PullRequestReviewEvent':
+      return 'rate_review'
+    case 'ForkEvent':
+      return 'fork_right'
+    case 'WatchEvent':
+      return 'star'
+    case 'ReleaseEvent':
+      return 'local_offer'
+    case 'PublicEvent':
+      return 'public'
+    default:
+      return 'bolt'
+  }
 }
 
 function describeEvent(event: GitHubEvent): string {
@@ -75,30 +108,35 @@ export default function EventsFeed({ username }: { username: string }) {
   }
 
   return (
-    <ul className="space-y-4">
+    <ul className="space-y-3">
       {data.map((event) => (
         <li
           key={event.id}
-          className="flex items-baseline justify-between gap-4 border-b border-line/40 py-2 last:border-b-0"
+          className="rounded-xl border border-line bg-surface-container-low/70 p-4"
         >
-          <p className="text-sm leading-relaxed">
-            {describeEvent(event)}
-            <span className="text-muted">
-              {' '}
-              in{' '}
-              <a
-                href={`https://github.com/${event.repo.name}`}
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-sm px-1 py-0.5 underline decoration-line underline-offset-4 transition-all duration-short ease-standard hover:bg-accent/10 hover:text-accent hover:decoration-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-              >
-                {event.repo.name}
-              </a>
-            </span>
-          </p>
-          <time className="shrink-0 text-xs text-muted">
-            {timeAgo(event.created_at)}
-          </time>
+          <div className="flex items-start justify-between gap-4">
+            <p className="flex items-start gap-2 text-sm leading-relaxed">
+              <Icon name={eventIcon(event.type)} className="mt-0.5 shrink-0" />
+              <span>
+                {describeEvent(event)}
+                <span className="text-muted">
+                  {' '}
+                  in{' '}
+                  <a
+                    href={`https://github.com/${event.repo.name}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded-sm px-1 py-0.5 underline decoration-line underline-offset-4 transition-all duration-short ease-standard hover:bg-accent/10 hover:text-accent hover:decoration-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                  >
+                    {event.repo.name}
+                  </a>
+                </span>
+              </span>
+            </p>
+            <time className="shrink-0 text-xs text-muted">
+              {timeAgo(event.created_at)}
+            </time>
+          </div>
         </li>
       ))}
     </ul>

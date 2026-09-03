@@ -1,4 +1,5 @@
 import { timeAgo } from '../lib/time'
+import Icon from './Icon'
 
 interface RepoCardProps {
   name: string
@@ -71,9 +72,24 @@ export default function RepoCard({
           )}
           {hasMeta && (
             <p className="mt-3 flex flex-wrap gap-3 text-xs text-muted">
-              {stars !== null && <span>★ {stars}</span>}
-              {language && <span>{language}</span>}
-              {updatedAt && <span>updated {timeAgo(updatedAt)}</span>}
+              {stars !== null && (
+                <span className="inline-flex items-center gap-1">
+                  <Icon name="star" />
+                  {stars}
+                </span>
+              )}
+              {language && (
+                <span className="inline-flex items-center gap-1">
+                  <Icon name="code" />
+                  {language}
+                </span>
+              )}
+              {updatedAt && (
+                <span className="inline-flex items-center gap-1">
+                  <Icon name="schedule" />
+                  updated {timeAgo(updatedAt)}
+                </span>
+              )}
             </p>
           )}
         </div>
