@@ -24,4 +24,5 @@ dist-ssr
 *.sw?
 
 # Claude Code
-.claude/plans
+.claude
+!.claude/skills
