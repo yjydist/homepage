@@ -9,15 +9,15 @@ const LABEL_HEIGHT = 14
 const LEVEL_CLASS = [
   'fill-line',
   'fill-accent/20',
-  'fill-accent/40',
-  'fill-accent/65',
+  'fill-accent/45',
+  'fill-accent/70',
   'fill-accent',
 ]
 const LEGEND_CLASS = [
   'bg-line',
   'bg-accent/20',
-  'bg-accent/40',
-  'bg-accent/65',
+  'bg-accent/45',
+  'bg-accent/70',
   'bg-accent',
 ]
 
@@ -105,8 +105,8 @@ export default function ContributionsCalendar({
                 y={LABEL_HEIGHT + row * (CELL + GAP)}
                 width={CELL}
                 height={CELL}
-                rx={2}
-                className={LEVEL_CLASS[level]}
+                rx={3}
+                className={`${LEVEL_CLASS[level]} cursor-pointer transition-opacity duration-short ease-standard hover:opacity-75`}
               >
                 <title>
                   {day.count} contribution{day.count === 1 ? '' : 's'} on{' '}
@@ -117,10 +117,13 @@ export default function ContributionsCalendar({
           }),
         )}
       </svg>
-      <div className="mt-2 flex items-center gap-1 text-xs text-muted">
+      <div className="mt-2 flex items-center gap-1.5 text-xs text-muted">
         <span>Less</span>
         {LEGEND_CLASS.map((className) => (
-          <span key={className} className={`size-2 rounded-xs ${className}`} />
+          <span
+            key={className}
+            className={`size-2.5 rounded-[3px] ${className}`}
+          />
         ))}
         <span>More</span>
       </div>
