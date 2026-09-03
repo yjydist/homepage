@@ -3,31 +3,31 @@
 # changes are needed.
 
 [site]
-title = "Your Name"
-meta_description = "Personal homepage of Your Name."
-name = "Your Name"
+title = "JINGYUAN YI"
+meta_description = "Personal homepage of JINGYUAN YI."
+name = "JINGYUAN YI"
 year = 2026
 
 [profile]
-tagline = "A one-line tagline goes here."
+tagline = "Software engineering student at Xidian University, building for the web."
 bio = """
-Write a short introduction here. Who you are, what you care about,
-what you are building or learning right now. Keep it brief: this is a
-business card, not a resume.
+I'm a software engineering undergraduate at Xidian University, currently
+exploring web development and open source. This site is my corner of the
+internet, where I share what I'm learning and building.
 """
 avatar = "" # path under public/, e.g. "avatar.jpg"; empty = no avatar
 
 [[profile.socials]]
 label = "GitHub"
-url = "https://github.com/your-username"
+url = "https://github.com/yjydist"
 
 [[profile.socials]]
 label = "Email"
-url = "mailto:you@example.com"
+url = "mailto:yjydist@qq.com"
 
 [github]
 # Used for the /repos fetches and the /activity page.
-username = "your-username"
+username = "yjydist"
 
 # Each [[repos]] entry declares how its data is sourced via `mode`:
 #   mode = "github" -> metadata (description, stars, language, topics,
