@@ -77,7 +77,10 @@ export default function EventsFeed({ username }: { username: string }) {
   return (
     <ul className="space-y-4">
       {data.map((event) => (
-        <li key={event.id} className="flex items-baseline justify-between gap-4">
+        <li
+          key={event.id}
+          className="flex items-baseline justify-between gap-4 border-b border-line/40 py-2 last:border-b-0"
+        >
           <p className="text-sm leading-relaxed">
             {describeEvent(event)}
             <span className="text-muted">
@@ -87,7 +90,7 @@ export default function EventsFeed({ username }: { username: string }) {
                 href={`https://github.com/${event.repo.name}`}
                 target="_blank"
                 rel="noreferrer"
-                className="underline decoration-line underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+                className="rounded-sm px-1 py-0.5 underline decoration-line underline-offset-4 transition-all duration-short ease-standard hover:bg-accent/10 hover:text-accent hover:decoration-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
               >
                 {event.repo.name}
               </a>

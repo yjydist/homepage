@@ -4,11 +4,13 @@ import Section from './Section'
 export default function Experience() {
   return (
     <Section id="experience" title="Experience">
-      <ul className="space-y-10">
+      <ul className="space-y-8">
         {content.experience.map((entry) => (
           <li key={`${entry.period}-${entry.role}`}>
-            <div className="text-xs text-muted">{entry.period}</div>
-            <h3 className="mt-1 font-bold">
+            <div className="text-xs font-medium tracking-wide text-muted uppercase">
+              {entry.period}
+            </div>
+            <h3 className="mt-1 text-base font-bold text-ink">
               {entry.role}
               <span className="font-normal text-muted">
                 {' '}
