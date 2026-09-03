@@ -1,4 +1,6 @@
 import { content } from '../content'
+import { socialIcon } from '../lib/socialIcons'
+import Icon from './Icon'
 
 export default function Footer() {
   const { site, profile } = content
@@ -15,8 +17,9 @@ export default function Footer() {
                 href={social.url}
                 target="_blank"
                 rel="noreferrer"
-                className="-mx-1 -my-1.5 inline-block rounded-xs px-1 py-1.5 transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                className="-mx-1 -my-1.5 inline-flex items-center gap-1.5 rounded-xs px-1 py-1.5 transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
               >
+                <Icon name={socialIcon(social.label)} size={16} />
                 {social.label}
               </a>
             </li>
