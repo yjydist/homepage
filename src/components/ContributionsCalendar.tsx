@@ -53,7 +53,7 @@ export default function ContributionsCalendar({
 
   if (loading) return <Loading />
   if (error || !data || data.length === 0) {
-    return <ErrorNotice message="Contribution calendar is unavailable right now." />
+    return <ErrorNotice message="贡献日历暂时不可用。" />
   }
 
   const weeks = toWeeks(data)
@@ -68,7 +68,7 @@ export default function ContributionsCalendar({
       )
       if (!firstOfMonth) return null
       const label = new Date(`${firstOfMonth.date}T00:00:00`).toLocaleString(
-        'en',
+        'zh-CN',
         { month: 'short' },
       )
       return { x: i * (CELL + GAP), label }
@@ -81,7 +81,7 @@ export default function ContributionsCalendar({
         width={width}
         height={height}
         role="img"
-        aria-label="GitHub contribution calendar"
+        aria-label="GitHub 贡献日历"
       >
         {monthLabels.map((month) => (
           <text
@@ -109,8 +109,7 @@ export default function ContributionsCalendar({
                 className={`${LEVEL_CLASS[level]} cursor-pointer transition-opacity duration-short ease-standard hover:opacity-75`}
               >
                 <title>
-                  {day.count} contribution{day.count === 1 ? '' : 's'} on{' '}
-                  {day.date}
+                  {day.count} 次贡献 · {day.date}
                 </title>
               </rect>
             )
@@ -118,14 +117,14 @@ export default function ContributionsCalendar({
         )}
       </svg>
       <div className="mt-2 flex items-center gap-1.5 text-xs text-muted">
-        <span>Less</span>
+        <span>少</span>
         {LEGEND_CLASS.map((className) => (
           <span
             key={className}
             className={`size-2.5 rounded-[3px] ${className}`}
           />
         ))}
-        <span>More</span>
+        <span>多</span>
       </div>
     </div>
   )

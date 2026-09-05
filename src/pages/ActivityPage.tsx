@@ -7,19 +7,19 @@ import { content } from '../content'
 export default function ActivityPage() {
   const { username } = content.github
   return (
-    <Section id="activity" title="Activity">
+    <Section id="activity" title="动态">
       <div className="space-y-12">
         <section>
           <h3 className="mb-4 flex items-center gap-1.5 text-sm text-muted">
             <Icon name="grid_on" size={16} />
-            Contributions
+            贡献日历
           </h3>
           <ContributionsCalendar username={username} />
         </section>
         <section>
           <h3 className="mb-4 flex items-center gap-1.5 text-sm text-muted">
             <Icon name="history" size={16} />
-            Recent activity
+            最近动态
           </h3>
           <EventsFeed username={username} />
         </section>

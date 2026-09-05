@@ -3,6 +3,7 @@
 // react/only-export-components rule does not flag it.
 const SOCIAL_ICONS: Record<string, string> = {
   github: 'code',
+  邮箱: 'mail',
   email: 'mail',
   mail: 'mail',
   twitter: 'alternate_email',

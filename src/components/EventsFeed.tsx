@@ -18,6 +18,33 @@ function shortRef(ref: string): string {
   return ref.replace(/^refs\/heads\//, '')
 }
 
+// Translate the English action verbs GitHub sends into Chinese verbs.
+function issueAction(action: string | undefined): string {
+  switch (action) {
+    case 'opened':
+      return '打开'
+    case 'closed':
+      return '关闭'
+    case 'reopened':
+      return '重新打开'
+    default:
+      return '更新'
+  }
+}
+
+function prAction(action: string | undefined): string {
+  switch (action) {
+    case 'opened':
+      return '打开'
+    case 'closed':
+      return '关闭'
+    case 'reopened':
+      return '重新打开'
+    default:
+      return '更新'
+  }
+}
+
 // Maps a GitHub event type to a Material Symbols ligature name. Not
 // exported: keeps this file a single-component module for oxlint's
 // react/only-export-components rule.
@@ -58,38 +85,37 @@ function describeEvent(event: GitHubEvent): string {
         ? payload.commits.length
         : 1
       const ref = str(payload.ref)
-      return `Pushed ${commits} commit${commits === 1 ? '' : 's'}${ref ? ` to ${shortRef(ref)}` : ''}`
+      return `推送了 ${commits} 个提交${ref ? `到 ${shortRef(ref)}` : ''}`
     }
     case 'CreateEvent': {
       const refType = str(payload.ref_type) ?? 'ref'
       const ref = str(payload.ref)
-      return refType === 'repository'
-        ? 'Created this repository'
-        : `Created ${refType} ${ref ?? ''}`
+      return refType === 'repository' ? '创建了此仓库' : `创建了${refType} ${ref ?? ''}`
     }
     case 'DeleteEvent':
-      return `Deleted ${str(payload.ref_type) ?? 'ref'} ${str(payload.ref) ?? ''}`
+      return `删除了${str(payload.ref_type) ?? 'ref'} ${str(payload.ref) ?? ''}`
     case 'IssuesEvent':
-      return `${str(payload.action) ?? 'Updated'} issue #${num((payload.issue as Record<string, unknown>)?.number) ?? ''}: ${str((payload.issue as Record<string, unknown>)?.title) ?? ''}`
+      return `${issueAction(str(payload.action))}了 issue #${num((payload.issue as Record<string, unknown>)?.number) ?? ''}: ${str((payload.issue as Record<string, unknown>)?.title) ?? ''}`
     case 'IssueCommentEvent':
-      return `Commented on issue #${num((payload.issue as Record<string, unknown>)?.number) ?? ''}`
+      return `评论了 issue #${num((payload.issue as Record<string, unknown>)?.number) ?? ''}`
     case 'PullRequestEvent': {
       const pr = payload.pull_request as Record<string, unknown> | undefined
-      const action = payload.action === 'closed' && pr?.merged === true
-        ? 'Merged'
-        : (str(payload.action) ?? 'Updated')
+      const action =
+        payload.action === 'closed' && pr?.merged === true
+          ? '合并了'
+          : prAction(str(payload.action))
       return `${action} PR #${num(pr?.number) ?? ''}: ${str(pr?.title) ?? ''}`
     }
     case 'PullRequestReviewEvent':
-      return `Reviewed a pull request`
+      return `评审了一个拉取请求`
     case 'ForkEvent':
-      return `Forked to ${str((payload.forkee as Record<string, unknown>)?.full_name) ?? 'a new repository'}`
+      return `复刻到 ${str((payload.forkee as Record<string, unknown>)?.full_name) ?? '一个新仓库'}`
     case 'WatchEvent':
-      return 'Starred this repository'
+      return '为该仓库加了星'
     case 'ReleaseEvent':
-      return `Released ${str((payload.release as Record<string, unknown>)?.tag_name) ?? 'a version'}`
+      return `发布了 ${str((payload.release as Record<string, unknown>)?.tag_name) ?? '一个版本'}`
     case 'PublicEvent':
-      return 'Made a repository public'
+      return '公开了一个仓库'
     default:
       return `${event.type.replace(/Event$/, '')}`
   }
@@ -102,9 +128,9 @@ export default function EventsFeed({ username }: { username: string }) {
   )
 
   if (loading) return <Loading />
-  if (error) return <ErrorNotice message="Recent activity is unavailable right now." />
+  if (error) return <ErrorNotice message="最近动态暂时不可用。" />
   if (!data || data.length === 0) {
-    return <Empty message="No recent public activity." />
+    return <Empty message="暂无公开动态。" />
   }
 
   return (
@@ -121,7 +147,7 @@ export default function EventsFeed({ username }: { username: string }) {
                 {describeEvent(event)}
                 <span className="text-muted">
                   {' '}
-                  in{' '}
+                  在{' '}
                   <a
                     href={`https://github.com/${event.repo.name}`}
                     target="_blank"

@@ -3,7 +3,7 @@ import Section from './Section'
 
 export default function Experience() {
   return (
-    <Section id="experience" title="Experience">
+    <Section id="experience" title="经历">
       <ul className="space-y-4">
         {content.experience.map((entry) => (
           <li

@@ -14,8 +14,8 @@ export interface AppRoute {
 // Single source of truth for pages: adding a page = one entry here plus
 // one component file. Nav renders from this list automatically.
 export const routes: AppRoute[] = [
-  { path: '/', label: 'About', icon: 'person', Component: AboutPage },
-  { path: '/repos', label: 'Repos', icon: 'folder', Component: ReposPage },
-  { path: '/activity', label: 'Activity', icon: 'monitoring', Component: ActivityPage },
-  { path: '/experience', label: 'Experience', icon: 'work', Component: ExperiencePage },
+  { path: '/', label: '关于', icon: 'person', Component: AboutPage },
+  { path: '/repos', label: '仓库', icon: 'folder', Component: ReposPage },
+  { path: '/activity', label: '动态', icon: 'monitoring', Component: ActivityPage },
+  { path: '/experience', label: '经历', icon: 'work', Component: ExperiencePage },
 ]

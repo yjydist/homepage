@@ -4,7 +4,7 @@ export function Loading() {
   return (
     <div
       role="status"
-      aria-label="Loading"
+      aria-label="加载中"
       className="flex items-center gap-3 py-4 text-sm text-muted"
     >
       <svg
@@ -29,7 +29,7 @@ export function Loading() {
           strokeLinecap="round"
         />
       </svg>
-      <span>Loading…</span>
+      <span>加载中…</span>
     </div>
   )
 }

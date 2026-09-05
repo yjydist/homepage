@@ -4,16 +4,15 @@
 
 [site]
 title = "JINGYUAN YI"
-meta_description = "Personal homepage of JINGYUAN YI."
+meta_description = "JINGYUAN YI 的个人主页。"
 name = "JINGYUAN YI"
 year = 2026
 
 [profile]
-tagline = "Software engineering student at Xidian University, building for the web."
+tagline = "西安电子科技大学软件工程专业学生，专注 Web 开发。"
 bio = """
-I'm a software engineering undergraduate at Xidian University, currently
-exploring web development and open source. This site is my corner of the
-internet, where I share what I'm learning and building.
+我是西安电子科技大学软件工程专业的本科生，正在探索 Web 开发与开源。
+这个站点是我的互联网一角，用来记录我在学习和构建的东西。
 """
 avatar = "" # path under public/, e.g. "avatar.jpg"; empty = no avatar
 
@@ -22,7 +21,7 @@ label = "GitHub"
 url = "https://github.com/yjydist"
 
 [[profile.socials]]
-label = "Email"
+label = "邮箱"
 url = "mailto:yjydist@qq.com"
 
 [github]
@@ -39,19 +38,19 @@ username = "yjydist"
 # added later without changing the schema.
 [[repos]]
 mode = "custom"
-name = "Manual Project"
+name = "手动项目"
 url = "https://github.com/your-username/project-two"
-description = "One or two sentences about this project: what it does and why it matters to you."
+description = "用一两句话介绍这个项目：它做什么、为什么对你重要。"
 tags = ["Python", "CLI"]
 
 [[experience]]
-period = "2024 — Present"
-role = "Your Role"
-organization = "Organization"
-description = "What you did and what you learned, in one sentence."
+period = "2024 — 至今"
+role = "你的职位"
+organization = "所属组织"
+description = "用一句话说明你做了什么、学到了什么。"
 
 [[experience]]
 period = "2022 — 2024"
-role = "Previous Role"
-organization = "Previous Organization"
-description = "What you did and what you learned, in one sentence."
+role = "之前的职位"
+organization = "之前的组织"
+description = "用一句话说明你做了什么、学到了什么。"

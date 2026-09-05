@@ -87,7 +87,7 @@ export default function RepoCard({
               {updatedAt && (
                 <span className="inline-flex items-center gap-1">
                   <Icon name="schedule" />
-                  updated {timeAgo(updatedAt)}
+                  {timeAgo(updatedAt)}更新
                 </span>
               )}
             </p>
