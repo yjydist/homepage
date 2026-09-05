@@ -1,5 +1,5 @@
-import '@fontsource/courier-prime/400.css'
-import '@fontsource/courier-prime/700.css'
+import 'lxgw-wenkai-webfont/lxgwwenkai-regular.css'
+import 'lxgw-wenkai-webfont/lxgwwenkai-bold.css'
 import '@fontsource-variable/material-symbols-outlined/wght.css'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'

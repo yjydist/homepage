@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  /* Courier Prime is the sole typeface, for both sans and mono usage. */
-  --font-sans: "Courier Prime", ui-monospace, SFMono-Regular, Menlo, monospace;
-  --font-mono: "Courier Prime", ui-monospace, SFMono-Regular, Menlo, monospace;
+  /* LXGW WenKai is the sole typeface, for both sans and mono usage. */
+  --font-sans: "LXGW WenKai", "Kaiti SC", "STKaiti", "Noto Serif CJK SC", serif;
+  --font-mono: "LXGW WenKai Mono", "LXGW WenKai", ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* Minimalist palette: warm paper, soft ink, one restrained accent. */
   --color-paper: #fafaf9;
