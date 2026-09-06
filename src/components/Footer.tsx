@@ -6,7 +6,7 @@ export default function Footer() {
   const { site, profile } = content
   return (
     <footer className="border-t border-line bg-paper">
-      <div className="mx-auto flex max-w-2xl items-baseline justify-between px-6 py-4 text-sm text-muted">
+      <div className="mx-auto flex max-w-content items-baseline justify-between px-6 py-4 text-sm text-muted">
         <span>
           © {site.year} {site.name}
         </span>

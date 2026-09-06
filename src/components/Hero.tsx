@@ -5,7 +5,7 @@ import Icon from './Icon'
 export default function Hero() {
   const { profile } = content
   return (
-    <section id="top" className="mx-auto w-full max-w-2xl px-6 pt-28 pb-16">
+    <section id="top" className="mx-auto w-full max-w-content px-6 pt-28 pb-16">
       {profile.avatar && (
         <>
           <style>{`

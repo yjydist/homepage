@@ -23,6 +23,9 @@
   --color-outline: #a8a29e;
   --color-outline-variant: #e7e5e4;
 
+  /* Single source of truth for the page content measure. */
+  --container-content: 64rem;
+
   /* M3 shape tokens. */
   --radius-xs: 4px;
   --radius-sm: 8px;

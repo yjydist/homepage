@@ -5,7 +5,7 @@ import Icon from './Icon'
 export default function Nav() {
   return (
     <header className="sticky top-0 z-10 border-b border-line bg-paper/90 backdrop-blur-md">
-      <nav className="mx-auto flex max-w-2xl items-center justify-center px-6 py-2">
+      <nav className="mx-auto flex max-w-content items-center justify-center px-6 py-2">
         <ul className="flex flex-wrap items-center justify-center gap-2 text-sm">
           {routes.map((route) => (
             <li key={route.path}>
