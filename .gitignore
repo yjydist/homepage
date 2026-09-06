@@ -24,5 +24,6 @@ dist-ssr
 *.sw?
 
 # Claude Code
-.claude
+.claude/*
+!.claude/settings.json
 !.claude/skills
