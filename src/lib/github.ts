@@ -89,7 +89,7 @@ export function fetchPublicEvents(
   signal: AbortSignal,
 ): Promise<GitHubEvent[]> {
   return ghFetch<GitHubEvent[]>(
-    `${API}/users/${encodeURIComponent(username)}/events/public?per_page=30`,
+    `${API}/users/${encodeURIComponent(username)}/events/public?per_page=6`,
     signal,
   )
 }
