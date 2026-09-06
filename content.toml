@@ -37,11 +37,12 @@ username = "yjydist"
 # Unknown modes fall back to custom. New providers (e.g. "gitee") can be
 # added later without changing the schema.
 [[repos]]
-mode = "custom"
-name = "手动项目"
-url = "https://github.com/your-username/project-two"
-description = "用一两句话介绍这个项目：它做什么、为什么对你重要。"
-tags = ["Python", "CLI"]
+mode = "github"
+repo = "yjydist/handnote"
+
+[[repos]]
+mode = "github"
+repo = "yjydist/agents"
 
 [[experience]]
 period = "2024 — 至今"
