@@ -312,12 +312,12 @@ on top of any surface:
 
 ### 7.2 Project mapping
 
-Today the site uses tonal elevation and state layers throughout: cards, the
-experience list and the events feed sit on `surface-container-low` and lift to
-`surface-container` on hover, the active nav pill is `primary-container`, and
-interactive elements carry a faint accent tint on hover
-(`hover:bg-accent/10`). Only the soft `shadow-xs` appears (avatar, nav pill,
-card hover) — no hard drop shadows.
+Today the site uses tonal elevation and state layers throughout: repo cards,
+the experience list and the events feed sit on `surface-container-low`, the
+active nav pill is `primary-container`, and interactive elements carry a
+faint accent tint on hover (`hover:bg-accent/10`). Only repo cards lift to
+`surface-container` on hover. Only the soft `shadow-xs` appears (avatar, nav
+pill, card hover) — no hard drop shadows.
 
 **Future direction:**
 
@@ -345,8 +345,9 @@ to keep spacing on the 4px grid.
 | Section rhythm | `py-16` (hero: `pt-28 pb-16`) | Keep on the 4px grid |
 | Nav height | `py-2` | Keep; 48dp+ touch target (Section 9) |
 
-**Future direction:** no change to the layout skeleton. If a wider layout is
-ever wanted, move to `max-w-4xl` and re-evaluate the type scale rather than
+**Future direction:** no change to the layout skeleton. If a different
+measure is ever wanted, adjust `--container-content` (the single source of
+truth for the page width) and re-evaluate the type scale rather than
 stretching the current one.
 
 ---
@@ -358,8 +359,10 @@ Accessibility is a hard constraint on every section above.
 - **Contrast (WCAG AA).** Body text must meet 4.5:1; large text 3:1. Current
   pairs are checked against the palette; any new container or tint role must
   be re-checked. `muted` on `paper` must stay at or above 4.5:1.
-- **Touch targets.** Minimum 48dp (48px). Nav links and footer social links
-  must retain adequate hit area; do not shrink them below 48px.
+- **Touch targets.** Minimum 48dp (48px). Nav links must retain adequate hit
+  area; do not shrink them below 48px. Footer social links are deliberately
+  compact text links (a row of small, non-primary targets); the footer stays
+  short by design, so its links may stay under 48px.
 - **Responsive type.** Text scales with viewport where appropriate; body text
   stays readable without horizontal scroll.
 - **Reduced motion.** Honor `prefers-reduced-motion`; all spring and transform
