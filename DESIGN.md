@@ -366,9 +366,14 @@ stretching the current one.
 
 Accessibility is a hard constraint on every section above.
 
-- **Contrast (WCAG AA).** Body text must meet 4.5:1; large text 3:1. Current
-  pairs are checked against the palette; any new container or tint role must
-  be re-checked. `muted` on `paper` must stay at or above 4.5:1.
+- **Contrast (WCAG AA).** Body text must meet 4.5:1; large text 3:1. `muted`
+  on `paper` clears 4.5:1 (4.59), but `muted` text on the container surfaces
+  does not: 4.40 on `surface-container-low`, 4.44 on the card rows'
+  `surface-container-low/70` over `paper`, and 4.18 on `surface-container`
+  (tag chips); the chip hover pair (`accent` on `accent/10` over
+  `surface-container`) is 4.18. Darkening `muted` (e.g. toward
+  `#6f6a65`, which clears 4.5 on every current surface) is queued future work;
+  any new container or tint role must be re-checked before adoption.
 - **Touch targets.** Minimum 48dp (48px). Nav links must retain adequate hit
   area; do not shrink them below 48px. Footer social links are deliberately
   compact text links (a row of small, non-primary targets); the footer stays
