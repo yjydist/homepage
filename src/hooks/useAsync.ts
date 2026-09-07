@@ -9,8 +9,10 @@ export interface AsyncState<T> {
 /**
  * Run an async function with abort-on-unmount semantics. Safe under
  * StrictMode double-mounts: the first pass is aborted, and its rejection
- * never overwrites the second pass's result. `deps` behave like a normal
- * dependency array (shallow-compared via a serialized key).
+ * never overwrites the second pass's result. `deps` are compared by JSON
+ * serialization: the effect re-runs when the serialized form changes, so
+ * primitives match by value and structurally equal objects count as
+ * unchanged (React's own deps comparison is by reference instead).
  */
 export function useAsync<T>(
   fn: (signal: AbortSignal) => Promise<T>,
