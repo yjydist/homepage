@@ -24,7 +24,8 @@ All site content and config are in `content.toml`:
 
 - `[site]` — title, meta description, owner name, year
 - `[profile]` — tagline, bio, avatar path, social links
-- `[github]` — username for the /repos and /activity fetches
+- `[github]` — username for the /activity fetches (contributions calendar,
+  events); /repos fetches each entry via its own `repo` key
 - `[[repos]]` — repo cards, sourced by `mode`: `github` fetches live
   metadata from the GitHub REST API via the `repo` key (other keys
   override the API values); `custom` is fully manual and makes no network

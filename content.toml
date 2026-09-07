@@ -25,7 +25,8 @@ label = "邮箱"
 url = "mailto:yjydist@qq.com"
 
 [github]
-# Used for the /repos fetches and the /activity page.
+# Used by the /activity page fetches (contributions calendar, events).
+# The /repos page fetches each entry via its own `repo` key instead.
 username = "yjydist"
 
 # Each [[repos]] entry declares how its data is sourced via `mode`:
