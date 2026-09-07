@@ -4,10 +4,6 @@ interface IconProps {
   /** Font size; defaults to 1em so the icon scales with surrounding text. */
   size?: number | string
   className?: string
-  filled?: boolean
-  weight?: number
-  grade?: number
-  opticalSize?: number
 }
 
 /**
@@ -15,15 +11,15 @@ interface IconProps {
  *
  * The ligature is case-sensitive: neither this span nor any ancestor may
  * apply `uppercase`/`capitalize`, or the ligature will not resolve.
+ *
+ * Weight is pinned to 400 so glyphs stay regular even inside bold text.
+ * No FILL/GRAD/opsz props are offered: the imported wght.css ships a
+ * single-axis font file, so those settings would have no effect.
  */
 export default function Icon({
   name,
   size = '1em',
   className,
-  filled = false,
-  weight = 400,
-  grade = 0,
-  opticalSize = 24,
 }: IconProps) {
   return (
     <span
@@ -31,9 +27,9 @@ export default function Icon({
       className={className}
       style={{
         fontFamily: "'Material Symbols Outlined Variable'",
-        fontVariationSettings: `'FILL' ${filled ? 1 : 0}, 'wght' ${weight}, 'GRAD' ${grade}, 'opsz' ${opticalSize}`,
         fontFeatureSettings: '"liga" 1',
         fontSize: size,
+        fontWeight: 400,
         lineHeight: 1,
         display: 'inline-block',
         verticalAlign: '-0.125em',
