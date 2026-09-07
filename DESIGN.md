@@ -175,7 +175,7 @@ Current usage mapped to the M3 scale:
 | Hero tagline (`text-lg`) | Body Large | Accent-colored |
 | Section title (`text-xs uppercase tracking-widest`) | Label Large | M3's label style, customized |
 | Card title (`text-base font-bold`) | Title Medium | Repo and experience titles |
-| About bio (`text-base leading-relaxed`) | Body Large | Already at M3's 16sp body default |
+| About bio (`text-base leading-relaxed`) | Body Large | At 16sp, but `leading-relaxed` gives a 26sp line height, not the 24sp default |
 | Card/list descriptions (`text-sm leading-relaxed`) | Body Medium | Slightly below M3's 16sp default |
 | Meta / captions (`text-xs`) | Label Small | Stars, dates, tags |
 
@@ -183,7 +183,8 @@ Current usage mapped to the M3 scale:
 
 - Keep LXGW WenKai as the identity typeface, but align sizes and line heights
   to the M3 scale (notably: raise card/list descriptions toward 16sp/24sp;
-  the about bio is already there).
+  the about bio is at 16sp but keeps a looser 26sp line height via
+  `leading-relaxed`).
 - **Optional:** introduce **Google Sans Text** for body and **Google Sans
   Display** for headings as a second, variable typeface. This is the M3
   Expressive default pairing. It is optional because the handwriting-style
@@ -320,7 +321,8 @@ on top of any surface:
 Today the site uses tonal elevation and state layers throughout: repo cards,
 the experience list and the events feed sit on `surface-container-low`, the
 active nav pill is `primary-container`, and interactive elements carry a
-faint accent tint on hover (`hover:bg-accent/10`). Only repo cards lift to
+faint accent tint on hover (`hover:bg-accent/10`; the nav pill uses a
+fainter `hover:bg-accent/8`). Only repo cards lift to
 `surface-container` on hover. Only the soft `shadow-xs` appears (avatar, nav
 pill, card hover) — no hard drop shadows.
 
