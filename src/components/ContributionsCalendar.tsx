@@ -21,23 +21,19 @@ const LEGEND_CLASS = [
   'bg-accent',
 ]
 
-interface Week {
-  days: Array<ContributionDay | null>
-}
-
 /** Bucket days into Sunday-aligned week columns. */
-function toWeeks(days: ContributionDay[]): Week[] {
-  const weeks: Week[] = []
-  let current: Array<ContributionDay | null> = []
+function toWeeks(days: ContributionDay[]): ContributionDay[][] {
+  const weeks: ContributionDay[][] = []
+  let current: ContributionDay[] = []
   for (const day of days) {
     const dow = new Date(`${day.date}T00:00:00`).getDay()
     if (dow === 0 && current.length > 0) {
-      weeks.push({ days: current })
+      weeks.push(current)
       current = []
     }
     current.push(day)
   }
-  if (current.length > 0) weeks.push({ days: current })
+  if (current.length > 0) weeks.push(current)
   return weeks
 }
 
@@ -63,8 +59,8 @@ export default function ContributionsCalendar({
   // Label the month above the first week that contains its 1st.
   const monthLabels = weeks
     .map((week, i) => {
-      const firstOfMonth = week.days.find(
-        (day) => day !== null && new Date(`${day.date}T00:00:00`).getDate() === 1,
+      const firstOfMonth = week.find(
+        (day) => new Date(`${day.date}T00:00:00`).getDate() === 1,
       )
       if (!firstOfMonth) return null
       const label = new Date(`${firstOfMonth.date}T00:00:00`).toLocaleString(
@@ -94,8 +90,7 @@ export default function ContributionsCalendar({
           </text>
         ))}
         {weeks.map((week, col) =>
-          week.days.map((day) => {
-            if (!day) return null
+          week.map((day) => {
             const row = new Date(`${day.date}T00:00:00`).getDay()
             const level = Math.min(Math.max(day.level, 0), 4)
             return (
