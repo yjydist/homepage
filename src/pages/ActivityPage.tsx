@@ -7,7 +7,7 @@ import { content } from '../content'
 export default function ActivityPage() {
   const { username } = content.github
   return (
-    <Section id="activity" title="动态">
+    <Section title="动态">
       <div className="space-y-12">
         <section>
           <h3 className="mb-4 flex items-center gap-1.5 text-sm text-muted">

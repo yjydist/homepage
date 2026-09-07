@@ -82,7 +82,7 @@ export default function ReposPage() {
   const hasFetched = content.repos.some(needsFetch)
 
   return (
-    <Section id="repos" title="仓库">
+    <Section title="仓库">
       {results.loading && hasFetched ? (
         <>
           <ul className="grid gap-10 sm:grid-cols-2">
