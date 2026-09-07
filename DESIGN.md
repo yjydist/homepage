@@ -277,7 +277,9 @@ feel that fixed curves cannot.
 Today the site has spring motion in place: `--ease-spring` and
 `--ease-standard` tokens with `--duration-short/medium`, a spring avatar
 entrance (`animate-hero-avatar-spring`), a spring card hover lift
-(`hover:-translate-y-0.5`), `transition-colors` on links and nav items, and a
+(`hover:-translate-y-0.5`), `transition-all` on links and nav items whose
+background and text change together, `transition-colors` on text-only hovers
+(footer links, the hero social underline, card titles, chips), and a
 reduced-motion collapse rule in `src/index.css`.
 
 **Future direction:**
