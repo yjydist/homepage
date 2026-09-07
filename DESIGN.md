@@ -280,18 +280,21 @@ feel that fixed curves cannot.
 
 Today the site has spring motion in place: `--ease-spring` and
 `--ease-standard` tokens with `--duration-short/medium`, a spring avatar
-entrance (`animate-hero-avatar-spring`), a spring card hover lift
+entrance (`animate-hero-avatar-spring`), a spring avatar hover
+(`hover:scale-105` via `transition-transform`), a spring card hover lift
 (`hover:-translate-y-0.5`), `transition-all` on links and nav items whose
 background and text change together, `transition-colors` on text-only hovers
-(footer links, the hero social underline, card titles, chips), and a
-reduced-motion collapse rule in `src/index.css`.
+(footer links, the hero social underline, card titles, chips), an opacity
+fade on contribution calendar cells (`transition-opacity`,
+`hover:opacity-75`), and a reduced-motion collapse rule in `src/index.css`.
 
 **Future direction:**
 
 - Keep `transition-colors` for text-color hovers (it is appropriate and
   subtle).
 - Extend spring motion to: nav active-indicator movement, the contribution
-  calendar's day cells on hover, and page/section transitions.
+  calendar's day cells on hover (today a linear opacity fade), and
+  page/section transitions.
 - Avoid animating `color` with springs — springs are for transforms and
   opacity.
 - Respect `prefers-reduced-motion` (Section 9): collapse springs to instant or
@@ -321,7 +324,7 @@ on top of any surface:
 Today the site uses tonal elevation and state layers throughout: repo cards,
 the experience list and the events feed sit on `surface-container-low`, the
 active nav pill is `primary-container`, and interactive elements carry a
-faint accent tint on hover (`hover:bg-accent/10`; the nav pill uses a
+faint accent tint on hover (`hover:bg-accent/10`; inactive nav items use a
 fainter `hover:bg-accent/8`). Only repo cards lift to
 `surface-container` on hover. Only the soft `shadow-xs` appears (avatar, nav
 pill, card hover) — no hard drop shadows.
@@ -393,8 +396,8 @@ rules above.
 
 | Component | M3 analogue | Shape | Color | Motion / state |
 | --- | --- | --- | --- | --- |
-| `Nav` | Top app bar (updated in Expressive) | Pill links (`rounded-full`) | `primary-container` active pill; `hover:bg-accent/8` state layer | `transition-all`; active-indicator movement is future work |
-| `Hero` | Header / display region | `rounded-[24px]` avatar; pill social links | `on-surface` name, `primary` tagline | Spring on avatar entrance (`animate-hero-avatar-spring`) |
+| `Nav` | Top app bar (updated in Expressive) | Pill links (`rounded-full`) | `primary-container` active pill; `hover:bg-accent/8` state layer on inactive items | `transition-all`; active-indicator movement is future work |
+| `Hero` | Header / display region | `rounded-[24px]` avatar; pill social links | `on-surface` name, `primary` tagline | Spring on avatar entrance (`animate-hero-avatar-spring`) and hover (`hover:scale-105`) |
 | `Section` | Section heading | — | `on-surface-variant` label | — |
 | `Footer` | Footer | `rounded-xs` links | `outline-variant` border | `transition-colors` |
 | `RepoCard` | Card (Expressive) | `rounded-xl` (28dp) | `surface-container-low`; container tint + `shadow-xs` on hover | Spring lift (`ease-spring`, `-translate-y-0.5`) |
