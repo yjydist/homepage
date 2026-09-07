@@ -63,7 +63,7 @@ export default function RepoCard({
               {tags.map((tag) => (
                 <li
                   key={tag}
-                  className="rounded-sm border border-outline-variant/60 bg-surface-container px-2 py-0.5 transition-colors duration-short ease-standard hover:bg-accent/10 hover:text-accent"
+                  className="rounded-sm border border-line/60 bg-surface-container px-2 py-0.5 transition-colors duration-short ease-standard hover:bg-accent/10 hover:text-accent"
                 >
                   {tag}
                 </li>

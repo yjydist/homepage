@@ -38,7 +38,7 @@ export function ErrorNotice({ message }: { message: string }) {
   return (
     <div
       role="alert"
-      className="rounded-lg border border-outline-variant/40 bg-surface-container-low p-4 text-sm text-muted"
+      className="rounded-lg border border-line/40 bg-surface-container-low p-4 text-sm text-muted"
     >
       <p>{message}</p>
     </div>
@@ -47,7 +47,7 @@ export function ErrorNotice({ message }: { message: string }) {
 
 export function Empty({ message }: { message: string }) {
   return (
-    <div className="rounded-lg border border-outline-variant/40 bg-surface-container-low p-4 text-sm text-muted">
+    <div className="rounded-lg border border-line/40 bg-surface-container-low p-4 text-sm text-muted">
       <p>{message}</p>
     </div>
   )

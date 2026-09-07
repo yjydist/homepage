@@ -17,7 +17,6 @@
   --color-surface-container: #f0efee;
   --color-primary-container: #ccfbf1;
   --color-on-primary-container: #115e59;
-  --color-outline-variant: #e7e5e4;
 
   /* Single source of truth for the page content measure. */
   --container-content: 64rem;
