@@ -6,8 +6,7 @@
     "react/only-export-components": [
       "warn",
       {
-        "allowConstantExport": true,
-        "allowExportNames": ["Loading", "ErrorNotice", "Empty"]
+        "allowConstantExport": true
       }
     ]
   }
