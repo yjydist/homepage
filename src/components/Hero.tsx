@@ -7,29 +7,15 @@ export default function Hero() {
   return (
     <section id="top" className="mx-auto w-full max-w-content px-6 pt-28 pb-16">
       {profile.avatar && (
-        <>
-          <style>{`
-            @keyframes hero-avatar-spring {
-              from {
-                opacity: 0;
-                transform: scale(0.88);
-              }
-              to {
-                opacity: 1;
-                transform: scale(1);
-              }
-            }
-          `}</style>
-          <img
-            src={profile.avatar}
-            alt={content.site.name}
-            style={{
-              animation:
-                'hero-avatar-spring 500ms var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)) both',
-            }}
-            className="mb-8 size-20 rounded-[24px] border border-line bg-surface-container object-cover shadow-xs transition-transform duration-medium ease-spring hover:scale-105"
-          />
-        </>
+        <img
+          src={profile.avatar}
+          alt={content.site.name}
+          style={{
+            animation:
+              'hero-avatar-spring 500ms var(--ease-spring, cubic-bezier(0.34, 1.56, 0.64, 1)) both',
+          }}
+          className="mb-8 size-20 rounded-[24px] border border-line bg-surface-container object-cover shadow-xs transition-transform duration-medium ease-spring hover:scale-105"
+        />
       )}
       <h1 className="text-4xl font-bold tracking-tight">
         {content.site.name}
