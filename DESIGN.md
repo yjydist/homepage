@@ -293,8 +293,8 @@ fade on contribution calendar cells (`transition-opacity`,
 - Keep `transition-colors` for text-color hovers (it is appropriate and
   subtle).
 - Extend spring motion to: nav active-indicator movement, the contribution
-  calendar's day cells on hover (today a linear opacity fade), and
-  page/section transitions.
+  calendar's day cells on hover (today an opacity fade on the standard
+  easing), and page/section transitions.
 - Avoid animating `color` with springs — springs are for transforms and
   opacity.
 - Respect `prefers-reduced-motion` (Section 9): collapse springs to instant or
