@@ -174,14 +174,16 @@ Current usage mapped to the M3 scale:
 | Hero name (`text-4xl`) | Display Small / Headline Large | Largest text on the page |
 | Hero tagline (`text-lg`) | Body Large | Accent-colored |
 | Section title (`text-xs uppercase tracking-widest`) | Label Large | M3's label style, customized |
-| Card title (`font-bold`) | Title Medium | Repo and experience titles |
-| Body / description (`text-sm leading-relaxed`) | Body Medium | Slightly below M3's 16sp default |
+| Card title (`text-base font-bold`) | Title Medium | Repo and experience titles |
+| About bio (`text-base leading-relaxed`) | Body Large | Already at M3's 16sp body default |
+| Card/list descriptions (`text-sm leading-relaxed`) | Body Medium | Slightly below M3's 16sp default |
 | Meta / captions (`text-xs`) | Label Small | Stars, dates, tags |
 
 **Future direction:**
 
 - Keep LXGW WenKai as the identity typeface, but align sizes and line heights
-  to the M3 scale (notably: raise body text toward 16sp/24sp).
+  to the M3 scale (notably: raise card/list descriptions toward 16sp/24sp;
+  the about bio is already there).
 - **Optional:** introduce **Google Sans Text** for body and **Google Sans
   Display** for headings as a second, variable typeface. This is the M3
   Expressive default pairing. It is optional because the handwriting-style
