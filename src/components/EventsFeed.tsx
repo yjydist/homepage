@@ -19,20 +19,8 @@ function shortRef(ref: string): string {
 }
 
 // Translate the English action verbs GitHub sends into Chinese verbs.
-function issueAction(action: string | undefined): string {
-  switch (action) {
-    case 'opened':
-      return '打开'
-    case 'closed':
-      return '关闭'
-    case 'reopened':
-      return '重新打开'
-    default:
-      return '更新'
-  }
-}
-
-function prAction(action: string | undefined): string {
+// Issues and pull requests share the same action vocabulary.
+function actionVerb(action: string | undefined): string {
   switch (action) {
     case 'opened':
       return '打开'
@@ -95,7 +83,7 @@ function describeEvent(event: GitHubEvent): string {
     case 'DeleteEvent':
       return `删除了${str(payload.ref_type) ?? 'ref'} ${str(payload.ref) ?? ''}`
     case 'IssuesEvent':
-      return `${issueAction(str(payload.action))}了 issue #${num((payload.issue as Record<string, unknown>)?.number) ?? ''}: ${str((payload.issue as Record<string, unknown>)?.title) ?? ''}`
+      return `${actionVerb(str(payload.action))}了 issue #${num((payload.issue as Record<string, unknown>)?.number) ?? ''}: ${str((payload.issue as Record<string, unknown>)?.title) ?? ''}`
     case 'IssueCommentEvent':
       return `评论了 issue #${num((payload.issue as Record<string, unknown>)?.number) ?? ''}`
     case 'PullRequestEvent': {
@@ -103,7 +91,7 @@ function describeEvent(event: GitHubEvent): string {
       const action =
         payload.action === 'closed' && pr?.merged === true
           ? '合并了'
-          : prAction(str(payload.action))
+          : actionVerb(str(payload.action))
       return `${action} PR #${num(pr?.number) ?? ''}: ${str(pr?.title) ?? ''}`
     }
     case 'PullRequestReviewEvent':
