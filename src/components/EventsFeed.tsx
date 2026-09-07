@@ -14,6 +14,13 @@ function num(value: unknown): number | undefined {
   return typeof value === 'number' ? value : undefined
 }
 
+// Narrow an unknown payload field to a nested object, else undefined.
+function obj(value: unknown): Record<string, unknown> | undefined {
+  return typeof value === 'object' && value !== null
+    ? (value as Record<string, unknown>)
+    : undefined
+}
+
 function shortRef(ref: string): string {
   return ref.replace(/^refs\/heads\//, '')
 }
@@ -82,12 +89,16 @@ function describeEvent(event: GitHubEvent): string {
     }
     case 'DeleteEvent':
       return `删除了${str(payload.ref_type) ?? 'ref'} ${str(payload.ref) ?? ''}`
-    case 'IssuesEvent':
-      return `${actionVerb(str(payload.action))}了 issue #${num((payload.issue as Record<string, unknown>)?.number) ?? ''}: ${str((payload.issue as Record<string, unknown>)?.title) ?? ''}`
-    case 'IssueCommentEvent':
-      return `评论了 issue #${num((payload.issue as Record<string, unknown>)?.number) ?? ''}`
+    case 'IssuesEvent': {
+      const issue = obj(payload.issue)
+      return `${actionVerb(str(payload.action))}了 issue #${num(issue?.number) ?? ''}: ${str(issue?.title) ?? ''}`
+    }
+    case 'IssueCommentEvent': {
+      const issue = obj(payload.issue)
+      return `评论了 issue #${num(issue?.number) ?? ''}`
+    }
     case 'PullRequestEvent': {
-      const pr = payload.pull_request as Record<string, unknown> | undefined
+      const pr = obj(payload.pull_request)
       const action =
         payload.action === 'closed' && pr?.merged === true
           ? '合并了'
@@ -97,11 +108,11 @@ function describeEvent(event: GitHubEvent): string {
     case 'PullRequestReviewEvent':
       return `评审了一个拉取请求`
     case 'ForkEvent':
-      return `复刻到 ${str((payload.forkee as Record<string, unknown>)?.full_name) ?? '一个新仓库'}`
+      return `复刻到 ${str(obj(payload.forkee)?.full_name) ?? '一个新仓库'}`
     case 'WatchEvent':
       return '为该仓库加了星'
     case 'ReleaseEvent':
-      return `发布了 ${str((payload.release as Record<string, unknown>)?.tag_name) ?? '一个版本'}`
+      return `发布了 ${str(obj(payload.release)?.tag_name) ?? '一个版本'}`
     case 'PublicEvent':
       return '公开了一个仓库'
     default:
