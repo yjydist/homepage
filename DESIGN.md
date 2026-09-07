@@ -12,11 +12,11 @@ This document is the **target design specification** for the site. It records
 the Material Design 3 and Material 3 Expressive system we intend to follow, and
 maps that system onto this project's concrete tokens and components.
 
-**Current implementation status:** the live site is a deliberately minimal
-"warm paper + ink" monochrome design: a single typeface (Courier Prime), a
-five-color warm-gray palette, no shadows, almost no corner rounding, and light
-mode only. This is a deliberate aesthetic, but it is far from the M3 Expressive
-target described here.
+**Current implementation status:** the live site is a "warm paper + ink"
+palette plus one teal accent, in M3 terms: tonal container surfaces, a
+`primary-container` active-nav pill, one squircle-ish avatar, spring hovers,
+and light mode only. This is already a partial M3 implementation; the remaining
+gap to the M3 Expressive target is listed per section below.
 
 This document therefore describes **where we are going**, not where we are. It
 is the direction and the constraints for the gradual redesign. The site will
@@ -105,8 +105,8 @@ Expressive loosens the strict "lightness-only" tonal system:
 
 ### 3.3 Project mapping
 
-Current tokens live in `src/index.css` under `@theme`. The mapping from today's
-monochrome tokens to M3 roles:
+Current tokens live in `src/index.css` under `@theme`. The mapping from
+today's tokens to M3 roles:
 
 | Current token | Value | M3 role | Notes |
 | --- | --- | --- | --- |
@@ -115,22 +115,22 @@ monochrome tokens to M3 roles:
 | `--color-muted` | `#78716c` | `on-surface-variant` | Secondary text |
 | `--color-accent` | `#0f766e` | `primary` | Teal accent; links, active nav |
 | `--color-line` | `#e7e5e4` | `outline-variant` | Borders and dividers |
+| `--color-surface-container-low` | `#f5f5f4` | `surface-container-low` | Card and list backgrounds |
+| `--color-surface-container` | `#f0efee` | `surface-container` | Chip background; card hover surface |
+| `--color-primary-container` | `#ccfbf1` | `primary-container` | Active nav pill |
+| `--color-on-primary-container` | `#115e59` | `on-primary-container` | Text on the active nav pill |
 
 Today the palette is intentionally monochrome-plus-one-accent. The M3 target
 introduces roles we do not yet use:
 
-- **Container colors** (`primary-container`, `secondary-container`,
-  `surface-container-low/high`) — for cards, chips, and hover surfaces.
 - **A full tonal palette** generated from the teal seed (`#0f766e`) so accent
   tints like `primary-90` can be used for subtle backgrounds.
 - **`secondary` and `tertiary`** accents — currently absent; the site is
   single-accent by design. Introducing them is optional and must stay
   restrained.
 
-**Future direction:** generate the tonal palette from the existing teal seed
-and add container roles first (they give the most visual lift for the least
-risk). Keep `paper`/`ink`/`muted`/`line` semantics intact as the neutral
-backbone.
+**Future direction:** generate the tonal palette from the existing teal seed.
+Keep `paper`/`ink`/`muted`/`line` semantics intact as the neutral backbone.
 
 ---
 
@@ -163,9 +163,9 @@ Expressive replaces the fixed scale with a **variable type scale**:
 
 ### 4.3 Project mapping
 
-Today the site uses a single typeface, **Courier Prime**, for everything
-(`--font-sans` and `--font-mono` both point to it). This is a deliberate
-monospace aesthetic and is retained as the base.
+Today the site uses a single typeface, **LXGW WenKai**, for everything
+(`--font-sans` and `--font-mono` both build on it). This is a deliberate
+aesthetic and is retained as the base.
 
 Current usage mapped to the M3 scale:
 
@@ -173,20 +173,20 @@ Current usage mapped to the M3 scale:
 | --- | --- | --- |
 | Hero name (`text-4xl`) | Display Small / Headline Large | Largest text on the page |
 | Hero tagline (`text-lg`) | Body Large | Accent-colored |
-| Section title (`text-sm uppercase tracking-widest`) | Label Large | M3's label style, customized |
+| Section title (`text-xs uppercase tracking-widest`) | Label Large | M3's label style, customized |
 | Card title (`font-bold`) | Title Medium | Repo and experience titles |
 | Body / description (`text-sm leading-relaxed`) | Body Medium | Slightly below M3's 16sp default |
 | Meta / captions (`text-xs`) | Label Small | Stars, dates, tags |
 
 **Future direction:**
 
-- Keep Courier Prime as the identity typeface, but align sizes and line
-  heights to the M3 scale (notably: raise body text toward 16sp/24sp).
+- Keep LXGW WenKai as the identity typeface, but align sizes and line heights
+  to the M3 scale (notably: raise body text toward 16sp/24sp).
 - **Optional:** introduce **Google Sans Text** for body and **Google Sans
   Display** for headings as a second, variable typeface. This is the M3
-  Expressive default pairing. It is optional because the monospace identity
-  is a defining feature of the current design; if adopted, it should be a
-  deliberate, documented change.
+  Expressive default pairing. It is optional because the handwriting-style
+  identity is a defining feature of the current design; if adopted, it should
+  be a deliberate, documented change.
 - Use `font-variation-settings` (weight, width, optical size) where the
   chosen typeface supports variable axes.
 
@@ -223,23 +223,24 @@ Key changes:
 
 ### 5.3 Project mapping
 
-Today the site is nearly square: only the avatar uses `rounded-full` and the
-contribution calendar cells use `rx={2}`.
+Today the site uses rounded rectangles throughout: a 24px squircle-ish avatar
+(`rounded-[24px]`), 28px cards (`rounded-xl`), 8px chips and focus rings,
+3px legend swatches and calendar cells, and pill nav/social links
+(`rounded-full`). Plain-arc corners, not true squircles.
 
 | Current element | Current shape | M3 Expressive target |
 | --- | --- | --- |
-| Avatar | `rounded-full` | Squircle (superellipse), scaled to its 80px size |
-| Contribution cells | `rx={2}` | Extra small (4dp) squircle |
-| Legend swatches | `rounded-xs` | Extra small (4dp) |
-| Tag chips | square (`border` only) | Small (8dp) squircle |
-| Cards / sections | square | Small–Medium (8–12dp) squircle |
+| Avatar | `rounded-[24px]` | True squircle (superellipse), scaled to its 80px size |
+| Contribution cells | `rx={3}` | Extra small (4dp) squircle |
+| Legend swatches | `rounded-[3px]` | Extra small (4dp) |
+| Tag chips | `rounded-sm` (8dp) | Small (8dp) squircle |
+| Cards | `rounded-xl` (28dp) | Small–Medium (8–12dp) squircle |
 
-**Future direction:** introduce a small set of squircle radii as CSS custom
-properties (e.g. `--radius-xs/sm/md/lg`) and apply them to chips, cards, and
-the avatar. A superellipse can be approximated in CSS with a
-`border-radius` plus a slightly larger value than the plain-arc equivalent,
-or with an SVG `path` for the avatar. Start with chips and cards; the avatar
-is the highest-impact single change.
+**Future direction:** the `--radius-xs/sm/lg/xl` tokens in `src/index.css`
+already cover the M3 categories. The remaining step is replacing plain arcs
+with true squircles where prominence warrants it: a superellipse can be
+approximated in CSS with a `border-radius` plus a slightly larger value than
+the plain-arc equivalent, or with an SVG `path` for the avatar.
 
 ---
 
@@ -273,19 +274,20 @@ feel that fixed curves cannot.
 
 ### 6.3 Project mapping
 
-Today the only motion is `transition-colors` on links and nav items. There is
-no layout or transform animation.
+Today the site has spring motion in place: `--ease-spring` and
+`--ease-standard` tokens with `--duration-short/medium`, a spring avatar
+entrance (`animate-hero-avatar-spring`), a spring card hover lift
+(`hover:-translate-y-0.5`), `transition-colors` on links and nav items, and a
+reduced-motion collapse rule in `src/index.css`.
 
 **Future direction:**
 
 - Keep `transition-colors` for text-color hovers (it is appropriate and
   subtle).
-- Introduce spring motion for: nav active-indicator movement, card hover
-  lift, the contribution calendar's day cells on hover, and page/section
-  transitions.
-- Implement springs with a small helper (e.g. a `spring()` easing generator)
-  or a lightweight animation library; avoid animating `color` with springs —
-  springs are for transforms and opacity.
+- Extend spring motion to: nav active-indicator movement, the contribution
+  calendar's day cells on hover, and page/section transitions.
+- Avoid animating `color` with springs — springs are for transforms and
+  opacity.
 - Respect `prefers-reduced-motion` (Section 9): collapse springs to instant or
   a short fade when the user requests reduced motion.
 
@@ -310,17 +312,18 @@ on top of any surface:
 
 ### 7.2 Project mapping
 
-Today the site has **zero shadows** and no explicit state layers; hover is
-conveyed by color change only (`hover:text-accent`).
+Today the site uses tonal elevation and state layers throughout: cards, the
+experience list and the events feed sit on `surface-container-low` and lift to
+`surface-container` on hover, the active nav pill is `primary-container`, and
+interactive elements carry a faint accent tint on hover
+(`hover:bg-accent/10`). Only the soft `shadow-xs` appears (avatar, nav pill,
+card hover) — no hard drop shadows.
 
 **Future direction:**
 
 - Continue to avoid hard drop shadows; they fight the flat paper aesthetic.
-- Introduce **tonal elevation** where hierarchy needs it: a
-  `surface-container` tint behind cards or the sticky nav to separate layers.
-- Introduce **state layers** on interactive elements: a faint `primary` tint
-  on hover for nav links, chips, and repo cards, instead of (or in addition
-  to) the current color swap.
+- Extend tonal elevation where hierarchy needs it, e.g. a `surface-container`
+  tint behind the sticky nav to separate layers.
 
 ---
 
@@ -337,10 +340,10 @@ to keep spacing on the 4px grid.
 
 | Property | Current value | Convention |
 | --- | --- | --- |
-| Content max width | `max-w-2xl` (672px) | Keep; a business-card site reads best narrow |
+| Content max width | `max-w-content` (64rem, via `--container-content`) | Keep; a business-card site reads best narrow |
 | Page gutter | `px-6` (24px) | Keep; matches M3's comfortable margin |
-| Section rhythm | `py-20` / `py-16` | Keep on the 4px grid |
-| Nav height | `py-4` | Keep; 48dp+ touch target (Section 9) |
+| Section rhythm | `py-16` (hero: `pt-28 pb-16`) | Keep on the 4px grid |
+| Nav height | `py-2` | Keep; 48dp+ touch target (Section 9) |
 
 **Future direction:** no change to the layout skeleton. If a wider layout is
 ever wanted, move to `max-w-4xl` and re-evaluate the type scale rather than
@@ -380,16 +383,16 @@ rules above.
 
 | Component | M3 analogue | Shape | Color | Motion / state |
 | --- | --- | --- | --- | --- |
-| `Nav` | Top app bar (updated in Expressive) | — | `surface` + `outline-variant` border | `transition-colors`; add state layer |
-| `Hero` | Header / display region | Squircle avatar | `on-surface` name, `primary` tagline | Spring on avatar entrance |
+| `Nav` | Top app bar (updated in Expressive) | Pill links (`rounded-full`) | `primary-container` active pill; `hover:bg-accent/8` state layer | `transition-all`; active-indicator movement is future work |
+| `Hero` | Header / display region | `rounded-[24px]` avatar; pill social links | `on-surface` name, `primary` tagline | Spring on avatar entrance (`animate-hero-avatar-spring`) |
 | `Section` | Section heading | — | `on-surface-variant` label | — |
-| `Footer` | Footer | — | `outline-variant` border | `transition-colors` |
-| `RepoCard` | Card (Expressive) | Small–Medium squircle | Container tint on hover | Spring lift + state layer |
-| Tag chips | Chip (assist) | Small squircle | `surface-variant` | State layer |
-| `ContributionsCalendar` | Custom data viz | Extra-small squircle cells | `primary` tonal ramp | Hover state layer per cell |
-| `EventsFeed` | List | — | `on-surface` + `on-surface-variant` | `transition-colors` on links |
-| `Experience` | List | — | `on-surface` + `on-surface-variant` | — |
-| `AsyncState` (Loading / Error / Empty) | Progress / empty state | — | `on-surface-variant` | — |
+| `Footer` | Footer | `rounded-xs` links | `outline-variant` border | `transition-colors` |
+| `RepoCard` | Card (Expressive) | `rounded-xl` (28dp) | `surface-container-low`; container tint + `shadow-xs` on hover | Spring lift (`ease-spring`, `-translate-y-0.5`) |
+| Tag chips | Chip (assist) | `rounded-sm` | `surface-container`; `hover:bg-accent/10` state layer | `transition-colors` |
+| `ContributionsCalendar` | Custom data viz | `rx={3}` cells | `primary` tonal ramp (accent opacities) | `hover:opacity-75` per cell |
+| `EventsFeed` | List | `rounded-xl` card rows | `surface-container-low` | `transition-all` on links; `hover:bg-accent/10` |
+| `Experience` | List | `rounded-xl` card rows | `surface-container-low` | — |
+| `AsyncState` (Loading / Error / Empty) | Progress / empty state | `rounded-lg` (16dp) boxes | `surface-container-low` | Spinner + `animate-spin` on Loading |
 
 **M3 Expressive new components** and their relevance to this site:
 
@@ -399,14 +402,15 @@ rules above.
 | FAB menu | Low | No FAB; could host a "back to top" action |
 | Split button | None | Not applicable |
 | Docked / floating toolbar | Low | Could replace the sticky nav on scroll |
-| Loading indicator | Medium | Upgrade the text-only `Loading` to a proper indicator |
+| Loading indicator | Done | `Loading` already renders a spinner, not text only |
 | Updated top app bar | Medium | The nav is the site's top app bar |
 | Updated carousel / nav bar / nav rail | Low | Single-page nav; rail is overkill |
 
-**Priority order for future work:** (1) squircle avatar and chips, (2) tonal
-container surfaces for cards, (3) state layers on interactive elements, (4)
-spring motion with reduced-motion fallback, (5) a proper loading indicator,
-(6) optional Google Sans type pairing, (7) dark mode.
+**Priority order for future work:** (1) true squircles for the avatar and
+chips, (2) nav active-indicator spring movement, (3) a full tonal palette
+from the teal seed, (4) optional Google Sans type pairing, (5) dark mode.
+Items 2–4 of the original priority list (container surfaces, state layers,
+spring motion) are implemented.
 
 ---
 
