@@ -41,6 +41,22 @@
 
   --duration-short: 150ms;
   --duration-medium: 250ms;
+
+  /* Hero avatar entrance; exposed as the animate-hero-avatar-spring
+     utility in Hero.tsx. */
+  --animate-hero-avatar-spring: hero-avatar-spring 500ms
+    var(--ease-spring) both;
+
+  @keyframes hero-avatar-spring {
+    from {
+      opacity: 0;
+      transform: scale(0.88);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
 }
 
 html {
@@ -53,18 +69,6 @@ body {
 
 ::selection {
   @apply bg-accent/20;
-}
-
-/* Hero avatar entrance; applied inline on the <img> in Hero.tsx. */
-@keyframes hero-avatar-spring {
-  from {
-    opacity: 0;
-    transform: scale(0.88);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
