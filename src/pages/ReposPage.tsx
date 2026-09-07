@@ -7,8 +7,8 @@ import { useAsync } from '../hooks/useAsync'
 import { fetchRepo } from '../lib/github'
 import type { GitHubRepo } from '../lib/github'
 
+/** What RepoCard renders: merged display fields, nothing else. */
 interface CardData {
-  key: string
   name: string
   url: string | null
   description: string | null
@@ -17,15 +17,16 @@ interface CardData {
   tags: string[]
   updatedAt: string | null
   live: boolean
-  pinned: boolean
-  order: number | null
-  sourceIndex: number
+}
+
+/** Stable list key for one entry, independent of display merging. */
+function cardKey(entry: RepoEntry, index: number): string {
+  return entry.repo ?? entry.name ?? String(index)
 }
 
 /** Merge one TOML entry with its fetched data; TOML overrides win. */
-function toCard(entry: RepoEntry, index: number, live?: GitHubRepo): CardData {
+function toCard(entry: RepoEntry, live?: GitHubRepo): CardData {
   return {
-    key: entry.repo ?? entry.name ?? String(index),
     name:
       entry.name ??
       live?.name ??
@@ -42,14 +43,25 @@ function toCard(entry: RepoEntry, index: number, live?: GitHubRepo): CardData {
     tags: entry.tags ?? live?.topics ?? [],
     updatedAt: live?.updated_at ?? null,
     live: live !== undefined,
-    pinned: entry.pinned ?? false,
-    order: entry.order ?? null,
-    sourceIndex: index,
   }
 }
 
 function needsFetch(entry: RepoEntry): entry is RepoEntry & { repo: string } {
   return entry.mode === 'github' && typeof entry.repo === 'string'
+}
+
+/** Pinned first, then explicit order, then content.toml position. */
+function byDisplayOrder(
+  a: RepoEntry & { sourceIndex: number },
+  b: RepoEntry & { sourceIndex: number },
+): number {
+  if ((a.pinned ?? false) !== (b.pinned ?? false)) {
+    return a.pinned ? -1 : 1
+  }
+  const ao = a.order ?? Number.MAX_SAFE_INTEGER
+  const bo = b.order ?? Number.MAX_SAFE_INTEGER
+  if (ao !== bo) return ao - bo
+  return a.sourceIndex - b.sourceIndex
 }
 
 export default function ReposPage() {
@@ -74,42 +86,33 @@ export default function ReposPage() {
       {results.loading && hasFetched ? (
         <>
           <ul className="grid gap-10 sm:grid-cols-2">
-            {content.repos.map((entry, i) => {
-              if (needsFetch(entry)) return null
-              const { key, ...card } = toCard(entry, i)
-              return (
-                <li key={key}>
-                  <RepoCard {...card} />
+            {content.repos.map((entry, i) =>
+              needsFetch(entry) ? null : (
+                <li key={cardKey(entry, i)}>
+                  <RepoCard {...toCard(entry)} />
                 </li>
-              )
-            })}
+              ),
+            )}
           </ul>
           <Loading />
         </>
       ) : (
         <ul className="grid gap-10 sm:grid-cols-2">
           {content.repos
-            .map((entry, i) => {
-              const outcome = results.data?.[i]
+            .map((entry, sourceIndex) => ({ ...entry, sourceIndex }))
+            .sort(byDisplayOrder)
+            .map(({ sourceIndex, ...entry }) => {
+              const outcome = results.data?.[sourceIndex]
               const live =
                 outcome?.status === 'fulfilled' && outcome.value !== null
                   ? outcome.value
                   : undefined
-              return toCard(entry, i, live)
-            })
-            .sort((a, b) => {
-              if (a.pinned !== b.pinned) return a.pinned ? -1 : 1
-              const ao = a.order ?? Number.MAX_SAFE_INTEGER
-              const bo = b.order ?? Number.MAX_SAFE_INTEGER
-              if (ao !== bo) return ao - bo
-              return a.sourceIndex - b.sourceIndex
-            })
-            // Strip key/sort-only fields before spreading into RepoCard.
-            .map(({ key, pinned: _pinned, order: _order, sourceIndex: _sourceIndex, ...card }) => (
-              <li key={key}>
-                <RepoCard {...card} />
-              </li>
-            ))}
+              return (
+                <li key={cardKey(entry, sourceIndex)}>
+                  <RepoCard {...toCard(entry, live)} />
+                </li>
+              )
+            })}
         </ul>
       )}
     </Section>
