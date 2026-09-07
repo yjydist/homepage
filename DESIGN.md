@@ -224,7 +224,8 @@ Key changes:
 ### 5.3 Project mapping
 
 Today the site uses rounded rectangles throughout: a 24px squircle-ish avatar
-(`rounded-[24px]`), 28px cards (`rounded-xl`), 8px chips and focus rings,
+(`rounded-[24px]`), 28px cards (`rounded-xl`), 16px notice boxes (`rounded-lg`),
+8px chips and focus rings (`rounded-sm`), 4px footer links (`rounded-xs`),
 3px legend swatches and calendar cells, and pill nav/social links
 (`rounded-full`). Plain-arc corners, not true squircles.
 
@@ -414,8 +415,8 @@ rules above.
 **Priority order for future work:** (1) true squircles for the avatar and
 chips, (2) nav active-indicator spring movement, (3) a full tonal palette
 from the teal seed, (4) optional Google Sans type pairing, (5) dark mode.
-Items 2–4 of the original priority list (container surfaces, state layers,
-spring motion) are implemented.
+The earlier groundwork items these build on (container surfaces, state
+layers, spring motion, and the loading indicator) are already implemented.
 
 ---
 
