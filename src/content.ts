@@ -5,7 +5,8 @@ export interface SiteConfig {
   title: string
   meta_description: string
   name: string
-  year: number
+  /** Footer copyright year; falls back to the current year when omitted. */
+  year?: number
 }
 
 export interface Social {
@@ -54,7 +55,19 @@ export interface Content {
   experience: ExperienceEntry[]
 }
 
-const parsed = parse(raw) as Content
+const parsed = parse(raw) as Partial<Content>
 
-// An omitted [[repos]] table must never crash the repos page.
-export const content: Content = { ...parsed, repos: parsed.repos ?? [] }
+// Optional tables and arrays must never crash a page: omitted [[repos]],
+// [[profile.socials]] and [[experience]] normalize to empty/defaults.
+export const content: Content = {
+  ...(parsed as Content),
+  profile: {
+    tagline: '',
+    bio: '',
+    avatar: '',
+    ...parsed.profile,
+    socials: parsed.profile?.socials ?? [],
+  },
+  repos: parsed.repos ?? [],
+  experience: parsed.experience ?? [],
+}

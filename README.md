@@ -22,8 +22,9 @@ bun run preview   # serve the production build
 
 All site content and config are in `content.toml`:
 
-- `[site]` — title, meta description, owner name, year
-- `[profile]` — tagline, bio, avatar path, social links
+- `[site]` — title, meta description, owner name
+- `[profile]` — tagline, bio, avatar (image URL or path under `public/`),
+  social links
 - `[github]` — username for the /activity fetches (contributions calendar,
   events); /repos fetches each entry via its own `repo` key
 - `[[repos]]` — repo cards, sourced by `mode`: `github` fetches live

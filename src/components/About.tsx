@@ -2,7 +2,10 @@ import { content } from '../content'
 import Section from './Section'
 
 export default function About() {
-  const paragraphs = content.profile.bio.trim().split(/\n\s*\n/)
+  const paragraphs = content.profile.bio
+    .trim()
+    .split(/\n\s*\n/)
+    .filter((text) => text.trim() !== '')
   return (
     <Section title="关于">
       <div className="space-y-6 text-base leading-relaxed text-ink/90">

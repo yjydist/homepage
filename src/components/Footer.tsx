@@ -6,9 +6,9 @@ export default function Footer() {
   const { site, profile } = content
   return (
     <footer className="border-t border-line bg-paper">
-      <div className="mx-auto flex max-w-content items-baseline justify-between px-6 py-4 text-sm text-muted">
+      <div className="mx-auto flex max-w-content flex-wrap items-baseline justify-between gap-y-2 px-6 py-4 text-sm text-muted">
         <span>
-          © {site.year} {site.name}
+          © {site.year ?? new Date().getFullYear()} {site.name}
         </span>
         <ul className="flex gap-4">
           {profile.socials.map((social) => (

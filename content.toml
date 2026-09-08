@@ -6,7 +6,6 @@
 title = "JINGYUAN YI"
 meta_description = "JINGYUAN YI 的个人主页。"
 name = "JINGYUAN YI"
-year = 2026
 
 [profile]
 tagline = "西安电子科技大学软件工程专业学生，专注 Web 开发。"
@@ -14,7 +13,7 @@ bio = """
 我是西安电子科技大学软件工程专业的本科生，正在探索 Web 开发与开源。
 这个站点是我的互联网一角，用来记录我在学习和构建的东西。
 """
-avatar = "" # path under public/, e.g. "avatar.jpg"; empty = no avatar
+avatar = "https://github.com/yjydist.png?size=160" # image URL or path under public/; empty = no avatar
 
 [[profile.socials]]
 label = "GitHub"
@@ -46,13 +45,7 @@ mode = "github"
 repo = "yjydist/agents"
 
 [[experience]]
-period = "2024 — 至今"
-role = "你的职位"
-organization = "所属组织"
-description = "用一句话说明你做了什么、学到了什么。"
-
-[[experience]]
-period = "2022 — 2024"
-role = "之前的职位"
-organization = "之前的组织"
-description = "用一句话说明你做了什么、学到了什么。"
+period = "2023 — 至今"
+role = "软件工程本科"
+organization = "西安电子科技大学"
+description = "系统学习软件工程基础课程，并利用课余时间探索 Web 开发与开源项目。"
