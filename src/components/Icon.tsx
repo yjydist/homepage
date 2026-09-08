@@ -10,7 +10,7 @@ interface IconProps {
  * Renders a Material Symbols Outlined ligature glyph.
  *
  * The ligature is case-sensitive: neither this span nor any ancestor may
- * apply `uppercase`/`capitalize`, or the ligature will not resolve.
+ * change the case of this text via CSS, or the ligature will not resolve.
  *
  * Weight is pinned to 400 so glyphs stay regular even inside bold text.
  * No FILL/GRAD/opsz props are offered: the imported wght.css ships a
