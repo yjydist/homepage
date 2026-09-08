@@ -35,81 +35,104 @@ function actionVerb(action: string | undefined): string {
   }
 }
 
-/** Maps a GitHub event type to a Material Symbols ligature name. */
-export function eventIcon(type: string): string {
-  switch (type) {
-    case 'PushEvent':
-      return 'commit'
-    case 'CreateEvent':
-      return 'add_circle'
-    case 'DeleteEvent':
-      return 'delete'
-    case 'IssuesEvent':
-      return 'report'
-    case 'IssueCommentEvent':
-      return 'mode_comment'
-    case 'PullRequestEvent':
-      return 'call_merge'
-    case 'PullRequestReviewEvent':
-      return 'rate_review'
-    case 'ForkEvent':
-      return 'fork_right'
-    case 'WatchEvent':
-      return 'star'
-    case 'ReleaseEvent':
-      return 'local_offer'
-    case 'PublicEvent':
-      return 'public'
-    default:
-      return 'bolt'
-  }
+/** How one GitHub event type is presented: its icon and its sentence. */
+interface EventPresentation {
+  icon: string
+  describe: (payload: Record<string, unknown>) => string
 }
 
-/** Renders one GitHub event as a short Chinese sentence. */
-export function describeEvent(event: GitHubEvent): string {
-  const { payload } = event
-  switch (event.type) {
-    case 'PushEvent': {
+// One row per event type. The icon and the sentence change together, so
+// supporting a new type means adding one entry here. Types GitHub adds
+// later are absent, so a lookup can miss.
+const EVENT_PRESENTATIONS: Record<string, EventPresentation | undefined> = {
+  PushEvent: {
+    icon: 'commit',
+    describe: (payload) => {
       const commits = Array.isArray(payload.commits)
         ? payload.commits.length
         : 1
       const ref = str(payload.ref)
       return `推送了 ${commits} 个提交${ref ? `到 ${shortRef(ref)}` : ''}`
-    }
-    case 'CreateEvent': {
+    },
+  },
+  CreateEvent: {
+    icon: 'add_circle',
+    describe: (payload) => {
       const refType = str(payload.ref_type) ?? 'ref'
       const ref = str(payload.ref)
       return refType === 'repository' ? '创建了此仓库' : `创建了${refType} ${ref ?? ''}`
-    }
-    case 'DeleteEvent':
-      return `删除了${str(payload.ref_type) ?? 'ref'} ${str(payload.ref) ?? ''}`
-    case 'IssuesEvent': {
+    },
+  },
+  DeleteEvent: {
+    icon: 'delete',
+    describe: (payload) =>
+      `删除了${str(payload.ref_type) ?? 'ref'} ${str(payload.ref) ?? ''}`,
+  },
+  IssuesEvent: {
+    icon: 'report',
+    describe: (payload) => {
       const issue = obj(payload.issue)
       return `${actionVerb(str(payload.action))}了 issue #${num(issue?.number) ?? ''}: ${str(issue?.title) ?? ''}`
-    }
-    case 'IssueCommentEvent': {
+    },
+  },
+  IssueCommentEvent: {
+    icon: 'mode_comment',
+    describe: (payload) => {
       const issue = obj(payload.issue)
       return `评论了 issue #${num(issue?.number) ?? ''}`
-    }
-    case 'PullRequestEvent': {
+    },
+  },
+  PullRequestEvent: {
+    icon: 'call_merge',
+    describe: (payload) => {
       const pr = obj(payload.pull_request)
       const action =
         payload.action === 'closed' && pr?.merged === true
           ? '合并了'
           : actionVerb(str(payload.action))
       return `${action} PR #${num(pr?.number) ?? ''}: ${str(pr?.title) ?? ''}`
-    }
-    case 'PullRequestReviewEvent':
-      return `评审了一个拉取请求`
-    case 'ForkEvent':
-      return `复刻到 ${str(obj(payload.forkee)?.full_name) ?? '一个新仓库'}`
-    case 'WatchEvent':
-      return '为该仓库加了星'
-    case 'ReleaseEvent':
-      return `发布了 ${str(obj(payload.release)?.tag_name) ?? '一个版本'}`
-    case 'PublicEvent':
-      return '公开了一个仓库'
-    default:
-      return `${event.type.replace(/Event$/, '')}`
-  }
+    },
+  },
+  PullRequestReviewEvent: {
+    icon: 'rate_review',
+    describe: () => '评审了一个拉取请求',
+  },
+  ForkEvent: {
+    icon: 'fork_right',
+    describe: (payload) =>
+      `复刻到 ${str(obj(payload.forkee)?.full_name) ?? '一个新仓库'}`,
+  },
+  WatchEvent: {
+    icon: 'star',
+    describe: () => '为该仓库加了星',
+  },
+  ReleaseEvent: {
+    icon: 'local_offer',
+    describe: (payload) =>
+      `发布了 ${str(obj(payload.release)?.tag_name) ?? '一个版本'}`,
+  },
+  PublicEvent: {
+    icon: 'public',
+    describe: () => '公开了一个仓库',
+  },
+}
+
+/** What EventsFeed renders: the icon name and the sentence, nothing else. */
+export interface EventDisplay {
+  icon: string
+  description: string
+}
+
+/**
+ * Resolves one GitHub event to its icon name and Chinese sentence. Unknown
+ * types keep the generic bolt icon and their bare type name.
+ */
+export function toEventDisplay(event: GitHubEvent): EventDisplay {
+  const presentation = EVENT_PRESENTATIONS[event.type]
+  return presentation
+    ? {
+        icon: presentation.icon,
+        description: presentation.describe(event.payload),
+      }
+    : { icon: 'bolt', description: event.type.replace(/Event$/, '') }
 }
