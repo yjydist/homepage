@@ -112,7 +112,7 @@ today's tokens to M3 roles:
 | --- | --- | --- | --- |
 | `--color-paper` | `#fafaf9` | `surface` | Warm near-white background |
 | `--color-ink` | `#1c1917` | `on-surface` | Primary text |
-| `--color-muted` | `#78716c` | `on-surface-variant` | Secondary text |
+| `--color-muted` | `#6f6a65` | `on-surface-variant` | Secondary text |
 | `--color-accent` | `#0f766e` | `primary` | Teal accent; links, active nav |
 | `--color-line` | `#e7e5e4` | `outline-variant` | Borders and dividers |
 | `--color-surface-container-low` | `#f5f5f4` | `surface-container-low` | Card and list backgrounds |
@@ -176,15 +176,14 @@ Current usage mapped to the M3 scale:
 | Section title (`text-xs uppercase tracking-widest`) | Label Large | M3's label style, customized |
 | Card title (`text-base font-bold`) | Title Medium | Repo and experience titles |
 | About bio (`text-base leading-relaxed`) | Body Large | At 16sp, but `leading-relaxed` gives a 26sp line height, not the 24sp default |
-| Card/list descriptions (`text-sm leading-relaxed`) | Body Medium | Slightly below M3's 16sp default |
+| Card/list descriptions (`text-base leading-relaxed`) | Body Large | At M3's 16sp default; `leading-relaxed` gives a 26sp line height |
 | Meta / captions (`text-xs`) | Label Small | Stars, dates, tags |
 
 **Future direction:**
 
-- Keep LXGW WenKai as the identity typeface, but align sizes and line heights
-  to the M3 scale (notably: raise card/list descriptions toward 16sp/24sp;
-  the about bio is at 16sp but keeps a looser 26sp line height via
-  `leading-relaxed`).
+- Keep LXGW WenKai as the identity typeface, with sizes and line heights
+  aligned to the M3 scale: card/list descriptions and the about bio sit at
+  16sp, with `leading-relaxed` giving a 26sp line height.
 - **Optional:** introduce **Google Sans Text** for body and **Google Sans
   Display** for headings as a second, variable typeface. This is the M3
   Expressive default pairing. It is optional because the handwriting-style
@@ -367,13 +366,12 @@ stretching the current one.
 Accessibility is a hard constraint on every section above.
 
 - **Contrast (WCAG AA).** Body text must meet 4.5:1; large text 3:1. `muted`
-  on `paper` clears 4.5:1 (4.59), but `muted` text on the container surfaces
-  does not: 4.40 on `surface-container-low`, 4.44 on the card rows'
-  `surface-container-low/70` over `paper`, and 4.18 on `surface-container`
-  (tag chips); the chip hover pair (`accent` on `accent/10` over
-  `surface-container`) is 4.18. Darkening `muted` (e.g. toward
-  `#6f6a65`, which clears 4.5 on every current surface) is queued future work;
-  any new container or tint role must be re-checked before adoption.
+  (`#6f6a65`) clears 4.5:1 on every current surface: 5.12 on `paper`, 4.90 on
+  `surface-container-low`, 4.97 on the card rows' `surface-container-low/70`
+  over `paper`, and 4.66 on `surface-container` (tag chips). The chip and
+  social-link hover pairs use `on-primary-container` (`#115e59`) on an
+  `accent/10` tint, clearing 4.5:1; any new container or tint role must be
+  re-checked before adoption.
 - **Touch targets.** Minimum 48dp (48px). Nav links must retain adequate hit
   area; do not shrink them below 48px. Footer social links are deliberately
   compact text links (a row of small, non-primary targets); the footer stays
@@ -406,7 +404,7 @@ rules above.
 | `Section` | Section heading | — | `on-surface-variant` label | — |
 | `Footer` | Footer | `rounded-xs` links | `outline-variant` border | `transition-colors` |
 | `RepoCard` | Card (Expressive) | `rounded-xl` (28dp) | `surface-container-low`; container tint + `shadow-xs` on hover | Spring lift (`ease-spring`, `-translate-y-0.5`) |
-| Tag chips | Chip (assist) | `rounded-sm` | `surface-container`; `hover:bg-accent/10` state layer | `transition-colors` |
+| Tag chips | Chip (assist) | `rounded-sm` | `surface-container`; `hover:bg-accent/10` state layer with `on-primary-container` text | `transition-colors` |
 | `ContributionsCalendar` | Custom data viz | `rx={3}` cells | `primary` tonal ramp (accent opacities) | `hover:opacity-75` per cell |
 | `EventsFeed` | List | `rounded-xl` card rows | `surface-container-low` | `transition-all` on links; `hover:bg-accent/10` |
 | `Experience` | List | `rounded-xl` card rows | `surface-container-low` | — |

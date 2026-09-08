@@ -20,7 +20,7 @@ export default function Experience() {
                 · {entry.organization}
               </span>
             </h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted">
+            <p className="mt-2 text-base leading-relaxed text-muted">
               {entry.description}
             </p>
           </li>

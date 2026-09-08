@@ -24,7 +24,7 @@ export default function Hero() {
               href={social.url}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex min-h-[48px] items-center gap-1.5 rounded-full px-3 py-2 transition-all duration-medium ease-standard hover:bg-accent/10 hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              className="inline-flex min-h-[48px] items-center gap-1.5 rounded-full px-3 py-2 transition-all duration-medium ease-standard hover:bg-accent/10 hover:text-on-primary-container focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             >
               <Icon name={socialIcon(social.label)} size={18} />
               <span className="underline decoration-line underline-offset-4 transition-colors">

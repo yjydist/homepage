@@ -39,7 +39,7 @@ export default function RepoCard({
               {name}
             </h3>
             {description && (
-              <p className="mt-2 text-sm leading-relaxed text-muted">
+              <p className="mt-2 text-base leading-relaxed text-muted">
                 {description}
               </p>
             )}
@@ -48,7 +48,7 @@ export default function RepoCard({
           <>
             <h3 className="text-base font-bold">{name}</h3>
             {description && (
-              <p className="mt-2 text-sm leading-relaxed text-muted">
+              <p className="mt-2 text-base leading-relaxed text-muted">
                 {description}
               </p>
             )}
@@ -63,7 +63,7 @@ export default function RepoCard({
               {tags.map((tag) => (
                 <li
                   key={tag}
-                  className="rounded-sm border border-line/60 bg-surface-container px-2 py-0.5 transition-colors duration-short ease-standard hover:bg-accent/10 hover:text-accent"
+                  className="rounded-sm border border-line/60 bg-surface-container px-2 py-0.5 transition-colors duration-short ease-standard hover:bg-accent/10 hover:text-on-primary-container"
                 >
                   {tag}
                 </li>
