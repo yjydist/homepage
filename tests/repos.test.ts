@@ -1,7 +1,14 @@
 import { describe, expect, test } from 'bun:test'
 import type { RepoEntry } from '../src/content'
 import type { GitHubRepo } from '../src/lib/github'
-import { byDisplayOrder, cardKey, needsFetch, toCard } from '../src/lib/repos'
+import {
+  byDisplayOrder,
+  cardKey,
+  needsFetch,
+  toCard,
+  toCards,
+  toCardsWithoutFetch,
+} from '../src/lib/repos'
 
 function entry(overrides: Partial<RepoEntry>): RepoEntry {
   return { mode: 'custom', ...overrides }
@@ -53,7 +60,6 @@ describe('toCard', () => {
     expect(card.description).toBe('custom description')
     expect(card.tags).toEqual(['x'])
     expect(card.stars).toBe(12)
-    expect(card.live).toBe(true)
   })
 
   test('falls back to repo-derived fields without live data', () => {
@@ -61,7 +67,54 @@ describe('toCard', () => {
     expect(card.name).toBe('name')
     expect(card.url).toBe('https://github.com/owner/name')
     expect(card.stars).toBeNull()
-    expect(card.live).toBe(false)
+  })
+})
+
+describe('toCards', () => {
+  test('pairs each entry with its outcome after sorting', () => {
+    const cards = toCards(
+      [
+        entry({ mode: 'github', repo: 'owner/name' }),
+        entry({ name: 'manual', pinned: true }),
+      ],
+      [
+        { status: 'fulfilled', value: live() },
+        { status: 'fulfilled', value: undefined },
+      ],
+    )
+    expect(cards.map((item) => item.key)).toEqual(['manual', 'owner/name'])
+    expect(cards[0].card.name).toBe('manual')
+    expect(cards[1].card.name).toBe('name')
+    expect(cards[1].card.stars).toBe(12)
+  })
+
+  test('keeps TOML-only fields when the outcome is rejected', () => {
+    const cards = toCards(
+      [entry({ mode: 'github', repo: 'owner/name', name: 'custom name' })],
+      [{ status: 'rejected', reason: new Error('offline') }],
+    )
+    expect(cards[0].card.name).toBe('custom name')
+    expect(cards[0].card.stars).toBeNull()
+  })
+
+  test('renders entries when no outcomes are given', () => {
+    const cards = toCards([entry({ name: 'manual' })])
+    expect(cards).toHaveLength(1)
+    expect(cards[0].key).toBe('manual')
+    expect(cards[0].card.url).toBeNull()
+  })
+})
+
+describe('toCardsWithoutFetch', () => {
+  test('keeps source order and skips entries that need a fetch', () => {
+    const cards = toCardsWithoutFetch([
+      entry({ mode: 'github', repo: 'owner/name' }),
+      entry({ name: 'manual', pinned: true }),
+      entry({ name: 'second manual' }),
+    ])
+    expect(cards.map((item) => item.key)).toEqual(['manual', 'second manual'])
+    expect(cards[0].card.url).toBeNull()
+    expect(cards[0].card.stars).toBeNull()
   })
 })
 

@@ -1,17 +1,6 @@
+import type { CardData } from '../lib/repos'
 import { timeAgo } from '../lib/time'
 import Icon from './Icon'
-
-interface RepoCardProps {
-  name: string
-  url: string | null
-  description: string | null
-  stars: number | null
-  language: string | null
-  tags: string[]
-  updatedAt: string | null
-  /** False when live metadata could not be fetched. */
-  live: boolean
-}
 
 export default function RepoCard({
   name,
@@ -21,9 +10,28 @@ export default function RepoCard({
   language,
   tags,
   updatedAt,
-  live,
-}: RepoCardProps) {
-  const hasMeta = live && (stars !== null || language || updatedAt)
+}: CardData) {
+  // One entry per optional meta field; the row renders only if it has any.
+  const meta: Array<{ icon: string; text: string }> = []
+  if (stars !== null) meta.push({ icon: 'star', text: String(stars) })
+  if (language) meta.push({ icon: 'code', text: language })
+  if (updatedAt) {
+    meta.push({ icon: 'schedule', text: `${timeAgo(updatedAt)}更新` })
+  }
+  // Only a linked card tints its title when the card is hovered.
+  const titleClass = url
+    ? 'text-base font-bold underline-offset-4 transition-colors group-hover:text-accent'
+    : 'text-base font-bold'
+  const title = (
+    <>
+      <h3 className={titleClass}>{name}</h3>
+      {description && (
+        <p className="mt-2 text-base leading-relaxed text-muted">
+          {description}
+        </p>
+      )}
+    </>
+  )
 
   return (
     <article className="group flex h-full flex-col justify-between rounded-xl border border-line bg-surface-container-low/70 p-5 transition-all duration-medium ease-spring hover:-translate-y-0.5 hover:border-accent/40 hover:bg-surface-container hover:shadow-xs">
@@ -35,28 +43,14 @@ export default function RepoCard({
             rel="noreferrer"
             className="rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
           >
-            <h3 className="text-base font-bold underline-offset-4 transition-colors group-hover:text-accent">
-              {name}
-            </h3>
-            {description && (
-              <p className="mt-2 text-base leading-relaxed text-muted">
-                {description}
-              </p>
-            )}
+            {title}
           </a>
         ) : (
-          <>
-            <h3 className="text-base font-bold">{name}</h3>
-            {description && (
-              <p className="mt-2 text-base leading-relaxed text-muted">
-                {description}
-              </p>
-            )}
-          </>
+          title
         )}
       </div>
 
-      {(tags.length > 0 || hasMeta) && (
+      {(tags.length > 0 || meta.length > 0) && (
         <div className="mt-4">
           {tags.length > 0 && (
             <ul className="flex flex-wrap gap-1.5 text-xs text-muted">
@@ -70,26 +64,14 @@ export default function RepoCard({
               ))}
             </ul>
           )}
-          {hasMeta && (
+          {meta.length > 0 && (
             <p className="mt-3 flex flex-wrap gap-3 text-xs text-muted">
-              {stars !== null && (
-                <span className="inline-flex items-center gap-1">
-                  <Icon name="star" />
-                  {stars}
+              {meta.map(({ icon, text }) => (
+                <span key={icon} className="inline-flex items-center gap-1">
+                  <Icon name={icon} />
+                  {text}
                 </span>
-              )}
-              {language && (
-                <span className="inline-flex items-center gap-1">
-                  <Icon name="code" />
-                  {language}
-                </span>
-              )}
-              {updatedAt && (
-                <span className="inline-flex items-center gap-1">
-                  <Icon name="schedule" />
-                  {timeAgo(updatedAt)}更新
-                </span>
-              )}
+              ))}
             </p>
           )}
         </div>
