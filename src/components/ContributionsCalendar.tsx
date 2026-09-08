@@ -1,5 +1,5 @@
 import { useAsync } from '../hooks/useAsync'
-import { toWeeks } from '../lib/contributions'
+import { monthLabels, parseDay, toWeeks } from '../lib/contributions'
 import { fetchContributions } from '../lib/github'
 import { ErrorNotice, Loading } from './AsyncState'
 
@@ -40,21 +40,6 @@ export default function ContributionsCalendar({
   const width = weeks.length * (CELL + GAP)
   const height = LABEL_HEIGHT + 7 * (CELL + GAP)
 
-  // Label the month above the first week that contains its 1st.
-  const monthLabels = weeks
-    .map((week, i) => {
-      const firstOfMonth = week.find(
-        (day) => new Date(`${day.date}T00:00:00`).getDate() === 1,
-      )
-      if (!firstOfMonth) return null
-      const label = new Date(`${firstOfMonth.date}T00:00:00`).toLocaleString(
-        'zh-CN',
-        { month: 'short' },
-      )
-      return { x: i * (CELL + GAP), label }
-    })
-    .filter((item): item is { x: number; label: string } => item !== null)
-
   return (
     <div className="overflow-x-auto">
       <svg
@@ -63,20 +48,23 @@ export default function ContributionsCalendar({
         role="img"
         aria-label="GitHub 贡献日历"
       >
-        {monthLabels.map((month) => (
+        {monthLabels(weeks).map(({ weekIndex, label }) => (
           <text
-            key={month.label + month.x}
-            x={month.x}
+            key={label + weekIndex}
+            x={weekIndex * (CELL + GAP)}
             y={LABEL_HEIGHT - 4}
             className="fill-muted text-[9px]"
           >
-            {month.label}
+            {label}
           </text>
         ))}
         {weeks.map((week, col) =>
           week.map((day) => {
-            const row = new Date(`${day.date}T00:00:00`).getDay()
-            const level = Math.min(Math.max(day.level, 0), 4)
+            const row = parseDay(day.date).getDay()
+            const level = Math.min(
+              Math.max(day.level, 0),
+              LEVEL_CLASS.length - 1,
+            )
             return (
               <rect
                 key={day.date}
