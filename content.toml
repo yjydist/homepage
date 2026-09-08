@@ -24,16 +24,18 @@ label = "邮箱"
 url = "mailto:yjydist@qq.com"
 
 [github]
-# Used by the /activity page fetches (contributions calendar, events).
-# The /repos page fetches each entry via its own `repo` key instead.
+# Used by scripts/fetch-github-data.ts for the public events and the
+# contributions calendar. The /repos page uses each entry's own `repo`
+# key instead. Both read the snapshot committed at
+# src/generated/github-data.json, refreshed every 6 hours.
 username = "yjydist"
 
 # Each [[repos]] entry declares how its data is sourced via `mode`:
 #   mode = "github" -> metadata (description, stars, language, topics,
-#   updated_at) is fetched at runtime from the GitHub REST API using the
-#   `repo` key. Optional keys below override the API values.
+#   updated_at) comes from the GitHub snapshot via the `repo` key.
+#   Optional keys below override the snapshot values.
 #   mode = "custom" -> fully manual; everything is written here and no
-#   network request is made.
+#   snapshot data is used.
 # Unknown modes fall back to custom. New providers (e.g. "gitee") can be
 # added later without changing the schema.
 [[repos]]

@@ -18,6 +18,16 @@ bun run build     # type-check + production build (output in dist/)
 bun run preview   # serve the production build
 ```
 
+GitHub data (repo metadata, public events, the contributions calendar)
+comes from the committed snapshot at `src/generated/github-data.json`, so
+the browser makes no API calls. `.github/workflows/refresh-github-data.yml`
+refreshes it every 6 hours and commits only when the data changed. To
+refresh it locally, provide a token:
+
+```sh
+GITHUB_TOKEN=$(gh auth token) bun run fetch:github
+```
+
 ## Editing content
 
 All site content and config are in `content.toml`:
@@ -25,12 +35,11 @@ All site content and config are in `content.toml`:
 - `[site]` — title, meta description, owner name
 - `[profile]` — tagline, bio, avatar (image URL or path under `public/`),
   social links
-- `[github]` — username for the /activity fetches (contributions calendar,
-  events); /repos fetches each entry via its own `repo` key
-- `[[repos]]` — repo cards, sourced by `mode`: `github` fetches live
-  metadata from the GitHub REST API via the `repo` key (other keys
-  override the API values); `custom` is fully manual and makes no network
-  request
+- `[github]` — username the snapshot fetch uses for the contributions
+  calendar and public events; /repos uses each entry's own `repo` key
+- `[[repos]]` — repo cards, sourced by `mode`: `github` reads metadata
+  from the committed snapshot via the `repo` key (other keys override the
+  snapshot values); `custom` is fully manual and uses no snapshot data
 - `[[experience]]` — experience entries (period, role, organization,
   description)
 

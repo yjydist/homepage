@@ -408,7 +408,7 @@ rules above.
 | `ContributionsCalendar` | Custom data viz | `rx={3}` cells | `primary` tonal ramp (accent opacities) | `hover:opacity-75` per cell |
 | `EventsFeed` | List | `rounded-xl` card rows | `surface-container-low` | `transition-all` on links; `hover:bg-accent/10` |
 | `Experience` | List | `rounded-xl` card rows | `surface-container-low` | — |
-| `AsyncState` (Loading / Error / Empty) | Progress / empty state | `rounded-lg` (16dp) boxes | `surface-container-low` | Spinner + `animate-spin` on Loading |
+| `Empty` | Empty state | `rounded-lg` (16dp) boxes | `surface-container-low` | — |
 
 **M3 Expressive new components** and their relevance to this site:
 
@@ -418,7 +418,7 @@ rules above.
 | FAB menu | Low | No FAB; could host a "back to top" action |
 | Split button | None | Not applicable |
 | Docked / floating toolbar | Low | Could replace the sticky nav on scroll |
-| Loading indicator | Done | `Loading` already renders a spinner, not text only |
+| Loading indicator | None | Data is a build-time snapshot, so no page has a loading state |
 | Updated top app bar | Medium | The nav is the site's top app bar |
 | Updated carousel / nav bar / nav rail | Low | Single-page nav; rail is overkill |
 
@@ -426,7 +426,7 @@ rules above.
 chips, (2) nav active-indicator spring movement, (3) a full tonal palette
 from the teal seed, (4) optional Google Sans type pairing, (5) dark mode.
 The earlier groundwork items these build on (container surfaces, state
-layers, spring motion, and the loading indicator) are already implemented.
+layers, and spring motion) are already implemented.
 
 ---
 
