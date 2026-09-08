@@ -34,10 +34,11 @@ export function Loading() {
   )
 }
 
-export function ErrorNotice({ message }: { message: string }) {
+/** Notice box shared by the empty and error states. */
+function Notice({ message, role }: { message: string; role?: 'alert' }) {
   return (
     <div
-      role="alert"
+      role={role}
       className="rounded-lg border border-line/40 bg-surface-container-low p-4 text-sm text-muted"
     >
       <p>{message}</p>
@@ -45,10 +46,10 @@ export function ErrorNotice({ message }: { message: string }) {
   )
 }
 
+export function ErrorNotice({ message }: { message: string }) {
+  return <Notice message={message} role="alert" />
+}
+
 export function Empty({ message }: { message: string }) {
-  return (
-    <div className="rounded-lg border border-line/40 bg-surface-container-low p-4 text-sm text-muted">
-      <p>{message}</p>
-    </div>
-  )
+  return <Notice message={message} />
 }
