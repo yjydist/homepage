@@ -23,6 +23,228 @@
   },
   "events": [
     {
+      "id": "14632826507",
+      "type": "IssuesEvent",
+      "created_at": "2026-09-08T12:22:35Z",
+      "repo": {
+        "name": "yjydist/handnote"
+      },
+      "payload": {
+        "action": "labeled",
+        "issue": {
+          "url": "https://api.github.com/repos/yjydist/handnote/issues/39",
+          "repository_url": "https://api.github.com/repos/yjydist/handnote",
+          "labels_url": "https://api.github.com/repos/yjydist/handnote/issues/39/labels{/name}",
+          "comments_url": "https://api.github.com/repos/yjydist/handnote/issues/39/comments",
+          "events_url": "https://api.github.com/repos/yjydist/handnote/issues/39/events",
+          "html_url": "https://github.com/yjydist/handnote/issues/39",
+          "id": 5386634912,
+          "node_id": "I_kwDOUL6hoc8AAAABQRGGoA",
+          "number": 39,
+          "title": "v1.3.0 计划：基于原始轨迹的手写笔记重排",
+          "user": {
+            "login": "yjydist",
+            "id": 149930809,
+            "node_id": "U_kgDOCO_DOQ",
+            "avatar_url": "https://avatars.githubusercontent.com/u/149930809?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/yjydist",
+            "html_url": "https://github.com/yjydist",
+            "followers_url": "https://api.github.com/users/yjydist/followers",
+            "following_url": "https://api.github.com/users/yjydist/following{/other_user}",
+            "gists_url": "https://api.github.com/users/yjydist/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/yjydist/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/yjydist/subscriptions",
+            "organizations_url": "https://api.github.com/users/yjydist/orgs",
+            "repos_url": "https://api.github.com/users/yjydist/repos",
+            "events_url": "https://api.github.com/users/yjydist/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/yjydist/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12038490881,
+              "node_id": "LA_kwDOUL6hoc8AAAACzYzLAQ",
+              "url": "https://api.github.com/repos/yjydist/handnote/labels/enhancement",
+              "name": "enhancement",
+              "color": "a2eeef",
+              "default": true,
+              "description": "New feature or request"
+            }
+          ],
+          "state": "open",
+          "locked": false,
+          "assignees": [],
+          "milestone": null,
+          "comments": 0,
+          "created_at": "2026-09-08T12:22:34Z",
+          "updated_at": "2026-09-08T12:22:34Z",
+          "closed_at": null,
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 目标与已确定方向\n\n### 目标\n\n将原始手写笔记整理为具有清晰结构的手写版电子笔记：Markdown 提供内容和文档结构，原始 JSON 提供真实笔迹。\n\n本版本研究的是原笔迹复用与重排，不是训练个人字体，也不承诺生成原数据中不存在的新字。\n\n### 已确定采用方案 B\n\n- 保留 Markdown 原文，不将每个字符直接替换为 SVG 标签。\n- 在渲染阶段，根据文字与原始笔迹的对应关系生成笔迹片段。\n- Markdown 决定标题、段落、列表等结构；笔迹片段以实际尺寸参与排版。\n- 允许字距、换行和页面高度不同于普通字体版本，不要求逐字沿用电子字体的固定字框。\n- 优先保留片段内部的大小变化、间距、倾斜和连笔关系。\n- 逐字固定字框方案仅用于视觉对照，不作为当前目标架构。\n\n流程：\n\n```text\n原始 JSON → 笔迹与原始文字的关联 ─────────┐\n                                       ↓\nMarkdown → 文档结构与内容关联 → 笔迹片段排版 → PNG\n```\n\n### 已有基础\n\n- [x] 独立 InkTrace 项目已完成 JSON → SVG 的本地 MVP。\n- [x] lib 与 Web 解耦；lib 可作为 npm 包安装和调用。\n- [x] 完成统一黑色、原始线宽的几何重绘。\n- [x] 本地验证覆盖 220 页、160,981 条轨迹、4,584,582 个点。\n- [x] 现有 handnote 已具备 Markdown → HTML → PNG 与 revision/review/finalize 流程。\n\n上述验证只证明轨迹重绘能力，不代表字符对应或手写排版已经完成。\n\n## 关键问题与实施阶段\n\n### 必须处理的问题\n\n- **对应单位**：一字可能包含多条轨迹，一条轨迹也可能跨多个字。可移动单位应是经过确认的笔迹片段，不预设为单字、单笔或语言学上的词。\n- **重复字符**：优先按原文出现位置关联，保留不同书写实例；从其他位置复用同字样本时，必须区分“来源对应”与“字形借用”。\n- **尺寸与自然感**：参考原行或片段尺度、基线进行等比变换，不能将每个字的墨迹包围盒独立拉满标准方框。\n- **内容变化**：润色、纠错、遗漏和新增内容分别记录。语义相关不代表可以直接复用相同笔迹；无对应笔迹时不得静默换成错误内容。\n- **识别误差**：文字识别正确、位置正确、轨迹归属正确分别验收；模型结果是候选，不自动等同于真实标签。\n- **特殊内容**：标点、自动列表编号、公式、表格、图示、下划线及箭头需要明确边界，不能统一当作普通字符处理。\n\n### 阶段一：人工对应的端到端视觉实验\n\n- [ ] 选择少量普通中文、重复字符、大小变化及连笔片段，人工确认原文和轨迹归属。\n- [ ] 使用内容一致的电子稿，隔离润色与识别误差。\n- [ ] 提取透明背景的笔迹片段，保留原始轨迹及其身份。\n- [ ] 生成普通字体、固定字框替换、方案 B 片段重排的对照结果。\n- [ ] 在不同页面宽度下检查换行、可读性、字距、基线、碰撞和自然感。\n- [ ] 根据反馈确定片段粒度及允许调整的排版规则。\n\n不以建设完整人工标注平台作为本阶段前提。\n\n### 阶段二：识别与对应实验\n\n- [ ] 建立少量人工确认样本作为评估依据。\n- [ ] 优先评估“重绘图片识别文字与位置 → 利用已知坐标变换关联轨迹”的路线。\n- [ ] 视效果评估直接轨迹识别作为对照，暂不锁定具体模型或服务。\n- [ ] 分别记录识别错误、定位错误、轨迹归属错误、未匹配和人工修正成本。\n- [ ] 对跨字连笔保留整体关系或片段引用，不破坏原始点序列。\n- [ ] 验证原始文字与 Markdown 的重复、改写、纠错、遗漏和新增情况。\n\n### 阶段三：接入 handnote\n\n- [ ] 首先作为独立后处理实验读取确定版本的 Markdown、轨迹和对应结果。\n- [ ] 关联记录绑定具体输入与 Markdown 版本；修改内容后重新核验对应关系。\n- [ ] 结果另存，不覆盖已确认的原 revision 或最终图片。\n- [ ] 稳定后再设计正式的手写渲染接入方式；新渲染结果重新接受视觉审查。\n- [ ] agent 承担内容理解、候选关联和结果检查；确定性代码承担坐标变换、布局及绘制。\n- [ ] InkTrace 的几何能力继续保持平台独立；DOM 排版与页面合成留在应用层。\n\n## 验收与待定事项\n\n### 验收方向\n\n- 排版后的手写片段可以追溯到原 JSON。\n- 内容一致的已确认样本不丢字、漏笔、串线或错误重复使用笔迹。\n- 改变页面宽度后能够重新排版，并明确处理不能安全断开的连笔。\n- 输出同时体现文档结构和原笔迹特征，而非仅完成 SVG 插入。\n- 未匹配、改写及纠错造成的缺字有可检查记录，不伪装成完整替换。\n- 集成后保持现有内容和产物一致性检查，不绕过 review/finalize。\n\n### 待实验与后续讨论决定\n\n- 笔迹片段的粒度、分组方式与允许断行位置。\n- 字高、基线、倾斜及线宽的调整尺度。\n- 无可用字形时采用人工补充、同字借用还是显式混排。\n- 普通文字之外，公式、表格与图示在本版本中的支持范围。\n- 自动对应的可用程度、人工介入方式及版本验收门槛。\n\n随着实验结果更新上述事项；未确认的选项保持为待定，不提前写成实现承诺。\n\n## 计划维护\n\n后续讨论继续完善本 issue：主文记录最新计划，重要结论补充简短决策记录。新增实验和实现任务在确定范围后链接到这里，避免创建重复的版本计划。\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/yjydist/handnote/issues/39/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/yjydist/handnote/issues/39/timeline",
+          "performed_via_github_app": null,
+          "state_reason": null,
+          "pinned_comment": null
+        },
+        "label": {
+          "id": 12038490881,
+          "node_id": "LA_kwDOUL6hoc8AAAACzYzLAQ",
+          "url": "https://api.github.com/repos/yjydist/handnote/labels/enhancement",
+          "name": "enhancement",
+          "color": "a2eeef",
+          "default": true,
+          "description": "New feature or request"
+        },
+        "labels": [
+          {
+            "id": 12038490881,
+            "node_id": "LA_kwDOUL6hoc8AAAACzYzLAQ",
+            "url": "https://api.github.com/repos/yjydist/handnote/labels/enhancement",
+            "name": "enhancement",
+            "color": "a2eeef",
+            "default": true,
+            "description": "New feature or request"
+          }
+        ]
+      }
+    },
+    {
+      "id": "14632826339",
+      "type": "IssuesEvent",
+      "created_at": "2026-09-08T12:22:35Z",
+      "repo": {
+        "name": "yjydist/handnote"
+      },
+      "payload": {
+        "action": "opened",
+        "issue": {
+          "url": "https://api.github.com/repos/yjydist/handnote/issues/39",
+          "repository_url": "https://api.github.com/repos/yjydist/handnote",
+          "labels_url": "https://api.github.com/repos/yjydist/handnote/issues/39/labels{/name}",
+          "comments_url": "https://api.github.com/repos/yjydist/handnote/issues/39/comments",
+          "events_url": "https://api.github.com/repos/yjydist/handnote/issues/39/events",
+          "html_url": "https://github.com/yjydist/handnote/issues/39",
+          "id": 5386634912,
+          "node_id": "I_kwDOUL6hoc8AAAABQRGGoA",
+          "number": 39,
+          "title": "v1.3.0 计划：基于原始轨迹的手写笔记重排",
+          "user": {
+            "login": "yjydist",
+            "id": 149930809,
+            "node_id": "U_kgDOCO_DOQ",
+            "avatar_url": "https://avatars.githubusercontent.com/u/149930809?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/yjydist",
+            "html_url": "https://github.com/yjydist",
+            "followers_url": "https://api.github.com/users/yjydist/followers",
+            "following_url": "https://api.github.com/users/yjydist/following{/other_user}",
+            "gists_url": "https://api.github.com/users/yjydist/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/yjydist/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/yjydist/subscriptions",
+            "organizations_url": "https://api.github.com/users/yjydist/orgs",
+            "repos_url": "https://api.github.com/users/yjydist/repos",
+            "events_url": "https://api.github.com/users/yjydist/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/yjydist/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12038490881,
+              "node_id": "LA_kwDOUL6hoc8AAAACzYzLAQ",
+              "url": "https://api.github.com/repos/yjydist/handnote/labels/enhancement",
+              "name": "enhancement",
+              "color": "a2eeef",
+              "default": true,
+              "description": "New feature or request"
+            }
+          ],
+          "state": "open",
+          "locked": false,
+          "assignees": [],
+          "milestone": null,
+          "comments": 0,
+          "created_at": "2026-09-08T12:22:34Z",
+          "updated_at": "2026-09-08T12:22:34Z",
+          "closed_at": null,
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 目标与已确定方向\n\n### 目标\n\n将原始手写笔记整理为具有清晰结构的手写版电子笔记：Markdown 提供内容和文档结构，原始 JSON 提供真实笔迹。\n\n本版本研究的是原笔迹复用与重排，不是训练个人字体，也不承诺生成原数据中不存在的新字。\n\n### 已确定采用方案 B\n\n- 保留 Markdown 原文，不将每个字符直接替换为 SVG 标签。\n- 在渲染阶段，根据文字与原始笔迹的对应关系生成笔迹片段。\n- Markdown 决定标题、段落、列表等结构；笔迹片段以实际尺寸参与排版。\n- 允许字距、换行和页面高度不同于普通字体版本，不要求逐字沿用电子字体的固定字框。\n- 优先保留片段内部的大小变化、间距、倾斜和连笔关系。\n- 逐字固定字框方案仅用于视觉对照，不作为当前目标架构。\n\n流程：\n\n```text\n原始 JSON → 笔迹与原始文字的关联 ─────────┐\n                                       ↓\nMarkdown → 文档结构与内容关联 → 笔迹片段排版 → PNG\n```\n\n### 已有基础\n\n- [x] 独立 InkTrace 项目已完成 JSON → SVG 的本地 MVP。\n- [x] lib 与 Web 解耦；lib 可作为 npm 包安装和调用。\n- [x] 完成统一黑色、原始线宽的几何重绘。\n- [x] 本地验证覆盖 220 页、160,981 条轨迹、4,584,582 个点。\n- [x] 现有 handnote 已具备 Markdown → HTML → PNG 与 revision/review/finalize 流程。\n\n上述验证只证明轨迹重绘能力，不代表字符对应或手写排版已经完成。\n\n## 关键问题与实施阶段\n\n### 必须处理的问题\n\n- **对应单位**：一字可能包含多条轨迹，一条轨迹也可能跨多个字。可移动单位应是经过确认的笔迹片段，不预设为单字、单笔或语言学上的词。\n- **重复字符**：优先按原文出现位置关联，保留不同书写实例；从其他位置复用同字样本时，必须区分“来源对应”与“字形借用”。\n- **尺寸与自然感**：参考原行或片段尺度、基线进行等比变换，不能将每个字的墨迹包围盒独立拉满标准方框。\n- **内容变化**：润色、纠错、遗漏和新增内容分别记录。语义相关不代表可以直接复用相同笔迹；无对应笔迹时不得静默换成错误内容。\n- **识别误差**：文字识别正确、位置正确、轨迹归属正确分别验收；模型结果是候选，不自动等同于真实标签。\n- **特殊内容**：标点、自动列表编号、公式、表格、图示、下划线及箭头需要明确边界，不能统一当作普通字符处理。\n\n### 阶段一：人工对应的端到端视觉实验\n\n- [ ] 选择少量普通中文、重复字符、大小变化及连笔片段，人工确认原文和轨迹归属。\n- [ ] 使用内容一致的电子稿，隔离润色与识别误差。\n- [ ] 提取透明背景的笔迹片段，保留原始轨迹及其身份。\n- [ ] 生成普通字体、固定字框替换、方案 B 片段重排的对照结果。\n- [ ] 在不同页面宽度下检查换行、可读性、字距、基线、碰撞和自然感。\n- [ ] 根据反馈确定片段粒度及允许调整的排版规则。\n\n不以建设完整人工标注平台作为本阶段前提。\n\n### 阶段二：识别与对应实验\n\n- [ ] 建立少量人工确认样本作为评估依据。\n- [ ] 优先评估“重绘图片识别文字与位置 → 利用已知坐标变换关联轨迹”的路线。\n- [ ] 视效果评估直接轨迹识别作为对照，暂不锁定具体模型或服务。\n- [ ] 分别记录识别错误、定位错误、轨迹归属错误、未匹配和人工修正成本。\n- [ ] 对跨字连笔保留整体关系或片段引用，不破坏原始点序列。\n- [ ] 验证原始文字与 Markdown 的重复、改写、纠错、遗漏和新增情况。\n\n### 阶段三：接入 handnote\n\n- [ ] 首先作为独立后处理实验读取确定版本的 Markdown、轨迹和对应结果。\n- [ ] 关联记录绑定具体输入与 Markdown 版本；修改内容后重新核验对应关系。\n- [ ] 结果另存，不覆盖已确认的原 revision 或最终图片。\n- [ ] 稳定后再设计正式的手写渲染接入方式；新渲染结果重新接受视觉审查。\n- [ ] agent 承担内容理解、候选关联和结果检查；确定性代码承担坐标变换、布局及绘制。\n- [ ] InkTrace 的几何能力继续保持平台独立；DOM 排版与页面合成留在应用层。\n\n## 验收与待定事项\n\n### 验收方向\n\n- 排版后的手写片段可以追溯到原 JSON。\n- 内容一致的已确认样本不丢字、漏笔、串线或错误重复使用笔迹。\n- 改变页面宽度后能够重新排版，并明确处理不能安全断开的连笔。\n- 输出同时体现文档结构和原笔迹特征，而非仅完成 SVG 插入。\n- 未匹配、改写及纠错造成的缺字有可检查记录，不伪装成完整替换。\n- 集成后保持现有内容和产物一致性检查，不绕过 review/finalize。\n\n### 待实验与后续讨论决定\n\n- 笔迹片段的粒度、分组方式与允许断行位置。\n- 字高、基线、倾斜及线宽的调整尺度。\n- 无可用字形时采用人工补充、同字借用还是显式混排。\n- 普通文字之外，公式、表格与图示在本版本中的支持范围。\n- 自动对应的可用程度、人工介入方式及版本验收门槛。\n\n随着实验结果更新上述事项；未确认的选项保持为待定，不提前写成实现承诺。\n\n## 计划维护\n\n后续讨论继续完善本 issue：主文记录最新计划，重要结论补充简短决策记录。新增实验和实现任务在确定范围后链接到这里，避免创建重复的版本计划。\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/yjydist/handnote/issues/39/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/yjydist/handnote/issues/39/timeline",
+          "performed_via_github_app": null,
+          "state_reason": null,
+          "pinned_comment": null
+        }
+      }
+    },
+    {
+      "id": "20433395228",
+      "type": "CreateEvent",
+      "created_at": "2026-09-08T10:57:05Z",
+      "repo": {
+        "name": "yjydist/homepage"
+      },
+      "payload": {
+        "ref": "test/refresh-permissions",
+        "ref_type": "branch",
+        "full_ref": "refs/heads/test/refresh-permissions",
+        "master_branch": "main",
+        "description": null,
+        "pusher_type": "user"
+      }
+    },
+    {
       "id": "20420151871",
       "type": "PushEvent",
       "created_at": "2026-09-08T08:21:19Z",
@@ -65,51 +287,6 @@
         "ref": "refs/heads/main",
         "head": "d5a304e19ee32ae31a46dd88ce9b73a7cd64d784",
         "before": "f04c1cd541c65e2d62cdc736b3a74dac64828a22"
-      }
-    },
-    {
-      "id": "20387354844",
-      "type": "PushEvent",
-      "created_at": "2026-09-06T08:15:49Z",
-      "repo": {
-        "name": "yjydist/agents"
-      },
-      "payload": {
-        "repository_id": 1358063701,
-        "push_id": 42724135874,
-        "ref": "refs/heads/main",
-        "head": "2b4c7dd29b1ddb41bb003fb6f5476b7db5c744df",
-        "before": "d5a304e19ee32ae31a46dd88ce9b73a7cd64d784"
-      }
-    },
-    {
-      "id": "20383595240",
-      "type": "PushEvent",
-      "created_at": "2026-09-06T04:20:07Z",
-      "repo": {
-        "name": "yjydist/homepage"
-      },
-      "payload": {
-        "repository_id": 1354853559,
-        "push_id": 42713723977,
-        "ref": "refs/heads/main",
-        "head": "036a11972f837070670b2bc932600daef1ae8573",
-        "before": "65c57d27fd7355a14e02d1941a5c7cf30510fc94"
-      }
-    },
-    {
-      "id": "20374498764",
-      "type": "PushEvent",
-      "created_at": "2026-09-06T06:09:23Z",
-      "repo": {
-        "name": "yjydist/homepage"
-      },
-      "payload": {
-        "repository_id": 1354853559,
-        "push_id": 42718403763,
-        "ref": "refs/heads/main",
-        "head": "3a8d42f9ce0e5340092d6a3a39d88892f4e28830",
-        "before": "036a11972f837070670b2bc932600daef1ae8573"
       }
     }
   ],
@@ -1946,8 +2123,8 @@
     },
     {
       "date": "2026-09-08",
-      "count": 10,
-      "level": 1
+      "count": 22,
+      "level": 2
     }
   ]
 }
