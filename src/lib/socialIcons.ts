@@ -1,7 +1,7 @@
 // Maps a social link label (as written in content.toml) to a Material
 // Symbols ligature name. Kept in a .ts file (no JSX) so oxlint's
 // react/only-export-components rule does not flag it.
-const SOCIAL_ICONS: Record<string, string> = {
+const SOCIAL_ICONS: Record<string, string | undefined> = {
   github: 'code',
   邮箱: 'mail',
   email: 'mail',
