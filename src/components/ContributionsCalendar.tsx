@@ -1,6 +1,6 @@
 import { useAsync } from '../hooks/useAsync'
+import { toWeeks } from '../lib/contributions'
 import { fetchContributions } from '../lib/github'
-import type { ContributionDay } from '../lib/github'
 import { ErrorNotice, Loading } from './AsyncState'
 
 const CELL = 10
@@ -20,22 +20,6 @@ const LEGEND_CLASS = [
   'bg-accent/70',
   'bg-accent',
 ]
-
-/** Bucket days into Sunday-aligned week columns. */
-function toWeeks(days: ContributionDay[]): ContributionDay[][] {
-  const weeks: ContributionDay[][] = []
-  let current: ContributionDay[] = []
-  for (const day of days) {
-    const dow = new Date(`${day.date}T00:00:00`).getDay()
-    if (dow === 0 && current.length > 0) {
-      weeks.push(current)
-      current = []
-    }
-    current.push(day)
-  }
-  if (current.length > 0) weeks.push(current)
-  return weeks
-}
 
 export default function ContributionsCalendar({
   username,
@@ -101,7 +85,7 @@ export default function ContributionsCalendar({
                 width={CELL}
                 height={CELL}
                 rx={3}
-                className={`${LEVEL_CLASS[level]} cursor-pointer transition-opacity duration-short ease-standard hover:opacity-75`}
+                className={`${LEVEL_CLASS[level]} transition-opacity duration-short ease-standard hover:opacity-75`}
               >
                 <title>
                   {day.count} 次贡献 · {day.date}

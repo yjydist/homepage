@@ -1,124 +1,9 @@
 import { useAsync } from '../hooks/useAsync'
+import { describeEvent, eventIcon } from '../lib/events'
 import { fetchPublicEvents } from '../lib/github'
-import type { GitHubEvent } from '../lib/github'
 import { timeAgo } from '../lib/time'
 import { Empty, ErrorNotice, Loading } from './AsyncState'
 import Icon from './Icon'
-
-// Payload fields are loosely typed, so reads go through small guards.
-function str(value: unknown): string | undefined {
-  return typeof value === 'string' ? value : undefined
-}
-
-function num(value: unknown): number | undefined {
-  return typeof value === 'number' ? value : undefined
-}
-
-// Narrow an unknown payload field to a nested object, else undefined.
-function obj(value: unknown): Record<string, unknown> | undefined {
-  return typeof value === 'object' && value !== null
-    ? (value as Record<string, unknown>)
-    : undefined
-}
-
-function shortRef(ref: string): string {
-  return ref.replace(/^refs\/heads\//, '')
-}
-
-// Translate the English action verbs GitHub sends into Chinese verbs.
-// Issues and pull requests share the same action vocabulary.
-function actionVerb(action: string | undefined): string {
-  switch (action) {
-    case 'opened':
-      return '打开'
-    case 'closed':
-      return '关闭'
-    case 'reopened':
-      return '重新打开'
-    default:
-      return '更新'
-  }
-}
-
-// Maps a GitHub event type to a Material Symbols ligature name. Not
-// exported: keeps this file a single-component module for oxlint's
-// react/only-export-components rule.
-function eventIcon(type: string): string {
-  switch (type) {
-    case 'PushEvent':
-      return 'commit'
-    case 'CreateEvent':
-      return 'add_circle'
-    case 'DeleteEvent':
-      return 'delete'
-    case 'IssuesEvent':
-      return 'report'
-    case 'IssueCommentEvent':
-      return 'mode_comment'
-    case 'PullRequestEvent':
-      return 'call_merge'
-    case 'PullRequestReviewEvent':
-      return 'rate_review'
-    case 'ForkEvent':
-      return 'fork_right'
-    case 'WatchEvent':
-      return 'star'
-    case 'ReleaseEvent':
-      return 'local_offer'
-    case 'PublicEvent':
-      return 'public'
-    default:
-      return 'bolt'
-  }
-}
-
-function describeEvent(event: GitHubEvent): string {
-  const { payload } = event
-  switch (event.type) {
-    case 'PushEvent': {
-      const commits = Array.isArray(payload.commits)
-        ? payload.commits.length
-        : 1
-      const ref = str(payload.ref)
-      return `推送了 ${commits} 个提交${ref ? `到 ${shortRef(ref)}` : ''}`
-    }
-    case 'CreateEvent': {
-      const refType = str(payload.ref_type) ?? 'ref'
-      const ref = str(payload.ref)
-      return refType === 'repository' ? '创建了此仓库' : `创建了${refType} ${ref ?? ''}`
-    }
-    case 'DeleteEvent':
-      return `删除了${str(payload.ref_type) ?? 'ref'} ${str(payload.ref) ?? ''}`
-    case 'IssuesEvent': {
-      const issue = obj(payload.issue)
-      return `${actionVerb(str(payload.action))}了 issue #${num(issue?.number) ?? ''}: ${str(issue?.title) ?? ''}`
-    }
-    case 'IssueCommentEvent': {
-      const issue = obj(payload.issue)
-      return `评论了 issue #${num(issue?.number) ?? ''}`
-    }
-    case 'PullRequestEvent': {
-      const pr = obj(payload.pull_request)
-      const action =
-        payload.action === 'closed' && pr?.merged === true
-          ? '合并了'
-          : actionVerb(str(payload.action))
-      return `${action} PR #${num(pr?.number) ?? ''}: ${str(pr?.title) ?? ''}`
-    }
-    case 'PullRequestReviewEvent':
-      return `评审了一个拉取请求`
-    case 'ForkEvent':
-      return `复刻到 ${str(obj(payload.forkee)?.full_name) ?? '一个新仓库'}`
-    case 'WatchEvent':
-      return '为该仓库加了星'
-    case 'ReleaseEvent':
-      return `发布了 ${str(obj(payload.release)?.tag_name) ?? '一个版本'}`
-    case 'PublicEvent':
-      return '公开了一个仓库'
-    default:
-      return `${event.type.replace(/Event$/, '')}`
-  }
-}
 
 export default function EventsFeed({ username }: { username: string }) {
   const { data, loading, error } = useAsync(
@@ -140,7 +25,7 @@ export default function EventsFeed({ username }: { username: string }) {
           className="rounded-xl border border-line bg-surface-container-low/70 p-4"
         >
           <div className="flex items-start justify-between gap-4">
-            <p className="flex items-start gap-2 text-sm leading-relaxed">
+            <p className="flex items-start gap-2 text-base leading-relaxed">
               <Icon name={eventIcon(event.type)} className="mt-0.5 shrink-0" />
               <span>
                 {describeEvent(event)}
@@ -158,7 +43,10 @@ export default function EventsFeed({ username }: { username: string }) {
                 </span>
               </span>
             </p>
-            <time className="shrink-0 text-xs text-muted">
+            <time
+              dateTime={event.created_at}
+              className="shrink-0 text-xs text-muted"
+            >
               {timeAgo(event.created_at)}
             </time>
           </div>
