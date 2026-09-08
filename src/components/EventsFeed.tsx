@@ -1,25 +1,18 @@
-import { useAsync } from '../hooks/useAsync'
 import { toEventDisplay } from '../lib/events'
-import { fetchPublicEvents } from '../lib/github'
+import { publicEvents } from '../lib/github'
 import { timeAgo } from '../lib/time'
-import { Empty, ErrorNotice, Loading } from './AsyncState'
+import { Empty } from './Empty'
 import Icon from './Icon'
 
-export default function EventsFeed({ username }: { username: string }) {
-  const { data, loading, error } = useAsync(
-    (signal) => fetchPublicEvents(username, signal),
-    [username],
-  )
-
-  if (loading) return <Loading />
-  if (error) return <ErrorNotice message="最近动态暂时不可用。" />
-  if (!data || data.length === 0) {
+export default function EventsFeed() {
+  const events = publicEvents()
+  if (events.length === 0) {
     return <Empty message="暂无公开动态。" />
   }
 
   return (
     <ul className="space-y-3">
-      {data.map((event) => {
+      {events.map((event) => {
         const { icon, description } = toEventDisplay(event)
         return (
           <li

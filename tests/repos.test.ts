@@ -4,10 +4,9 @@ import type { GitHubRepo } from '../src/lib/github'
 import {
   byDisplayOrder,
   cardKey,
-  needsFetch,
   toCard,
   toCards,
-  toCardsWithoutFetch,
+  usesGitHub,
 } from '../src/lib/repos'
 
 function entry(overrides: Partial<RepoEntry>): RepoEntry {
@@ -28,11 +27,11 @@ function live(overrides: Partial<GitHubRepo> = {}): GitHubRepo {
   }
 }
 
-describe('needsFetch', () => {
-  test('fetches only github entries with a repo key', () => {
-    expect(needsFetch(entry({ mode: 'github', repo: 'owner/name' }))).toBe(true)
-    expect(needsFetch(entry({ mode: 'github' }))).toBe(false)
-    expect(needsFetch(entry({ mode: 'custom' }))).toBe(false)
+describe('usesGitHub', () => {
+  test('matches only github entries with a repo key', () => {
+    expect(usesGitHub(entry({ mode: 'github', repo: 'owner/name' }))).toBe(true)
+    expect(usesGitHub(entry({ mode: 'github' }))).toBe(false)
+    expect(usesGitHub(entry({ mode: 'custom' }))).toBe(false)
   })
 })
 
@@ -45,7 +44,7 @@ describe('cardKey', () => {
 })
 
 describe('toCard', () => {
-  test('lets TOML values override live metadata', () => {
+  test('lets TOML values override snapshot metadata', () => {
     const card = toCard(
       entry({
         mode: 'github',
@@ -62,7 +61,7 @@ describe('toCard', () => {
     expect(card.stars).toBe(12)
   })
 
-  test('falls back to repo-derived fields without live data', () => {
+  test('falls back to repo-derived fields without snapshot data', () => {
     const card = toCard(entry({ mode: 'github', repo: 'owner/name' }))
     expect(card.name).toBe('name')
     expect(card.url).toBe('https://github.com/owner/name')
@@ -71,16 +70,13 @@ describe('toCard', () => {
 })
 
 describe('toCards', () => {
-  test('pairs each entry with its outcome after sorting', () => {
+  test('pairs each entry with its snapshot metadata after sorting', () => {
     const cards = toCards(
       [
         entry({ mode: 'github', repo: 'owner/name' }),
         entry({ name: 'manual', pinned: true }),
       ],
-      [
-        { status: 'fulfilled', value: live() },
-        { status: 'fulfilled', value: undefined },
-      ],
+      (fullName) => (fullName === 'owner/name' ? live() : undefined),
     )
     expect(cards.map((item) => item.key)).toEqual(['manual', 'owner/name'])
     expect(cards[0].card.name).toBe('manual')
@@ -88,33 +84,22 @@ describe('toCards', () => {
     expect(cards[1].card.stars).toBe(12)
   })
 
-  test('keeps TOML-only fields when the outcome is rejected', () => {
+  test('keeps TOML-only fields when the snapshot has no metadata', () => {
     const cards = toCards(
       [entry({ mode: 'github', repo: 'owner/name', name: 'custom name' })],
-      [{ status: 'rejected', reason: new Error('offline') }],
+      () => undefined,
     )
     expect(cards[0].card.name).toBe('custom name')
     expect(cards[0].card.stars).toBeNull()
   })
 
-  test('renders entries when no outcomes are given', () => {
-    const cards = toCards([entry({ name: 'manual' })])
+  test('never looks up entries that do not use GitHub', () => {
+    const cards = toCards([entry({ name: 'manual' })], () => {
+      throw new Error('lookup must not run for non-github entries')
+    })
     expect(cards).toHaveLength(1)
     expect(cards[0].key).toBe('manual')
     expect(cards[0].card.url).toBeNull()
-  })
-})
-
-describe('toCardsWithoutFetch', () => {
-  test('keeps source order and skips entries that need a fetch', () => {
-    const cards = toCardsWithoutFetch([
-      entry({ mode: 'github', repo: 'owner/name' }),
-      entry({ name: 'manual', pinned: true }),
-      entry({ name: 'second manual' }),
-    ])
-    expect(cards.map((item) => item.key)).toEqual(['manual', 'second manual'])
-    expect(cards[0].card.url).toBeNull()
-    expect(cards[0].card.stars).toBeNull()
   })
 })
 

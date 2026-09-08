@@ -17,7 +17,7 @@ export function cardKey(entry: RepoEntry, index: number): string {
   return entry.repo ?? entry.name ?? String(index)
 }
 
-/** Merge one TOML entry with its fetched data; TOML overrides win. */
+/** Merge one TOML entry with its snapshot metadata; TOML overrides win. */
 export function toCard(entry: RepoEntry, live?: GitHubRepo): CardData {
   return {
     name: entry.name ?? live?.name ?? entry.repo?.split('/').pop() ?? 'Untitled',
@@ -33,7 +33,8 @@ export function toCard(entry: RepoEntry, live?: GitHubRepo): CardData {
   }
 }
 
-export function needsFetch(
+/** Whether this entry takes its metadata from the GitHub snapshot. */
+export function usesGitHub(
   entry: RepoEntry,
 ): entry is RepoEntry & { repo: string } {
   return entry.mode === 'github' && typeof entry.repo === 'string'
@@ -53,9 +54,6 @@ export function byDisplayOrder(
   return a.sourceIndex - b.sourceIndex
 }
 
-/** One entry's fetch result, positionally aligned with the entry list. */
-export type RepoOutcome = PromiseSettledResult<GitHubRepo | undefined>
-
 /** A card paired with its stable list key. */
 export interface CardItem {
   key: string
@@ -63,39 +61,18 @@ export interface CardItem {
 }
 
 /**
- * Pair every entry with its fetch result, in display order. Entries without
- * a result (no fetch, or a rejected one) keep their TOML-only fields.
+ * Pair every entry with its snapshot metadata, in display order. Entries
+ * that do not use GitHub keep their TOML-only fields.
  */
 export function toCards(
   entries: RepoEntry[],
-  outcomes: Array<RepoOutcome | undefined> = [],
+  lookup: (fullName: string) => GitHubRepo | undefined,
 ): CardItem[] {
   return entries
     .map((entry, sourceIndex) => ({ ...entry, sourceIndex }))
     .sort(byDisplayOrder)
-    .map(({ sourceIndex, ...entry }) => {
-      const outcome = outcomes[sourceIndex]
-      return {
-        key: cardKey(entry, sourceIndex),
-        card: toCard(
-          entry,
-          outcome?.status === 'fulfilled' ? outcome.value : undefined,
-        ),
-      }
-    })
-}
-
-/**
- * Cards for the entries that need no fetch, in source order. The loading
- * state shows these immediately while the other entries are in flight, so
- * it deliberately skips the display-order sort that `toCards` applies.
- */
-export function toCardsWithoutFetch(entries: RepoEntry[]): CardItem[] {
-  const cards: CardItem[] = []
-  entries.forEach((entry, sourceIndex) => {
-    if (!needsFetch(entry)) {
-      cards.push({ key: cardKey(entry, sourceIndex), card: toCard(entry) })
-    }
-  })
-  return cards
+    .map(({ sourceIndex, ...entry }) => ({
+      key: cardKey(entry, sourceIndex),
+      card: toCard(entry, usesGitHub(entry) ? lookup(entry.repo) : undefined),
+    }))
 }

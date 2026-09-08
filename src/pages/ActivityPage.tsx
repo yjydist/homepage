@@ -3,7 +3,6 @@ import ContributionsCalendar from '../components/ContributionsCalendar'
 import EventsFeed from '../components/EventsFeed'
 import Icon from '../components/Icon'
 import Section from '../components/Section'
-import { content } from '../content'
 
 /** One labeled sub-section of the activity page. */
 function SubSection({
@@ -27,15 +26,14 @@ function SubSection({
 }
 
 export default function ActivityPage() {
-  const { username } = content.github
   return (
     <Section title="动态">
       <div className="space-y-12">
         <SubSection icon="grid_on" title="贡献日历">
-          <ContributionsCalendar username={username} />
+          <ContributionsCalendar />
         </SubSection>
         <SubSection icon="history" title="最近动态">
-          <EventsFeed username={username} />
+          <EventsFeed />
         </SubSection>
       </div>
     </Section>
