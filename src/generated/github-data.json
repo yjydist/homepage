@@ -23,6 +23,35 @@
   },
   "events": [
     {
+      "id": "20607262184",
+      "type": "DeleteEvent",
+      "created_at": "2026-09-08T10:58:00Z",
+      "repo": {
+        "name": "yjydist/homepage"
+      },
+      "payload": {
+        "ref": "test/refresh-permissions",
+        "ref_type": "branch",
+        "full_ref": "refs/heads/test/refresh-permissions",
+        "pusher_type": "user"
+      }
+    },
+    {
+      "id": "20598398199",
+      "type": "PushEvent",
+      "created_at": "2026-09-08T07:55:44Z",
+      "repo": {
+        "name": "yjydist/agents"
+      },
+      "payload": {
+        "repository_id": 1358063701,
+        "push_id": 42902424601,
+        "ref": "refs/heads/main",
+        "head": "d9fbf7a505c84954a7045a609591b5ba52845cd2",
+        "before": "e70ca09600a157d20f52ad363628fdb458d9f064"
+      }
+    },
+    {
       "id": "20570838984",
       "type": "PushEvent",
       "created_at": "2026-09-08T09:18:55Z",
@@ -256,37 +285,6 @@
           "state_reason": null,
           "pinned_comment": null
         }
-      }
-    },
-    {
-      "id": "20433395228",
-      "type": "CreateEvent",
-      "created_at": "2026-09-08T10:57:05Z",
-      "repo": {
-        "name": "yjydist/homepage"
-      },
-      "payload": {
-        "ref": "test/refresh-permissions",
-        "ref_type": "branch",
-        "full_ref": "refs/heads/test/refresh-permissions",
-        "master_branch": "main",
-        "description": null,
-        "pusher_type": "user"
-      }
-    },
-    {
-      "id": "20420151871",
-      "type": "PushEvent",
-      "created_at": "2026-09-08T08:21:19Z",
-      "repo": {
-        "name": "yjydist/agents"
-      },
-      "payload": {
-        "repository_id": 1358063701,
-        "push_id": 42904771347,
-        "ref": "refs/heads/main",
-        "head": "407b7bf40238a908fbe10ba85aa4805ba99797ba",
-        "before": "d9fbf7a505c84954a7045a609591b5ba52845cd2"
       }
     }
   ],
