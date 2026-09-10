@@ -18,10 +18,41 @@
       "stargazers_count": 0,
       "language": null,
       "topics": [],
-      "updated_at": "2026-09-08T08:22:23Z"
+      "updated_at": "2026-09-10T06:24:43Z"
     }
   },
   "events": [
+    {
+      "id": "20657611856",
+      "type": "PushEvent",
+      "created_at": "2026-09-10T06:24:40Z",
+      "repo": {
+        "name": "yjydist/agents"
+      },
+      "payload": {
+        "repository_id": 1358063701,
+        "push_id": 43169754663,
+        "ref": "refs/heads/main",
+        "head": "d25391d880d0a3b54a025e09e06fb66800783b88",
+        "before": "10ba08479c4bf9d813710986f67087b49a4a7802"
+      }
+    },
+    {
+      "id": "20654097081",
+      "type": "CreateEvent",
+      "created_at": "2026-09-10T05:36:39Z",
+      "repo": {
+        "name": "yjydist/handnote"
+      },
+      "payload": {
+        "ref": "v1.3.0",
+        "ref_type": "branch",
+        "full_ref": "refs/heads/v1.3.0",
+        "master_branch": "main",
+        "description": null,
+        "pusher_type": "user"
+      }
+    },
     {
       "id": "20610697878",
       "type": "PushEvent",
@@ -79,134 +110,6 @@
         "ref": "refs/heads/main",
         "head": "e773e6d41ad8df029d13d48f2d84efbcfed72f22",
         "before": "4fb52e1b9d616f1992f1e7b4f9e22b10fda6f85c"
-      }
-    },
-    {
-      "id": "20555222928",
-      "type": "PushEvent",
-      "created_at": "2026-09-08T03:13:45Z",
-      "repo": {
-        "name": "yjydist/agents"
-      },
-      "payload": {
-        "repository_id": 1358063701,
-        "push_id": 42881726111,
-        "ref": "refs/heads/main",
-        "head": "e70ca09600a157d20f52ad363628fdb458d9f064",
-        "before": "1409ce351ff2ecb53498e44cbc98b4f2d75ab4e4"
-      }
-    },
-    {
-      "id": "14632826507",
-      "type": "IssuesEvent",
-      "created_at": "2026-09-08T12:22:35Z",
-      "repo": {
-        "name": "yjydist/handnote"
-      },
-      "payload": {
-        "action": "labeled",
-        "issue": {
-          "url": "https://api.github.com/repos/yjydist/handnote/issues/39",
-          "repository_url": "https://api.github.com/repos/yjydist/handnote",
-          "labels_url": "https://api.github.com/repos/yjydist/handnote/issues/39/labels{/name}",
-          "comments_url": "https://api.github.com/repos/yjydist/handnote/issues/39/comments",
-          "events_url": "https://api.github.com/repos/yjydist/handnote/issues/39/events",
-          "html_url": "https://github.com/yjydist/handnote/issues/39",
-          "id": 5386634912,
-          "node_id": "I_kwDOUL6hoc8AAAABQRGGoA",
-          "number": 39,
-          "title": "v1.3.0 计划：模型驱动的原笔迹 SVG 组合与笔记重排",
-          "user": {
-            "login": "yjydist",
-            "id": 149930809,
-            "node_id": "U_kgDOCO_DOQ",
-            "avatar_url": "https://avatars.githubusercontent.com/u/149930809?v=4",
-            "gravatar_id": "",
-            "url": "https://api.github.com/users/yjydist",
-            "html_url": "https://github.com/yjydist",
-            "followers_url": "https://api.github.com/users/yjydist/followers",
-            "following_url": "https://api.github.com/users/yjydist/following{/other_user}",
-            "gists_url": "https://api.github.com/users/yjydist/gists{/gist_id}",
-            "starred_url": "https://api.github.com/users/yjydist/starred{/owner}{/repo}",
-            "subscriptions_url": "https://api.github.com/users/yjydist/subscriptions",
-            "organizations_url": "https://api.github.com/users/yjydist/orgs",
-            "repos_url": "https://api.github.com/users/yjydist/repos",
-            "events_url": "https://api.github.com/users/yjydist/events{/privacy}",
-            "received_events_url": "https://api.github.com/users/yjydist/received_events",
-            "type": "User",
-            "user_view_type": "public",
-            "site_admin": false
-          },
-          "labels": [
-            {
-              "id": 12038490881,
-              "node_id": "LA_kwDOUL6hoc8AAAACzYzLAQ",
-              "url": "https://api.github.com/repos/yjydist/handnote/labels/enhancement",
-              "name": "enhancement",
-              "color": "a2eeef",
-              "default": true,
-              "description": "New feature or request"
-            }
-          ],
-          "state": "open",
-          "locked": false,
-          "assignees": [],
-          "milestone": null,
-          "comments": 0,
-          "created_at": "2026-09-08T12:22:34Z",
-          "updated_at": "2026-09-09T11:17:33Z",
-          "closed_at": null,
-          "assignee": null,
-          "active_lock_reason": null,
-          "sub_issues_summary": {
-            "total": 0,
-            "completed": 0,
-            "percent_completed": 0
-          },
-          "issue_dependencies_summary": {
-            "blocked_by": 0,
-            "total_blocked_by": 0,
-            "blocking": 0,
-            "total_blocking": 0
-          },
-          "body": "## 目标与方向调整\n\n输入同页笔记图片和 points JSON，生成以原始笔迹为主要内容、结构清楚且便于阅读的笔记成品。\n\n现有图片 → Markdown → PNG 流程继续作为基础。新增流程由模型结合原图、轨迹预览和上下文，选择有意义的笔迹片段，调整和组合后引用到 Markdown 中；片段无法满足内容或排版需要时，使用电子文字。\n\n主要流程：\n\n**图片＋points → 模型理解与选择 → 笔迹片段调整组合 → Markdown 组织 → 渲染 → 模型审查修订 → 最终成品。**\n\n前期 OCR、笔画归属和文字匹配实验作为历史证据保留。OCR 可辅助定位和理解，逐字识别与自动匹配成功不再是使用原笔迹的前置条件。\n\n## 原笔迹作为可组合素材\n\n- 原始 points 保持不变。素材保存来源哈希、完整笔画引用、原始包围盒，以及旋转、缩放、平移和组合关系；SVG 根据这些信息重新生成。\n- 模型通过工具查看、选择和调整片段，工具执行确定性的几何操作并返回预览。模型不直接生成或改写原始点序列。\n- 片段以标题、词组、行、公式或图示等有意义的内容为单位，可以先粗选，再拆分或组合，不要求预先完成逐字切分。\n- 第一版允许按完整笔画拆分、组合、旋转摆正、等比缩放和调整间距。保持各片段内部字形，不做非等比拉伸、局部扭曲或新笔画生成。\n- 无法在完整笔画边界拆开的连笔先作为整体处理，不切断点序列。组合应保留原内容和关系，不建设从各处借字拼出新文本的字库。\n- 不要求所有轨迹进入成品。涂抹、废弃内容和无意义痕迹可以不选；箭头、括线等根据上下文决定用途，不能仅按形状统一排除。\n- 原坐标用于定位和理解来源，最终位置由新的文档结构决定。明确记录 points、重绘图与原笔记图片之间的坐标关系，不假定三者像素坐标相同。\n\n## Agent、Markdown 与渲染协作\n\nAgent 具备以下完整工作能力：\n\n1. 查看原图、轨迹重绘及带位置标记的局部预览。\n2. 选择完整笔画构成片段，检查是否漏笔、夹带或选错内容。\n3. 拆分、旋转、缩放、组合片段，并查看操作结果。\n4. 在 Markdown 中组织标题、段落、列表和受控 SVG 资源引用；需要时补充电子文字。\n5. 查看最终排版，修订内容、片段选择或组合方式，再次渲染并审查。\n\nMarkdown 保存文档结构和素材引用，不嵌入大量 SVG 路径。片段可以附带转写及语义说明，用于理解、检索和核对；不能用说明文字代替对实际显示内容的检查。\n\n渲染器根据片段用途处理尺寸、留白和布局，不再要求所有素材先绑定到电子文字范围。片段过宽时允许模型重新拆分或组织；不能靠无限缩小、压扁字形或隐藏内容通过验收。\n\n继续沿用现有轻量 monorepo：\n\n- **Agent**：内容理解、素材选择、调整决策与审查。\n- **Ink**：轨迹解析、完整笔画选择、几何变换、组合及 SVG 生成。\n- **Renderer**：Markdown、受控素材、电子文字混排及布局反馈。\n- **应用**：工具协调、资源授权、来源记录、修订事务与最终确认。\n\n不传轨迹时保持现有流程。新素材和组合记录纳入产物版本及完整性校验；变更内容或素材后重新审查，保持旧版 run 的读取能力。\n\n## 实施阶段与验收\n\n先验证完整成品，再决定正式接入：\n\n- [ ] 建立可追溯、可重新生成的笔迹片段和组合能力。\n- [ ] 提供模型可使用的选择、检查、调整及预览工具。\n- [ ] 支持 Markdown 引用受控笔迹素材，完成渲染和审查循环。\n- [ ] 使用开发页 2、69、70，实际运行模型完成整页笔记；不能仅展示人工挑选的成功片段。\n- [ ] 验证通过后，再接入正式轨迹输入和运行恢复流程。\n\n验收围绕成品与操作链路：\n\n- 成品保留有意义的内容，原笔迹构成主体；不能以整页图片粘贴、少量装饰性手写或大量字体回退代替目标。\n- 标题、正文、列表及相关视觉关系组织清楚，字迹大小可读；没有漏笔、串线、错误组合或意外重复。\n- 每个显示片段均能追溯到完整原始笔画及变换过程。未采用的有意义内容、字体补充和不确定项有记录。\n- 在 720、1200、1600 宽度下检查成品，并用 360 宽度检查拆分、换行和溢出。\n- 离线测试覆盖笔画完整性、旋转及组合坐标、边界计算、资源身份、哈希失效和修订审查失效；真实模型运行单独保存工具轨迹、预览、耗时、用量和失败记录。\n- 输入损坏、素材失效或渲染失败应明确报错并保留已有有效产物。启用笔迹功能却没有形成有效手写成品时，不宣称完成。\n\n首轮继续使用三页开发数据，七页留出及新增多页数据不参与调试。模型判断均保留 `pending-human-review`，不作为人工真值，不输出未经验证的准确率。\n\n## 当前基础与历史实验\n\n已有 Markdown → HTML → PNG、修订与审查流程、workspace 模块，以及根据完整原始笔画生成 SVG 和来源元数据的能力。\n\n前期已实际进行 OCR 输入、字框几何、笔画关联及排版实验，发现局部改善尚不足以证明完整方案可用。相关代码和产物保留用于复现与比较，不再将提高 OCR 匹配覆盖作为本 issue 的主要交付目标。\n\n本地已有实验的测试通过，不代表上述模型驱动流程已经实现或通过验收。新方向尚待实际成品验证，不宣告 v1.3.0 完成。",
-          "reactions": {
-            "url": "https://api.github.com/repos/yjydist/handnote/issues/39/reactions",
-            "total_count": 0,
-            "+1": 0,
-            "-1": 0,
-            "laugh": 0,
-            "hooray": 0,
-            "confused": 0,
-            "heart": 0,
-            "rocket": 0,
-            "eyes": 0
-          },
-          "timeline_url": "https://api.github.com/repos/yjydist/handnote/issues/39/timeline",
-          "performed_via_github_app": null,
-          "state_reason": null,
-          "pinned_comment": null
-        },
-        "label": {
-          "id": 12038490881,
-          "node_id": "LA_kwDOUL6hoc8AAAACzYzLAQ",
-          "url": "https://api.github.com/repos/yjydist/handnote/labels/enhancement",
-          "name": "enhancement",
-          "color": "a2eeef",
-          "default": true,
-          "description": "New feature or request"
-        },
-        "labels": [
-          {
-            "id": 12038490881,
-            "node_id": "LA_kwDOUL6hoc8AAAACzYzLAQ",
-            "url": "https://api.github.com/repos/yjydist/handnote/labels/enhancement",
-            "name": "enhancement",
-            "color": "a2eeef",
-            "default": true,
-            "description": "New feature or request"
-          }
-        ]
       }
     }
   ],
@@ -2053,8 +1956,8 @@
     },
     {
       "date": "2026-09-10",
-      "count": 0,
-      "level": 0
+      "count": 3,
+      "level": 1
     }
   ]
 }
