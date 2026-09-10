@@ -12,12 +12,13 @@ import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { parse } from 'toml'
 import type { Content } from '../src/content'
+import { pickEvent, pickRepo } from '../src/lib/githubSnapshot'
 import type {
   ContributionDay,
   GitHubData,
   GitHubEvent,
   GitHubRepo,
-} from '../src/lib/github'
+} from '../src/lib/githubSnapshot'
 import { usesGitHub } from '../src/lib/repos'
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
@@ -56,34 +57,6 @@ async function fetchContributions(
   }
   const body = (await res.json()) as ContributionsResponse
   return body.contributions
-}
-
-/**
- * Project the API responses down to the snapshot schema. The site reads
- * only these fields; the extras GitHub returns (a dozen `*_url` templates
- * per object) would bloat the file and add noise to every diff.
- */
-function pickRepo(repo: GitHubRepo): GitHubRepo {
-  return {
-    name: repo.name,
-    full_name: repo.full_name,
-    html_url: repo.html_url,
-    description: repo.description,
-    stargazers_count: repo.stargazers_count,
-    language: repo.language,
-    topics: repo.topics,
-    updated_at: repo.updated_at,
-  }
-}
-
-function pickEvent(event: GitHubEvent): GitHubEvent {
-  return {
-    id: event.id,
-    type: event.type,
-    created_at: event.created_at,
-    repo: { name: event.repo.name },
-    payload: event.payload,
-  }
 }
 
 /** Write only when the bytes change, so an unchanged run leaves no diff. */
