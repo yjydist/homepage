@@ -23,81 +23,848 @@
   },
   "events": [
     {
-      "id": "15512261597",
-      "type": "WatchEvent",
-      "created_at": "2026-09-22T14:33:37Z",
-      "repo": {
-        "name": "touying-typ/touying"
-      },
-      "payload": {
-        "action": "started"
-      }
-    },
-    {
-      "id": "15491236272",
-      "type": "WatchEvent",
-      "created_at": "2026-09-22T09:07:23Z",
-      "repo": {
-        "name": "slidevjs/slidev"
-      },
-      "payload": {
-        "action": "started"
-      }
-    },
-    {
-      "id": "15341535060",
-      "type": "WatchEvent",
-      "created_at": "2026-09-19T10:35:10Z",
-      "repo": {
-        "name": "hyperledger/fabric"
-      },
-      "payload": {
-        "action": "started"
-      }
-    },
-    {
-      "id": "20894567480",
+      "id": "21953365693",
       "type": "PushEvent",
-      "created_at": "2026-09-10T05:12:01Z",
+      "created_at": "2026-09-23T15:04:19Z",
       "repo": {
-        "name": "yjydist/agents"
+        "name": "yjydist/supplyledger-lab"
       },
       "payload": {
-        "repository_id": 1358063701,
-        "push_id": 43165654497,
+        "repository_id": 1383626582,
+        "push_id": 44371722828,
         "ref": "refs/heads/main",
-        "head": "f0289f1a4557db90d72f2021ccdfe42f13470b6e",
-        "before": "407b7bf40238a908fbe10ba85aa4805ba99797ba"
+        "head": "102f5e0ec72890016825316ac93995a8ccecea38",
+        "before": "afcdb8318bffb1e8b2c7cadb68bb2b072ea022bb"
       }
     },
     {
-      "id": "20879940996",
-      "type": "PushEvent",
-      "created_at": "2026-09-10T05:36:22Z",
+      "id": "15595360453",
+      "type": "IssuesEvent",
+      "created_at": "2026-09-23T15:04:16Z",
       "repo": {
-        "name": "yjydist/agents"
+        "name": "yjydist/supplyledger-lab"
       },
       "payload": {
-        "repository_id": 1358063701,
-        "push_id": 43166944040,
-        "ref": "refs/heads/main",
-        "head": "10ba08479c4bf9d813710986f67087b49a4a7802",
-        "before": "f0289f1a4557db90d72f2021ccdfe42f13470b6e"
+        "action": "labeled",
+        "issue": {
+          "url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/75",
+          "repository_url": "https://api.github.com/repos/yjydist/supplyledger-lab",
+          "labels_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/75/labels{/name}",
+          "comments_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/75/comments",
+          "events_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/75/events",
+          "html_url": "https://github.com/yjydist/supplyledger-lab/issues/75",
+          "id": 5555327917,
+          "node_id": "I_kwDOUnh3Vs8AAAABSx-TrQ",
+          "number": 75,
+          "title": "[M9] 完成安全扫描、README 与能力答辩证据",
+          "user": {
+            "login": "yjydist",
+            "id": 149930809,
+            "node_id": "U_kgDOCO_DOQ",
+            "avatar_url": "https://avatars.githubusercontent.com/u/149930809?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/yjydist",
+            "html_url": "https://github.com/yjydist",
+            "followers_url": "https://api.github.com/users/yjydist/followers",
+            "following_url": "https://api.github.com/users/yjydist/following{/other_user}",
+            "gists_url": "https://api.github.com/users/yjydist/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/yjydist/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/yjydist/subscriptions",
+            "organizations_url": "https://api.github.com/users/yjydist/orgs",
+            "repos_url": "https://api.github.com/users/yjydist/repos",
+            "events_url": "https://api.github.com/users/yjydist/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/yjydist/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12329150345,
+              "node_id": "LA_kwDOUnh3Vs8AAAAC3t_niQ",
+              "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/type:verification",
+              "name": "type:verification",
+              "color": "0e8a16",
+              "default": false,
+              "description": "测试、复现与证据",
+              "archived_at": null,
+              "archived_by": null
+            },
+            {
+              "id": 12329153284,
+              "node_id": "LA_kwDOUnh3Vs8AAAAC3t_zBA",
+              "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/area:security",
+              "name": "area:security",
+              "color": "d93f0b",
+              "default": false,
+              "description": "安全边界与发布检查",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "open",
+          "locked": false,
+          "assignees": [],
+          "milestone": {
+            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/milestones/10",
+            "html_url": "https://github.com/yjydist/supplyledger-lab/milestone/10",
+            "labels_url": "https://api.github.com/repos/yjydist/supplyledger-lab/milestones/10/labels",
+            "id": 18024106,
+            "node_id": "MI_kwDOUnh3Vs4BEwaq",
+            "number": 10,
+            "title": "M9：故障与毕业验收",
+            "description": "范围：resilience、证书轮换/吊销、冷备份恢复、性能对照；交付：故障报告、恢复清单、性能原始数据、能力答辩、最终 README；出口：§§20–21 闭环；性能未达标明确标记；不冒充生产高可用。详见 SPEC.md §19。",
+            "creator": {
+              "login": "yjydist",
+              "id": 149930809,
+              "node_id": "U_kgDOCO_DOQ",
+              "avatar_url": "https://avatars.githubusercontent.com/u/149930809?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/yjydist",
+              "html_url": "https://github.com/yjydist",
+              "followers_url": "https://api.github.com/users/yjydist/followers",
+              "following_url": "https://api.github.com/users/yjydist/following{/other_user}",
+              "gists_url": "https://api.github.com/users/yjydist/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/yjydist/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/yjydist/subscriptions",
+              "organizations_url": "https://api.github.com/users/yjydist/orgs",
+              "repos_url": "https://api.github.com/users/yjydist/repos",
+              "events_url": "https://api.github.com/users/yjydist/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/yjydist/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "open_issues": 9,
+            "closed_issues": 0,
+            "state": "open",
+            "created_at": "2026-09-23T14:56:11Z",
+            "updated_at": "2026-09-23T15:02:34Z",
+            "due_on": null,
+            "closed_at": null
+          },
+          "comments": 0,
+          "created_at": "2026-09-23T15:02:33Z",
+          "updated_at": "2026-09-23T15:02:34Z",
+          "closed_at": null,
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "parent_issue_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/67",
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 任务\n\n检查仓库/构建上下文/镜像层/日志秘密，完成最终 README、运行手册、能力映射和 §21 答辩证据。\n\n## 验收\n\n- [ ] 扫描问题修复后重跑；README 第一屏包含 doctor、启动、验证、停止和 reset 删除范围；未测项不冒充完成。\n- [ ] 运行并记录验收测试：T-SEC-01。预期结果以 [SPEC.md](https://github.com/yjydist/supplyledger-lab/blob/main/SPEC.md) §20 为准。\n- [ ] 保存 §19.1 要求的脱敏证据；未执行项目标记 NOT RUN。\n\n## 追踪\n\n- 规格：[SPEC.md](https://github.com/yjydist/supplyledger-lab/blob/main/SPEC.md) §§17.2、20.6、21\n- 阶段：M9\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/75/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/75/timeline",
+          "performed_via_github_app": null,
+          "state_reason": null,
+          "pinned_comment": null
+        },
+        "label": {
+          "id": 12329153284,
+          "node_id": "LA_kwDOUnh3Vs8AAAAC3t_zBA",
+          "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/area:security",
+          "name": "area:security",
+          "color": "d93f0b",
+          "default": false,
+          "description": "安全边界与发布检查",
+          "archived_at": null,
+          "archived_by": null
+        },
+        "labels": [
+          {
+            "id": 12329150345,
+            "node_id": "LA_kwDOUnh3Vs8AAAAC3t_niQ",
+            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/type:verification",
+            "name": "type:verification",
+            "color": "0e8a16",
+            "default": false,
+            "description": "测试、复现与证据",
+            "archived_at": null,
+            "archived_by": null
+          },
+          {
+            "id": 12329153284,
+            "node_id": "LA_kwDOUnh3Vs8AAAAC3t_zBA",
+            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/area:security",
+            "name": "area:security",
+            "color": "d93f0b",
+            "default": false,
+            "description": "安全边界与发布检查",
+            "archived_at": null,
+            "archived_by": null
+          }
+        ]
       }
     },
     {
-      "id": "20697765079",
-      "type": "PushEvent",
-      "created_at": "2026-09-09T06:30:29Z",
+      "id": "15595360169",
+      "type": "IssuesEvent",
+      "created_at": "2026-09-23T15:04:16Z",
       "repo": {
-        "name": "yjydist/handnote"
+        "name": "yjydist/supplyledger-lab"
       },
       "payload": {
-        "repository_id": 1354670497,
-        "push_id": 43034521699,
-        "ref": "refs/heads/dev",
-        "head": "4d68b196433117ae6b59e32a724375227a20ed1e",
-        "before": "d31b0ea76d8334d5ba276add53ac6ab7da8df73d"
+        "action": "labeled",
+        "issue": {
+          "url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/75",
+          "repository_url": "https://api.github.com/repos/yjydist/supplyledger-lab",
+          "labels_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/75/labels{/name}",
+          "comments_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/75/comments",
+          "events_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/75/events",
+          "html_url": "https://github.com/yjydist/supplyledger-lab/issues/75",
+          "id": 5555327917,
+          "node_id": "I_kwDOUnh3Vs8AAAABSx-TrQ",
+          "number": 75,
+          "title": "[M9] 完成安全扫描、README 与能力答辩证据",
+          "user": {
+            "login": "yjydist",
+            "id": 149930809,
+            "node_id": "U_kgDOCO_DOQ",
+            "avatar_url": "https://avatars.githubusercontent.com/u/149930809?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/yjydist",
+            "html_url": "https://github.com/yjydist",
+            "followers_url": "https://api.github.com/users/yjydist/followers",
+            "following_url": "https://api.github.com/users/yjydist/following{/other_user}",
+            "gists_url": "https://api.github.com/users/yjydist/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/yjydist/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/yjydist/subscriptions",
+            "organizations_url": "https://api.github.com/users/yjydist/orgs",
+            "repos_url": "https://api.github.com/users/yjydist/repos",
+            "events_url": "https://api.github.com/users/yjydist/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/yjydist/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12329150345,
+              "node_id": "LA_kwDOUnh3Vs8AAAAC3t_niQ",
+              "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/type:verification",
+              "name": "type:verification",
+              "color": "0e8a16",
+              "default": false,
+              "description": "测试、复现与证据",
+              "archived_at": null,
+              "archived_by": null
+            },
+            {
+              "id": 12329153284,
+              "node_id": "LA_kwDOUnh3Vs8AAAAC3t_zBA",
+              "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/area:security",
+              "name": "area:security",
+              "color": "d93f0b",
+              "default": false,
+              "description": "安全边界与发布检查",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "open",
+          "locked": false,
+          "assignees": [],
+          "milestone": {
+            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/milestones/10",
+            "html_url": "https://github.com/yjydist/supplyledger-lab/milestone/10",
+            "labels_url": "https://api.github.com/repos/yjydist/supplyledger-lab/milestones/10/labels",
+            "id": 18024106,
+            "node_id": "MI_kwDOUnh3Vs4BEwaq",
+            "number": 10,
+            "title": "M9：故障与毕业验收",
+            "description": "范围：resilience、证书轮换/吊销、冷备份恢复、性能对照；交付：故障报告、恢复清单、性能原始数据、能力答辩、最终 README；出口：§§20–21 闭环；性能未达标明确标记；不冒充生产高可用。详见 SPEC.md §19。",
+            "creator": {
+              "login": "yjydist",
+              "id": 149930809,
+              "node_id": "U_kgDOCO_DOQ",
+              "avatar_url": "https://avatars.githubusercontent.com/u/149930809?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/yjydist",
+              "html_url": "https://github.com/yjydist",
+              "followers_url": "https://api.github.com/users/yjydist/followers",
+              "following_url": "https://api.github.com/users/yjydist/following{/other_user}",
+              "gists_url": "https://api.github.com/users/yjydist/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/yjydist/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/yjydist/subscriptions",
+              "organizations_url": "https://api.github.com/users/yjydist/orgs",
+              "repos_url": "https://api.github.com/users/yjydist/repos",
+              "events_url": "https://api.github.com/users/yjydist/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/yjydist/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "open_issues": 9,
+            "closed_issues": 0,
+            "state": "open",
+            "created_at": "2026-09-23T14:56:11Z",
+            "updated_at": "2026-09-23T15:02:34Z",
+            "due_on": null,
+            "closed_at": null
+          },
+          "comments": 0,
+          "created_at": "2026-09-23T15:02:33Z",
+          "updated_at": "2026-09-23T15:02:34Z",
+          "closed_at": null,
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "parent_issue_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/67",
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 任务\n\n检查仓库/构建上下文/镜像层/日志秘密，完成最终 README、运行手册、能力映射和 §21 答辩证据。\n\n## 验收\n\n- [ ] 扫描问题修复后重跑；README 第一屏包含 doctor、启动、验证、停止和 reset 删除范围；未测项不冒充完成。\n- [ ] 运行并记录验收测试：T-SEC-01。预期结果以 [SPEC.md](https://github.com/yjydist/supplyledger-lab/blob/main/SPEC.md) §20 为准。\n- [ ] 保存 §19.1 要求的脱敏证据；未执行项目标记 NOT RUN。\n\n## 追踪\n\n- 规格：[SPEC.md](https://github.com/yjydist/supplyledger-lab/blob/main/SPEC.md) §§17.2、20.6、21\n- 阶段：M9\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/75/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/75/timeline",
+          "performed_via_github_app": null,
+          "state_reason": null,
+          "pinned_comment": null
+        },
+        "label": {
+          "id": 12329153284,
+          "node_id": "LA_kwDOUnh3Vs8AAAAC3t_zBA",
+          "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/area:security",
+          "name": "area:security",
+          "color": "d93f0b",
+          "default": false,
+          "description": "安全边界与发布检查",
+          "archived_at": null,
+          "archived_by": null
+        },
+        "labels": [
+          {
+            "id": 12329150345,
+            "node_id": "LA_kwDOUnh3Vs8AAAAC3t_niQ",
+            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/type:verification",
+            "name": "type:verification",
+            "color": "0e8a16",
+            "default": false,
+            "description": "测试、复现与证据",
+            "archived_at": null,
+            "archived_by": null
+          },
+          {
+            "id": 12329153284,
+            "node_id": "LA_kwDOUnh3Vs8AAAAC3t_zBA",
+            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/area:security",
+            "name": "area:security",
+            "color": "d93f0b",
+            "default": false,
+            "description": "安全边界与发布检查",
+            "archived_at": null,
+            "archived_by": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "15595359848",
+      "type": "IssuesEvent",
+      "created_at": "2026-09-23T15:04:16Z",
+      "repo": {
+        "name": "yjydist/supplyledger-lab"
+      },
+      "payload": {
+        "action": "opened",
+        "issue": {
+          "url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/75",
+          "repository_url": "https://api.github.com/repos/yjydist/supplyledger-lab",
+          "labels_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/75/labels{/name}",
+          "comments_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/75/comments",
+          "events_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/75/events",
+          "html_url": "https://github.com/yjydist/supplyledger-lab/issues/75",
+          "id": 5555327917,
+          "node_id": "I_kwDOUnh3Vs8AAAABSx-TrQ",
+          "number": 75,
+          "title": "[M9] 完成安全扫描、README 与能力答辩证据",
+          "user": {
+            "login": "yjydist",
+            "id": 149930809,
+            "node_id": "U_kgDOCO_DOQ",
+            "avatar_url": "https://avatars.githubusercontent.com/u/149930809?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/yjydist",
+            "html_url": "https://github.com/yjydist",
+            "followers_url": "https://api.github.com/users/yjydist/followers",
+            "following_url": "https://api.github.com/users/yjydist/following{/other_user}",
+            "gists_url": "https://api.github.com/users/yjydist/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/yjydist/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/yjydist/subscriptions",
+            "organizations_url": "https://api.github.com/users/yjydist/orgs",
+            "repos_url": "https://api.github.com/users/yjydist/repos",
+            "events_url": "https://api.github.com/users/yjydist/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/yjydist/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12329150345,
+              "node_id": "LA_kwDOUnh3Vs8AAAAC3t_niQ",
+              "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/type:verification",
+              "name": "type:verification",
+              "color": "0e8a16",
+              "default": false,
+              "description": "测试、复现与证据",
+              "archived_at": null,
+              "archived_by": null
+            },
+            {
+              "id": 12329153284,
+              "node_id": "LA_kwDOUnh3Vs8AAAAC3t_zBA",
+              "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/area:security",
+              "name": "area:security",
+              "color": "d93f0b",
+              "default": false,
+              "description": "安全边界与发布检查",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "open",
+          "locked": false,
+          "assignees": [],
+          "milestone": {
+            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/milestones/10",
+            "html_url": "https://github.com/yjydist/supplyledger-lab/milestone/10",
+            "labels_url": "https://api.github.com/repos/yjydist/supplyledger-lab/milestones/10/labels",
+            "id": 18024106,
+            "node_id": "MI_kwDOUnh3Vs4BEwaq",
+            "number": 10,
+            "title": "M9：故障与毕业验收",
+            "description": "范围：resilience、证书轮换/吊销、冷备份恢复、性能对照；交付：故障报告、恢复清单、性能原始数据、能力答辩、最终 README；出口：§§20–21 闭环；性能未达标明确标记；不冒充生产高可用。详见 SPEC.md §19。",
+            "creator": {
+              "login": "yjydist",
+              "id": 149930809,
+              "node_id": "U_kgDOCO_DOQ",
+              "avatar_url": "https://avatars.githubusercontent.com/u/149930809?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/yjydist",
+              "html_url": "https://github.com/yjydist",
+              "followers_url": "https://api.github.com/users/yjydist/followers",
+              "following_url": "https://api.github.com/users/yjydist/following{/other_user}",
+              "gists_url": "https://api.github.com/users/yjydist/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/yjydist/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/yjydist/subscriptions",
+              "organizations_url": "https://api.github.com/users/yjydist/orgs",
+              "repos_url": "https://api.github.com/users/yjydist/repos",
+              "events_url": "https://api.github.com/users/yjydist/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/yjydist/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "open_issues": 9,
+            "closed_issues": 0,
+            "state": "open",
+            "created_at": "2026-09-23T14:56:11Z",
+            "updated_at": "2026-09-23T15:02:34Z",
+            "due_on": null,
+            "closed_at": null
+          },
+          "comments": 0,
+          "created_at": "2026-09-23T15:02:33Z",
+          "updated_at": "2026-09-23T15:02:34Z",
+          "closed_at": null,
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "parent_issue_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/67",
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 任务\n\n检查仓库/构建上下文/镜像层/日志秘密，完成最终 README、运行手册、能力映射和 §21 答辩证据。\n\n## 验收\n\n- [ ] 扫描问题修复后重跑；README 第一屏包含 doctor、启动、验证、停止和 reset 删除范围；未测项不冒充完成。\n- [ ] 运行并记录验收测试：T-SEC-01。预期结果以 [SPEC.md](https://github.com/yjydist/supplyledger-lab/blob/main/SPEC.md) §20 为准。\n- [ ] 保存 §19.1 要求的脱敏证据；未执行项目标记 NOT RUN。\n\n## 追踪\n\n- 规格：[SPEC.md](https://github.com/yjydist/supplyledger-lab/blob/main/SPEC.md) §§17.2、20.6、21\n- 阶段：M9\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/75/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/75/timeline",
+          "performed_via_github_app": null,
+          "state_reason": null,
+          "pinned_comment": null
+        }
+      }
+    },
+    {
+      "id": "15595254014",
+      "type": "IssuesEvent",
+      "created_at": "2026-09-23T15:02:56Z",
+      "repo": {
+        "name": "yjydist/supplyledger-lab"
+      },
+      "payload": {
+        "action": "labeled",
+        "issue": {
+          "url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/84",
+          "repository_url": "https://api.github.com/repos/yjydist/supplyledger-lab",
+          "labels_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/84/labels{/name}",
+          "comments_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/84/comments",
+          "events_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/84/events",
+          "html_url": "https://github.com/yjydist/supplyledger-lab/issues/84",
+          "id": 5555332547,
+          "node_id": "I_kwDOUnh3Vs8AAAABSx-lww",
+          "number": 84,
+          "title": "内核调用路径与最小贡献",
+          "user": {
+            "login": "yjydist",
+            "id": 149930809,
+            "node_id": "U_kgDOCO_DOQ",
+            "avatar_url": "https://avatars.githubusercontent.com/u/149930809?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/yjydist",
+            "html_url": "https://github.com/yjydist",
+            "followers_url": "https://api.github.com/users/yjydist/followers",
+            "following_url": "https://api.github.com/users/yjydist/following{/other_user}",
+            "gists_url": "https://api.github.com/users/yjydist/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/yjydist/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/yjydist/subscriptions",
+            "organizations_url": "https://api.github.com/users/yjydist/orgs",
+            "repos_url": "https://api.github.com/users/yjydist/repos",
+            "events_url": "https://api.github.com/users/yjydist/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/yjydist/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12329150694,
+              "node_id": "LA_kwDOUnh3Vs8AAAAC3t_o5g",
+              "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/type:experiment",
+              "name": "type:experiment",
+              "color": "c2e0c6",
+              "default": false,
+              "description": "独立进阶实验",
+              "archived_at": null,
+              "archived_by": null
+            },
+            {
+              "id": 12329150875,
+              "node_id": "LA_kwDOUnh3Vs8AAAAC3t_pmw",
+              "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/area:tooling",
+              "name": "area:tooling",
+              "color": "bfdadc",
+              "default": false,
+              "description": "工具链、构建与仓库入口",
+              "archived_at": null,
+              "archived_by": null
+            },
+            {
+              "id": 12329153506,
+              "node_id": "LA_kwDOUnh3Vs8AAAAC3t_z4g",
+              "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/scope:optional",
+              "name": "scope:optional",
+              "color": "eeeeee",
+              "default": false,
+              "description": "不阻塞 1.0 验收",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "open",
+          "locked": false,
+          "assignees": [],
+          "milestone": null,
+          "comments": 0,
+          "created_at": "2026-09-23T15:02:54Z",
+          "updated_at": "2026-09-23T15:02:54Z",
+          "closed_at": null,
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "parent_issue_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/76",
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 任务\n\n追踪成功/失败交易到源码，制作最小复现并补测试或修复。\n\n## 验收\n\n- [ ] 证明观察、定位、修改和结果之间的因果关系。\n- [ ] 保存 §19.1 要求的脱敏证据；未执行项目标记 NOT RUN。\n\n## 追踪\n\n- 规格：[SPEC.md](https://github.com/yjydist/supplyledger-lab/blob/main/SPEC.md) §22\n- 范围：§22 可选实验；不阻塞 1.0，不占用 M0–M9 里程碑\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/84/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/84/timeline",
+          "performed_via_github_app": null,
+          "state_reason": null,
+          "pinned_comment": null
+        },
+        "label": {
+          "id": 12329153506,
+          "node_id": "LA_kwDOUnh3Vs8AAAAC3t_z4g",
+          "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/scope:optional",
+          "name": "scope:optional",
+          "color": "eeeeee",
+          "default": false,
+          "description": "不阻塞 1.0 验收",
+          "archived_at": null,
+          "archived_by": null
+        },
+        "labels": [
+          {
+            "id": 12329150694,
+            "node_id": "LA_kwDOUnh3Vs8AAAAC3t_o5g",
+            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/type:experiment",
+            "name": "type:experiment",
+            "color": "c2e0c6",
+            "default": false,
+            "description": "独立进阶实验",
+            "archived_at": null,
+            "archived_by": null
+          },
+          {
+            "id": 12329150875,
+            "node_id": "LA_kwDOUnh3Vs8AAAAC3t_pmw",
+            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/area:tooling",
+            "name": "area:tooling",
+            "color": "bfdadc",
+            "default": false,
+            "description": "工具链、构建与仓库入口",
+            "archived_at": null,
+            "archived_by": null
+          },
+          {
+            "id": 12329153506,
+            "node_id": "LA_kwDOUnh3Vs8AAAAC3t_z4g",
+            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/scope:optional",
+            "name": "scope:optional",
+            "color": "eeeeee",
+            "default": false,
+            "description": "不阻塞 1.0 验收",
+            "archived_at": null,
+            "archived_by": null
+          }
+        ]
+      }
+    },
+    {
+      "id": "15595253835",
+      "type": "IssuesEvent",
+      "created_at": "2026-09-23T15:02:55Z",
+      "repo": {
+        "name": "yjydist/supplyledger-lab"
+      },
+      "payload": {
+        "action": "labeled",
+        "issue": {
+          "url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/84",
+          "repository_url": "https://api.github.com/repos/yjydist/supplyledger-lab",
+          "labels_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/84/labels{/name}",
+          "comments_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/84/comments",
+          "events_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/84/events",
+          "html_url": "https://github.com/yjydist/supplyledger-lab/issues/84",
+          "id": 5555332547,
+          "node_id": "I_kwDOUnh3Vs8AAAABSx-lww",
+          "number": 84,
+          "title": "内核调用路径与最小贡献",
+          "user": {
+            "login": "yjydist",
+            "id": 149930809,
+            "node_id": "U_kgDOCO_DOQ",
+            "avatar_url": "https://avatars.githubusercontent.com/u/149930809?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/yjydist",
+            "html_url": "https://github.com/yjydist",
+            "followers_url": "https://api.github.com/users/yjydist/followers",
+            "following_url": "https://api.github.com/users/yjydist/following{/other_user}",
+            "gists_url": "https://api.github.com/users/yjydist/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/yjydist/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/yjydist/subscriptions",
+            "organizations_url": "https://api.github.com/users/yjydist/orgs",
+            "repos_url": "https://api.github.com/users/yjydist/repos",
+            "events_url": "https://api.github.com/users/yjydist/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/yjydist/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12329150694,
+              "node_id": "LA_kwDOUnh3Vs8AAAAC3t_o5g",
+              "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/type:experiment",
+              "name": "type:experiment",
+              "color": "c2e0c6",
+              "default": false,
+              "description": "独立进阶实验",
+              "archived_at": null,
+              "archived_by": null
+            },
+            {
+              "id": 12329150875,
+              "node_id": "LA_kwDOUnh3Vs8AAAAC3t_pmw",
+              "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/area:tooling",
+              "name": "area:tooling",
+              "color": "bfdadc",
+              "default": false,
+              "description": "工具链、构建与仓库入口",
+              "archived_at": null,
+              "archived_by": null
+            },
+            {
+              "id": 12329153506,
+              "node_id": "LA_kwDOUnh3Vs8AAAAC3t_z4g",
+              "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/scope:optional",
+              "name": "scope:optional",
+              "color": "eeeeee",
+              "default": false,
+              "description": "不阻塞 1.0 验收",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "open",
+          "locked": false,
+          "assignees": [],
+          "milestone": null,
+          "comments": 0,
+          "created_at": "2026-09-23T15:02:54Z",
+          "updated_at": "2026-09-23T15:02:54Z",
+          "closed_at": null,
+          "assignee": null,
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "parent_issue_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/76",
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 任务\n\n追踪成功/失败交易到源码，制作最小复现并补测试或修复。\n\n## 验收\n\n- [ ] 证明观察、定位、修改和结果之间的因果关系。\n- [ ] 保存 §19.1 要求的脱敏证据；未执行项目标记 NOT RUN。\n\n## 追踪\n\n- 规格：[SPEC.md](https://github.com/yjydist/supplyledger-lab/blob/main/SPEC.md) §22\n- 范围：§22 可选实验；不阻塞 1.0，不占用 M0–M9 里程碑\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/84/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/84/timeline",
+          "performed_via_github_app": null,
+          "state_reason": null,
+          "pinned_comment": null
+        },
+        "label": {
+          "id": 12329153506,
+          "node_id": "LA_kwDOUnh3Vs8AAAAC3t_z4g",
+          "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/scope:optional",
+          "name": "scope:optional",
+          "color": "eeeeee",
+          "default": false,
+          "description": "不阻塞 1.0 验收",
+          "archived_at": null,
+          "archived_by": null
+        },
+        "labels": [
+          {
+            "id": 12329150694,
+            "node_id": "LA_kwDOUnh3Vs8AAAAC3t_o5g",
+            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/type:experiment",
+            "name": "type:experiment",
+            "color": "c2e0c6",
+            "default": false,
+            "description": "独立进阶实验",
+            "archived_at": null,
+            "archived_by": null
+          },
+          {
+            "id": 12329150875,
+            "node_id": "LA_kwDOUnh3Vs8AAAAC3t_pmw",
+            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/area:tooling",
+            "name": "area:tooling",
+            "color": "bfdadc",
+            "default": false,
+            "description": "工具链、构建与仓库入口",
+            "archived_at": null,
+            "archived_by": null
+          },
+          {
+            "id": 12329153506,
+            "node_id": "LA_kwDOUnh3Vs8AAAAC3t_z4g",
+            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/scope:optional",
+            "name": "scope:optional",
+            "color": "eeeeee",
+            "default": false,
+            "description": "不阻塞 1.0 验收",
+            "archived_at": null,
+            "archived_by": null
+          }
+        ]
       }
     }
   ],
@@ -950,7 +1717,7 @@
     {
       "date": "2026-03-09",
       "count": 19,
-      "level": 2
+      "level": 1
     },
     {
       "date": "2026-03-10",
@@ -1775,7 +2542,7 @@
     {
       "date": "2026-08-21",
       "count": 41,
-      "level": 3
+      "level": 2
     },
     {
       "date": "2026-08-22",
@@ -1800,12 +2567,12 @@
     {
       "date": "2026-08-26",
       "count": 19,
-      "level": 2
+      "level": 1
     },
     {
       "date": "2026-08-27",
       "count": 21,
-      "level": 2
+      "level": 1
     },
     {
       "date": "2026-08-28",
@@ -1840,7 +2607,7 @@
     {
       "date": "2026-09-03",
       "count": 37,
-      "level": 3
+      "level": 2
     },
     {
       "date": "2026-09-04",
@@ -1939,8 +2706,8 @@
     },
     {
       "date": "2026-09-23",
-      "count": 0,
-      "level": 0
+      "count": 87,
+      "level": 4
     }
   ]
 }
