@@ -23,214 +23,70 @@
   },
   "events": [
     {
-      "id": "22063172399",
+      "id": "22160373668",
       "type": "PushEvent",
-      "created_at": "2026-09-24T14:21:58Z",
+      "created_at": "2026-09-25T16:59:09Z",
       "repo": {
         "name": "yjydist/supplyledger-lab"
       },
       "payload": {
         "repository_id": 1383626582,
-        "push_id": 44471501698,
+        "push_id": 44585386662,
         "ref": "refs/heads/main",
-        "head": "6526f79c93e50181b5c55ae19f1f1c7497a72f1f",
-        "before": "1e3d99cd991053e575c817db6dae0f3e50221297"
+        "head": "0aa5c14966eb1d176377b4300f90855cd61c1105",
+        "before": "47923ccb36c5726e658240a097d6645e81d3d3cc"
       }
     },
     {
-      "id": "22060339622",
+      "id": "22159747211",
       "type": "PushEvent",
-      "created_at": "2026-09-24T13:02:20Z",
+      "created_at": "2026-09-25T16:50:55Z",
       "repo": {
         "name": "yjydist/supplyledger-lab"
       },
       "payload": {
         "repository_id": 1383626582,
-        "push_id": 44464157925,
+        "push_id": 44584727489,
         "ref": "refs/heads/main",
-        "head": "1e3d99cd991053e575c817db6dae0f3e50221297",
-        "before": "d27e0791a76259f9fdd15b27d9d45883432da203"
+        "head": "47923ccb36c5726e658240a097d6645e81d3d3cc",
+        "before": "308d0ad6c4c98a0c4d0cf969551a7ef32da48ef2"
       }
     },
     {
-      "id": "22054417013",
+      "id": "22156546730",
       "type": "PushEvent",
-      "created_at": "2026-09-24T10:12:39Z",
+      "created_at": "2026-09-25T16:08:00Z",
       "repo": {
         "name": "yjydist/supplyledger-lab"
       },
       "payload": {
         "repository_id": 1383626582,
-        "push_id": 44450603011,
+        "push_id": 44581268760,
         "ref": "refs/heads/main",
-        "head": "5e7b0b38774b7c3f7b8dfe835cf1fdcfee32139e",
-        "before": "a56565cd5d8909596709ea37aa850a55ae5d26f3"
+        "head": "22af10ed8dde301fc77b38aa437e5db844d07168",
+        "before": "28c6c8ac06ee0178ee9a957b4179160890dd37a6"
       }
     },
     {
-      "id": "15677609898",
-      "type": "IssuesEvent",
-      "created_at": "2026-09-24T14:27:53Z",
-      "repo": {
-        "name": "yjydist/supplyledger-lab"
-      },
-      "payload": {
-        "action": "closed",
-        "issue": {
-          "url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/10",
-          "repository_url": "https://api.github.com/repos/yjydist/supplyledger-lab",
-          "labels_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/10/labels{/name}",
-          "comments_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/10/comments",
-          "events_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/10/events",
-          "html_url": "https://github.com/yjydist/supplyledger-lab/issues/10",
-          "id": 5555253700,
-          "node_id": "I_kwDOUnh3Vs8AAAABSx5xxA",
-          "number": 10,
-          "title": "[M1] 手工注册并签发节点、管理员和业务身份",
-          "user": {
-            "login": "yjydist",
-            "id": 149930809,
-            "node_id": "U_kgDOCO_DOQ",
-            "avatar_url": "https://avatars.githubusercontent.com/u/149930809?v=4",
-            "gravatar_id": "",
-            "url": "https://api.github.com/users/yjydist",
-            "html_url": "https://github.com/yjydist",
-            "followers_url": "https://api.github.com/users/yjydist/followers",
-            "following_url": "https://api.github.com/users/yjydist/following{/other_user}",
-            "gists_url": "https://api.github.com/users/yjydist/gists{/gist_id}",
-            "starred_url": "https://api.github.com/users/yjydist/starred{/owner}{/repo}",
-            "subscriptions_url": "https://api.github.com/users/yjydist/subscriptions",
-            "organizations_url": "https://api.github.com/users/yjydist/orgs",
-            "repos_url": "https://api.github.com/users/yjydist/repos",
-            "events_url": "https://api.github.com/users/yjydist/events{/privacy}",
-            "received_events_url": "https://api.github.com/users/yjydist/received_events",
-            "type": "User",
-            "user_view_type": "public",
-            "site_admin": false
-          },
-          "labels": [
-            {
-              "id": 12329150130,
-              "node_id": "LA_kwDOUnh3Vs8AAAAC3t_msg",
-              "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/type:task",
-              "name": "type:task",
-              "color": "1d76db",
-              "default": false,
-              "description": "需要实现的可验收交付",
-              "archived_at": null,
-              "archived_by": null
-            },
-            {
-              "id": 12329151066,
-              "node_id": "LA_kwDOUnh3Vs8AAAAC3t_qWg",
-              "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/area:identity",
-              "name": "area:identity",
-              "color": "f9d0c4",
-              "default": false,
-              "description": "CA、MSP、身份与 TLS",
-              "archived_at": null,
-              "archived_by": null
-            }
-          ],
-          "state": "closed",
-          "locked": false,
-          "assignees": [],
-          "milestone": {
-            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/milestones/2",
-            "html_url": "https://github.com/yjydist/supplyledger-lab/milestone/2",
-            "labels_url": "https://api.github.com/repos/yjydist/supplyledger-lab/milestones/2/labels",
-            "id": 18024095,
-            "node_id": "MI_kwDOUnh3Vs4BEwaf",
-            "number": 2,
-            "title": "M1：身份与信任",
-            "description": "范围：分组织建立 Enrollment / TLS CA、专用 Orderer 管理客户端 TLS CA，签发 admin、节点与用户；交付：CA YAML、证书清单、本地/通道 MSP、手工 register/enroll 记录；出口：证书用途和 SAN 正确；私钥未进入公共 MSP 或 Git；能解释信任关系。详见 SPEC.md §19。",
-            "creator": {
-              "login": "yjydist",
-              "id": 149930809,
-              "node_id": "U_kgDOCO_DOQ",
-              "avatar_url": "https://avatars.githubusercontent.com/u/149930809?v=4",
-              "gravatar_id": "",
-              "url": "https://api.github.com/users/yjydist",
-              "html_url": "https://github.com/yjydist",
-              "followers_url": "https://api.github.com/users/yjydist/followers",
-              "following_url": "https://api.github.com/users/yjydist/following{/other_user}",
-              "gists_url": "https://api.github.com/users/yjydist/gists{/gist_id}",
-              "starred_url": "https://api.github.com/users/yjydist/starred{/owner}{/repo}",
-              "subscriptions_url": "https://api.github.com/users/yjydist/subscriptions",
-              "organizations_url": "https://api.github.com/users/yjydist/orgs",
-              "repos_url": "https://api.github.com/users/yjydist/repos",
-              "events_url": "https://api.github.com/users/yjydist/events{/privacy}",
-              "received_events_url": "https://api.github.com/users/yjydist/received_events",
-              "type": "User",
-              "user_view_type": "public",
-              "site_admin": false
-            },
-            "open_issues": 4,
-            "closed_issues": 2,
-            "state": "open",
-            "created_at": "2026-09-23T14:56:05Z",
-            "updated_at": "2026-09-24T14:27:53Z",
-            "due_on": null,
-            "closed_at": null
-          },
-          "comments": 1,
-          "created_at": "2026-09-23T14:56:38Z",
-          "updated_at": "2026-09-24T14:27:53Z",
-          "closed_at": "2026-09-24T14:27:53Z",
-          "assignee": null,
-          "active_lock_reason": null,
-          "sub_issues_summary": {
-            "total": 0,
-            "completed": 0,
-            "percent_completed": 0
-          },
-          "parent_issue_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/8",
-          "issue_dependencies_summary": {
-            "blocked_by": 0,
-            "total_blocked_by": 0,
-            "blocking": 0,
-            "total_blocking": 0
-          },
-          "body": "## 任务\n\n首次用原生 fabric-ca-client 逐条 register/enroll；签发 operator、quality、无业务属性 client、admin 和节点身份。\n\n## 验收\n\n- [x] 初始组织 ECert 含受信 supply.userId/supply.role；业务身份与 registrar/admin/TLS 身份分开；留脱敏命令记录。\n- [x] 记录 T-ID-01 的 M1 CA 侧身份检查及完整测试状态：operator/quality 证书检查 PASS；含 auditor 和真实 MSP/应用签名路径的完整 T-ID-01 为 NOT RUN，明确交由 M8 子 issue #87 完成。\n- [x] 保存 §19.1 要求的脱敏证据；未执行项目标记 NOT RUN。\n\n## 追踪\n\n- 规格：[SPEC.md](https://github.com/yjydist/supplyledger-lab/blob/main/SPEC.md) §§4.1、4.3、19.2\n- 完整 T-ID-01：[M8 #87](https://github.com/yjydist/supplyledger-lab/issues/87)；AuditMSP 在 #64 接入。\n- 阶段：M1\n",
-          "reactions": {
-            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/10/reactions",
-            "total_count": 0,
-            "+1": 0,
-            "-1": 0,
-            "laugh": 0,
-            "hooray": 0,
-            "confused": 0,
-            "heart": 0,
-            "rocket": 0,
-            "eyes": 0
-          },
-          "timeline_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/10/timeline",
-          "performed_via_github_app": null,
-          "state_reason": "completed",
-          "pinned_comment": null
-        }
-      }
-    },
-    {
-      "id": "15677593595",
+      "id": "15760580532",
       "type": "IssueCommentEvent",
-      "created_at": "2026-09-24T14:27:40Z",
+      "created_at": "2026-09-25T14:50:40Z",
       "repo": {
         "name": "yjydist/supplyledger-lab"
       },
       "payload": {
         "action": "created",
         "issue": {
-          "url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/10",
+          "url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/16",
           "repository_url": "https://api.github.com/repos/yjydist/supplyledger-lab",
-          "labels_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/10/labels{/name}",
-          "comments_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/10/comments",
-          "events_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/10/events",
-          "html_url": "https://github.com/yjydist/supplyledger-lab/issues/10",
-          "id": 5555253700,
-          "node_id": "I_kwDOUnh3Vs8AAAABSx5xxA",
-          "number": 10,
-          "title": "[M1] 手工注册并签发节点、管理员和业务身份",
+          "labels_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/16/labels{/name}",
+          "comments_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/16/comments",
+          "events_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/16/events",
+          "html_url": "https://github.com/yjydist/supplyledger-lab/issues/16",
+          "id": 5555257130,
+          "node_id": "I_kwDOUnh3Vs8AAAABSx5_Kg",
+          "number": 16,
+          "title": "[M2] 编写 Peer/Orderer 配置与节点级 readiness",
           "user": {
             "login": "yjydist",
             "id": 149930809,
@@ -265,30 +121,21 @@
               "archived_by": null
             },
             {
-              "id": 12329151066,
-              "node_id": "LA_kwDOUnh3Vs8AAAAC3t_qWg",
-              "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/area:identity",
-              "name": "area:identity",
-              "color": "f9d0c4",
+              "id": 12329151298,
+              "node_id": "LA_kwDOUnh3Vs8AAAAC3t_rQg",
+              "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/area:network",
+              "name": "area:network",
+              "color": "d4c5f9",
               "default": false,
-              "description": "CA、MSP、身份与 TLS",
+              "description": "Fabric 网络、通道与 Compose",
               "archived_at": null,
               "archived_by": null
             }
           ],
-          "state": "closed",
+          "state": "open",
           "locked": false,
-          "assignees": [],
-          "milestone": {
-            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/milestones/2",
-            "html_url": "https://github.com/yjydist/supplyledger-lab/milestone/2",
-            "labels_url": "https://api.github.com/repos/yjydist/supplyledger-lab/milestones/2/labels",
-            "id": 18024095,
-            "node_id": "MI_kwDOUnh3Vs4BEwaf",
-            "number": 2,
-            "title": "M1：身份与信任",
-            "description": "范围：分组织建立 Enrollment / TLS CA、专用 Orderer 管理客户端 TLS CA，签发 admin、节点与用户；交付：CA YAML、证书清单、本地/通道 MSP、手工 register/enroll 记录；出口：证书用途和 SAN 正确；私钥未进入公共 MSP 或 Git；能解释信任关系。详见 SPEC.md §19。",
-            "creator": {
+          "assignees": [
+            {
               "login": "yjydist",
               "id": 149930809,
               "node_id": "U_kgDOCO_DOQ",
@@ -308,187 +155,17 @@
               "type": "User",
               "user_view_type": "public",
               "site_admin": false
-            },
-            "open_issues": 4,
-            "closed_issues": 2,
-            "state": "open",
-            "created_at": "2026-09-23T14:56:05Z",
-            "updated_at": "2026-09-24T14:27:53Z",
-            "due_on": null,
-            "closed_at": null
-          },
-          "comments": 1,
-          "created_at": "2026-09-23T14:56:38Z",
-          "updated_at": "2026-09-24T14:27:53Z",
-          "closed_at": "2026-09-24T14:27:53Z",
-          "assignee": null,
-          "active_lock_reason": null,
-          "sub_issues_summary": {
-            "total": 0,
-            "completed": 0,
-            "percent_completed": 0
-          },
-          "parent_issue_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/8",
-          "issue_dependencies_summary": {
-            "blocked_by": 0,
-            "total_blocked_by": 0,
-            "blocking": 0,
-            "total_blocking": 0
-          },
-          "body": "## 任务\n\n首次用原生 fabric-ca-client 逐条 register/enroll；签发 operator、quality、无业务属性 client、admin 和节点身份。\n\n## 验收\n\n- [x] 初始组织 ECert 含受信 supply.userId/supply.role；业务身份与 registrar/admin/TLS 身份分开；留脱敏命令记录。\n- [x] 记录 T-ID-01 的 M1 CA 侧身份检查及完整测试状态：operator/quality 证书检查 PASS；含 auditor 和真实 MSP/应用签名路径的完整 T-ID-01 为 NOT RUN，明确交由 M8 子 issue #87 完成。\n- [x] 保存 §19.1 要求的脱敏证据；未执行项目标记 NOT RUN。\n\n## 追踪\n\n- 规格：[SPEC.md](https://github.com/yjydist/supplyledger-lab/blob/main/SPEC.md) §§4.1、4.3、19.2\n- 完整 T-ID-01：[M8 #87](https://github.com/yjydist/supplyledger-lab/issues/87)；AuditMSP 在 #64 接入。\n- 阶段：M1\n",
-          "reactions": {
-            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/10/reactions",
-            "total_count": 0,
-            "+1": 0,
-            "-1": 0,
-            "laugh": 0,
-            "hooray": 0,
-            "confused": 0,
-            "heart": 0,
-            "rocket": 0,
-            "eyes": 0
-          },
-          "timeline_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/10/timeline",
-          "performed_via_github_app": null,
-          "state_reason": "completed",
-          "pinned_comment": null
-        },
-        "comment": {
-          "url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/comments/5816080074",
-          "html_url": "https://github.com/yjydist/supplyledger-lab/issues/10#issuecomment-5816080074",
-          "issue_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/10",
-          "id": 5816080074,
-          "node_id": "IC_kwDOUnh3Vs8AAAABWqpWyg",
-          "user": {
-            "login": "yjydist",
-            "id": 149930809,
-            "node_id": "U_kgDOCO_DOQ",
-            "avatar_url": "https://avatars.githubusercontent.com/u/149930809?v=4",
-            "gravatar_id": "",
-            "url": "https://api.github.com/users/yjydist",
-            "html_url": "https://github.com/yjydist",
-            "followers_url": "https://api.github.com/users/yjydist/followers",
-            "following_url": "https://api.github.com/users/yjydist/following{/other_user}",
-            "gists_url": "https://api.github.com/users/yjydist/gists{/gist_id}",
-            "starred_url": "https://api.github.com/users/yjydist/starred{/owner}{/repo}",
-            "subscriptions_url": "https://api.github.com/users/yjydist/subscriptions",
-            "organizations_url": "https://api.github.com/users/yjydist/orgs",
-            "repos_url": "https://api.github.com/users/yjydist/repos",
-            "events_url": "https://api.github.com/users/yjydist/events{/privacy}",
-            "received_events_url": "https://api.github.com/users/yjydist/received_events",
-            "type": "User",
-            "user_view_type": "public",
-            "site_admin": false
-          },
-          "created_at": "2026-09-24T14:27:40Z",
-          "updated_at": "2026-09-24T14:27:40Z",
-          "body": "M1 issue #10 的 CA 签发范围已完成，独立 issue 级 code review 通过。常规提交：`6526f79c93e50181b5c55ae19f1f1c7497a72f1f`；`versions.lock.yaml` SHA-256：`422fba14294aaf9f0c40862fcd112ed3d2ed664cd5294c7bfe0aa14477fa234b`。\n\n在保留 #9 九个 CA 根/卷的前提下，逐条运行四个 registrar enroll 和 27 个新身份的 register/enroll，共 58 条原生客户端命令，全部退出 0。Seller/Buyer 的 operator、quality 和 Carrier operator 共五张 ECert 含预期受信 `supply.userId`、`supply.role`；其余 36 张本地身份无 `supply.*`。三台 Orderer 各有独立 ECert、节点 TLS 和管理服务端 TLS；osnadmin 客户端证书仅由专用 Orderer 管理 TLS CA 签发。41 张本地证书的可再生成公开元数据、逐条脱敏命令/日志索引、根/私钥/证书匹配与权限检查在 `evidence/m1/issue-10.md`、`issue-10-certificates.csv` 和 runbook 中。\n\n提交后 `python3 -B scripts/inspect-local-certs.py` 与已提交 CSV 逐字节一致；`make ca-config`、`shellcheck scripts/*.sh`、跟踪秘密路径/私钥标记/样例依赖/子模块扫描均 PASS。两次 `make verify-m0` 均在下载固定 Go 依赖时因 `proxy.golang.org` 的 `unexpected EOF` 退出非零，因此本次不能声称它 PASS；前置锁、镜像、CLI 与模块哈希检查已通过，#10 相关检查单独通过。未改 Go 代码或模块锁。\n\n完整 T-ID-01 因 M8 Audit auditor 及真实 MSP/应用签名路径尚不存在而 NOT RUN，已显式移交 [M8 #87](https://github.com/yjydist/supplyledger-lab/issues/87)；非通道身份的 T-ID-02 反测由 M4 #29 承担。#10 未创建通道或交易，genesisHash、txId、区块高度、验证码均 NOT RUN。原生 secret 在短暂容器进程参数中的宿主管理员可见边界已记录。原 issue 的 T-ID-01 验收文字已公开拆分为 M1 CA 侧已执行部分与 #87 待完成部分，没有把完整测试标为 PASS。\n",
-          "pin": null,
-          "reactions": {
-            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/comments/5816080074/reactions",
-            "total_count": 0,
-            "+1": 0,
-            "-1": 0,
-            "laugh": 0,
-            "hooray": 0,
-            "confused": 0,
-            "heart": 0,
-            "rocket": 0,
-            "eyes": 0
-          },
-          "performed_via_github_app": null,
-          "minimized": null
-        }
-      }
-    },
-    {
-      "id": "15677350216",
-      "type": "IssuesEvent",
-      "created_at": "2026-09-24T14:24:46Z",
-      "repo": {
-        "name": "yjydist/supplyledger-lab"
-      },
-      "payload": {
-        "action": "opened",
-        "issue": {
-          "url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/87",
-          "repository_url": "https://api.github.com/repos/yjydist/supplyledger-lab",
-          "labels_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/87/labels{/name}",
-          "comments_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/87/comments",
-          "events_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/87/events",
-          "html_url": "https://github.com/yjydist/supplyledger-lab/issues/87",
-          "id": 5569824949,
-          "node_id": "I_kwDOUnh3Vs8AAAABS_zItQ",
-          "number": 87,
-          "title": "[M8] 在 Audit 接入后完成完整 T-ID-01 身份来源验收",
-          "user": {
-            "login": "yjydist",
-            "id": 149930809,
-            "node_id": "U_kgDOCO_DOQ",
-            "avatar_url": "https://avatars.githubusercontent.com/u/149930809?v=4",
-            "gravatar_id": "",
-            "url": "https://api.github.com/users/yjydist",
-            "html_url": "https://github.com/yjydist",
-            "followers_url": "https://api.github.com/users/yjydist/followers",
-            "following_url": "https://api.github.com/users/yjydist/following{/other_user}",
-            "gists_url": "https://api.github.com/users/yjydist/gists{/gist_id}",
-            "starred_url": "https://api.github.com/users/yjydist/starred{/owner}{/repo}",
-            "subscriptions_url": "https://api.github.com/users/yjydist/subscriptions",
-            "organizations_url": "https://api.github.com/users/yjydist/orgs",
-            "repos_url": "https://api.github.com/users/yjydist/repos",
-            "events_url": "https://api.github.com/users/yjydist/events{/privacy}",
-            "received_events_url": "https://api.github.com/users/yjydist/received_events",
-            "type": "User",
-            "user_view_type": "public",
-            "site_admin": false
-          },
-          "labels": [
-            {
-              "id": 12329150345,
-              "node_id": "LA_kwDOUnh3Vs8AAAAC3t_niQ",
-              "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/type:verification",
-              "name": "type:verification",
-              "color": "0e8a16",
-              "default": false,
-              "description": "测试、复现与证据",
-              "archived_at": null,
-              "archived_by": null
-            },
-            {
-              "id": 12329151066,
-              "node_id": "LA_kwDOUnh3Vs8AAAAC3t_qWg",
-              "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/area:identity",
-              "name": "area:identity",
-              "color": "f9d0c4",
-              "default": false,
-              "description": "CA、MSP、身份与 TLS",
-              "archived_at": null,
-              "archived_by": null
-            },
-            {
-              "id": 12329153284,
-              "node_id": "LA_kwDOUnh3Vs8AAAAC3t_zBA",
-              "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/area:security",
-              "name": "area:security",
-              "color": "d93f0b",
-              "default": false,
-              "description": "安全边界与发布检查",
-              "archived_at": null,
-              "archived_by": null
             }
           ],
-          "state": "open",
-          "locked": false,
-          "assignees": [],
           "milestone": {
-            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/milestones/9",
-            "html_url": "https://github.com/yjydist/supplyledger-lab/milestone/9",
-            "labels_url": "https://api.github.com/repos/yjydist/supplyledger-lab/milestones/9/labels",
-            "id": 18024104,
-            "node_id": "MI_kwDOUnh3Vs4BEwao",
-            "number": 9,
-            "title": "M8：维护与新组织",
-            "description": "范围：在原网络升级 1.1.0、sequence=S+1，并加入 AuditMSP；交付：升级前后证据、schema 兼容测试、配置差异与签名、审计只读测试；出口：genesisHash 不变；旧数据可读；审计可读公共历史、不可读价格或写业务。详见 SPEC.md §19。",
+            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/milestones/3",
+            "html_url": "https://github.com/yjydist/supplyledger-lab/milestone/3",
+            "labels_url": "https://api.github.com/repos/yjydist/supplyledger-lab/milestones/3/labels",
+            "id": 18024097,
+            "node_id": "MI_kwDOUnh3Vs4BEwah",
+            "number": 3,
+            "title": "M2：从零组网",
+            "description": "范围：三节点 Raft、三个组织 Peer/CouchDB、应用通道与锚节点；交付：自写配置/Compose、初始区块、osnadmin/peer join 记录、配置解码报告；出口：三组织同高度区块哈希一致；停一台排序节点仍可推进测试配置交易。详见 SPEC.md §19。",
             "creator": {
               "login": "yjydist",
               "id": 149930809,
@@ -511,34 +188,54 @@
               "site_admin": false
             },
             "open_issues": 7,
-            "closed_issues": 0,
+            "closed_issues": 1,
             "state": "open",
-            "created_at": "2026-09-23T14:56:10Z",
-            "updated_at": "2026-09-24T14:24:43Z",
+            "created_at": "2026-09-23T14:56:06Z",
+            "updated_at": "2026-09-25T13:26:32Z",
             "due_on": null,
             "closed_at": null
           },
-          "comments": 0,
-          "created_at": "2026-09-24T14:24:43Z",
-          "updated_at": "2026-09-24T14:24:43Z",
+          "comments": 4,
+          "created_at": "2026-09-23T14:56:54Z",
+          "updated_at": "2026-09-25T14:50:40Z",
           "closed_at": null,
-          "assignee": null,
+          "assignee": {
+            "login": "yjydist",
+            "id": 149930809,
+            "node_id": "U_kgDOCO_DOQ",
+            "avatar_url": "https://avatars.githubusercontent.com/u/149930809?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/yjydist",
+            "html_url": "https://github.com/yjydist",
+            "followers_url": "https://api.github.com/users/yjydist/followers",
+            "following_url": "https://api.github.com/users/yjydist/following{/other_user}",
+            "gists_url": "https://api.github.com/users/yjydist/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/yjydist/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/yjydist/subscriptions",
+            "organizations_url": "https://api.github.com/users/yjydist/orgs",
+            "repos_url": "https://api.github.com/users/yjydist/repos",
+            "events_url": "https://api.github.com/users/yjydist/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/yjydist/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
           "active_lock_reason": null,
           "sub_issues_summary": {
             "total": 0,
             "completed": 0,
             "percent_completed": 0
           },
-          "parent_issue_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/61",
+          "parent_issue_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/14",
           "issue_dependencies_summary": {
             "blocked_by": 0,
             "total_blocked_by": 0,
             "blocking": 0,
             "total_blocking": 0
           },
-          "body": "## 任务\n\n在 AuditMSP 于原网络接入后，完成 `SPEC.md` §20.1 的完整 T-ID-01。M1 #10 已逐条签发并核验初始组织 operator/quality ECert，但当时没有 Audit auditor、通道 MSP、链码或应用签名路径，故完整测试严格标记 NOT RUN。\n\n## 验收\n\n- [ ] 对 Seller/Buyer 的 operator、quality 和 Audit 的 auditor 使用真实签名身份，核对 MSP、稳定 `supply.userId`、`supply.role` 与 Fabric CA 签发记录一致；Carrier operator 也纳入可用范围。\n- [ ] 在真实 Peer/通道及应用或 CLI 路径上验证身份来自受信 ECert，而非请求 JSON/Header/钱包参数的自称；记录实际通过或拒绝阶段、有效提交状态与相关 txId/区块高度/验证码（仅当真实存在）。\n- [ ] 按 §19.1 保存脱敏准备数据、命令、预期/实际、源码 commit、版本锁摘要、Compose 档位、genesisHash 和 PASS/FAIL 判定；不把 M1 的离线证书核验充作完整测试。\n\n## 追踪\n\n- 规格：`SPEC.md` §§4.1、9、19.1、20.1（T-ID-01）\n- 来源：M1 #10 的阶段依赖；Audit CA/MSP 在 M8 #64 接入，审计业务行为由 #66 验证。\n",
+          "body": "## 任务\n\n自写 core.yaml、orderer.yaml，配置 MSP、TLS、gossip、CouchDB、Gateway、账本、指标和 participation API。\n\n## 验收\n\n- [ ] 节点健康与通道/链码 readiness 分开；启动依赖不冒充网络已可写。\n- [ ] 在 M2 节点配置就绪并按原生步骤启动后，运行并记录完整 T-NET-02：同时核对渲染后的 Compose、仓库/构建上下文和真实 Peer、Orderer、CouchDB（以及现存 CA）容器的 `docker inspect`；证明无 docker.sock、无跨组织私钥挂载、Peer/CA/DB 管理端口不暴露公网、每 Peer 有独立状态卷。保留脱敏的命令、实际挂载/端口/卷结果和判定；节点未运行前只能标记 NOT RUN。\n- [ ] 保存 §19.1 要求的脱敏证据；未执行项目标记 NOT RUN。\n\n- [ ] 三份 orderer.yaml 的 Admin.TLS.Enabled=true、ClientAuthRequired=true，ClientRootCAs 只包含已测量的 orderer-admin-tls-ca 根；管理端服务证书/私钥由普通 orderer-tls-ca 签发且匹配。\n- [ ] Peer/Orderer TLS 端点的信任根与访问 DNS/SAN 一致；三 Orderer 的 Raft 双向 TLS 客户端/服务端证书与通道配置中的 consenter 证书字节一致。不得以关闭验证修复证书错误。\n\n## 追踪\n\n- 规格：[SPEC.md](https://github.com/yjydist/supplyledger-lab/blob/main/SPEC.md) §§5.2–5.3、16.1\n- 阶段：M2\n- 关联：#12 的 M1 静态信任矩阵；#15 的 M2 静态拓扑和转入本 issue 的真实 `docker inspect`/T-NET-02；本 issue 实施 Peer、Orderer 和 Raft 的节点配置。\n",
           "reactions": {
-            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/87/reactions",
+            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/16/reactions",
             "total_count": 0,
             "+1": 0,
             "-1": 0,
@@ -549,10 +246,303 @@
             "rocket": 0,
             "eyes": 0
           },
-          "timeline_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/87/timeline",
+          "timeline_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/16/timeline",
           "performed_via_github_app": null,
           "state_reason": null,
           "pinned_comment": null
+        },
+        "comment": {
+          "url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/comments/5834405122",
+          "html_url": "https://github.com/yjydist/supplyledger-lab/issues/16#issuecomment-5834405122",
+          "issue_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/16",
+          "id": 5834405122,
+          "node_id": "IC_kwDOUnh3Vs8AAAABW8H1Ag",
+          "user": {
+            "login": "yjydist",
+            "id": 149930809,
+            "node_id": "U_kgDOCO_DOQ",
+            "avatar_url": "https://avatars.githubusercontent.com/u/149930809?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/yjydist",
+            "html_url": "https://github.com/yjydist",
+            "followers_url": "https://api.github.com/users/yjydist/followers",
+            "following_url": "https://api.github.com/users/yjydist/following{/other_user}",
+            "gists_url": "https://api.github.com/users/yjydist/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/yjydist/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/yjydist/subscriptions",
+            "organizations_url": "https://api.github.com/users/yjydist/orgs",
+            "repos_url": "https://api.github.com/users/yjydist/repos",
+            "events_url": "https://api.github.com/users/yjydist/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/yjydist/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "created_at": "2026-09-25T14:50:40Z",
+          "updated_at": "2026-09-25T14:50:40Z",
+          "body": "The reviewed Orderer join request-size fix is on main at [`be13906`](https://github.com/yjydist/supplyledger-lab/commit/be1390687f3dbc02f3f0c9e7407aa4ea4668a1a7). The first native Orderer0 join under the prior config was a real **FAIL**: `osnadmin` exited 0 but the admin API returned HTTP 400 while parsing the multipart body. Its post-request channel list remained null; the effective `ChannelParticipation.MaxRequestBodySize` was 0 on all three Orderers.\n\nAll three authored Orderer YAMLs now explicitly set `MaxRequestBodySize: 1 MB` (Fabric 3.1.5's sample value), and the source/rendered preflight enforces it. Fresh static checks passed: `make test-m2-nodes` (12 controls, including omitted/zero limits), `make network-config`, `make verify-m1`, native #17 block-to-node verification in an independent temporary render, Python syntax and diff checks. The temporary render changed exactly one limit line per Orderer and no Peer config. The runbook preserves original block, M1 identities, six credential env files and named ledger volumes through a checked one-time migration.\n\nThat migration, Orderer recreation/effective `1048576` observation, and join retry are **NOT RUN**. Full channel joins/**T-NET-04** and full live **T-NET-02** also remain **NOT RUN**; #16 stays open.\n",
+          "pin": null,
+          "reactions": {
+            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/comments/5834405122/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "performed_via_github_app": null,
+          "minimized": null
+        }
+      }
+    },
+    {
+      "id": "22150267179",
+      "type": "PushEvent",
+      "created_at": "2026-09-25T12:45:08Z",
+      "repo": {
+        "name": "yjydist/supplyledger-lab"
+      },
+      "payload": {
+        "repository_id": 1383626582,
+        "push_id": 44564009602,
+        "ref": "refs/heads/main",
+        "head": "fca01bcd0dc30b92cd62637812b38ffec54261ec",
+        "before": "6526f79c93e50181b5c55ae19f1f1c7497a72f1f"
+      }
+    },
+    {
+      "id": "15760144538",
+      "type": "IssueCommentEvent",
+      "created_at": "2026-09-25T14:44:38Z",
+      "repo": {
+        "name": "yjydist/supplyledger-lab"
+      },
+      "payload": {
+        "action": "created",
+        "issue": {
+          "url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/18",
+          "repository_url": "https://api.github.com/repos/yjydist/supplyledger-lab",
+          "labels_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/18/labels{/name}",
+          "comments_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/18/comments",
+          "events_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/18/events",
+          "html_url": "https://github.com/yjydist/supplyledger-lab/issues/18",
+          "id": 5555258300,
+          "node_id": "I_kwDOUnh3Vs8AAAABSx6DvA",
+          "number": 18,
+          "title": "[M2] 手工完成 channel participation 与 Peer join",
+          "user": {
+            "login": "yjydist",
+            "id": 149930809,
+            "node_id": "U_kgDOCO_DOQ",
+            "avatar_url": "https://avatars.githubusercontent.com/u/149930809?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/yjydist",
+            "html_url": "https://github.com/yjydist",
+            "followers_url": "https://api.github.com/users/yjydist/followers",
+            "following_url": "https://api.github.com/users/yjydist/following{/other_user}",
+            "gists_url": "https://api.github.com/users/yjydist/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/yjydist/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/yjydist/subscriptions",
+            "organizations_url": "https://api.github.com/users/yjydist/orgs",
+            "repos_url": "https://api.github.com/users/yjydist/repos",
+            "events_url": "https://api.github.com/users/yjydist/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/yjydist/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "labels": [
+            {
+              "id": 12329150130,
+              "node_id": "LA_kwDOUnh3Vs8AAAAC3t_msg",
+              "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/type:task",
+              "name": "type:task",
+              "color": "1d76db",
+              "default": false,
+              "description": "需要实现的可验收交付",
+              "archived_at": null,
+              "archived_by": null
+            },
+            {
+              "id": 12329151298,
+              "node_id": "LA_kwDOUnh3Vs8AAAAC3t_rQg",
+              "url": "https://api.github.com/repos/yjydist/supplyledger-lab/labels/area:network",
+              "name": "area:network",
+              "color": "d4c5f9",
+              "default": false,
+              "description": "Fabric 网络、通道与 Compose",
+              "archived_at": null,
+              "archived_by": null
+            }
+          ],
+          "state": "open",
+          "locked": false,
+          "assignees": [
+            {
+              "login": "yjydist",
+              "id": 149930809,
+              "node_id": "U_kgDOCO_DOQ",
+              "avatar_url": "https://avatars.githubusercontent.com/u/149930809?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/yjydist",
+              "html_url": "https://github.com/yjydist",
+              "followers_url": "https://api.github.com/users/yjydist/followers",
+              "following_url": "https://api.github.com/users/yjydist/following{/other_user}",
+              "gists_url": "https://api.github.com/users/yjydist/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/yjydist/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/yjydist/subscriptions",
+              "organizations_url": "https://api.github.com/users/yjydist/orgs",
+              "repos_url": "https://api.github.com/users/yjydist/repos",
+              "events_url": "https://api.github.com/users/yjydist/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/yjydist/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            }
+          ],
+          "milestone": {
+            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/milestones/3",
+            "html_url": "https://github.com/yjydist/supplyledger-lab/milestone/3",
+            "labels_url": "https://api.github.com/repos/yjydist/supplyledger-lab/milestones/3/labels",
+            "id": 18024097,
+            "node_id": "MI_kwDOUnh3Vs4BEwah",
+            "number": 3,
+            "title": "M2：从零组网",
+            "description": "范围：三节点 Raft、三个组织 Peer/CouchDB、应用通道与锚节点；交付：自写配置/Compose、初始区块、osnadmin/peer join 记录、配置解码报告；出口：三组织同高度区块哈希一致；停一台排序节点仍可推进测试配置交易。详见 SPEC.md §19。",
+            "creator": {
+              "login": "yjydist",
+              "id": 149930809,
+              "node_id": "U_kgDOCO_DOQ",
+              "avatar_url": "https://avatars.githubusercontent.com/u/149930809?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/yjydist",
+              "html_url": "https://github.com/yjydist",
+              "followers_url": "https://api.github.com/users/yjydist/followers",
+              "following_url": "https://api.github.com/users/yjydist/following{/other_user}",
+              "gists_url": "https://api.github.com/users/yjydist/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/yjydist/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/yjydist/subscriptions",
+              "organizations_url": "https://api.github.com/users/yjydist/orgs",
+              "repos_url": "https://api.github.com/users/yjydist/repos",
+              "events_url": "https://api.github.com/users/yjydist/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/yjydist/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "open_issues": 7,
+            "closed_issues": 1,
+            "state": "open",
+            "created_at": "2026-09-23T14:56:06Z",
+            "updated_at": "2026-09-25T13:26:32Z",
+            "due_on": null,
+            "closed_at": null
+          },
+          "comments": 1,
+          "created_at": "2026-09-23T14:57:00Z",
+          "updated_at": "2026-09-25T14:44:38Z",
+          "closed_at": null,
+          "assignee": {
+            "login": "yjydist",
+            "id": 149930809,
+            "node_id": "U_kgDOCO_DOQ",
+            "avatar_url": "https://avatars.githubusercontent.com/u/149930809?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/yjydist",
+            "html_url": "https://github.com/yjydist",
+            "followers_url": "https://api.github.com/users/yjydist/followers",
+            "following_url": "https://api.github.com/users/yjydist/following{/other_user}",
+            "gists_url": "https://api.github.com/users/yjydist/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/yjydist/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/yjydist/subscriptions",
+            "organizations_url": "https://api.github.com/users/yjydist/orgs",
+            "repos_url": "https://api.github.com/users/yjydist/repos",
+            "events_url": "https://api.github.com/users/yjydist/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/yjydist/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "active_lock_reason": null,
+          "sub_issues_summary": {
+            "total": 0,
+            "completed": 0,
+            "percent_completed": 0
+          },
+          "parent_issue_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/14",
+          "issue_dependencies_summary": {
+            "blocked_by": 0,
+            "total_blocked_by": 0,
+            "blocking": 0,
+            "total_blocking": 0
+          },
+          "body": "## 任务\n\n逐个用 osnadmin 以专用 mTLS 身份加入应用通道，随后逐组织 Peer join、设置锚节点并记录命令。\n\n## 验收\n\n- [ ] 三 Orderer active；无证书的 admin 请求失败；三组织同高度块哈希一致，保留原网络数据。\n- [ ] 运行并记录验收测试：T-NET-04。预期结果以 [SPEC.md](https://github.com/yjydist/supplyledger-lab/blob/main/SPEC.md) §20 为准。\n- [ ] 保存 §19.1 要求的脱敏证据；未执行项目标记 NOT RUN。\n\n- [ ] 三台 Orderer 管理端点分别使用专用 CA 签发的 osnadmin 客户端证书成功访问；无证书、由普通 Orderer TLS CA 或其他组织 TLS CA 签发且带 clientAuth 用途的有效客户端证书均在 TLS 客户端认证阶段失败。保留逐台命令、证书/根指纹、退出码和失败阶段，不使用跳过 TLS 验证。\n\n## 追踪\n\n- 规格：[SPEC.md](https://github.com/yjydist/supplyledger-lab/blob/main/SPEC.md) §§5.4、19\n- 阶段：M2\n- 关联：#12 的管理客户端凭证边界；本 issue 验证真实管理 API 的专用 CA 信任。\n",
+          "reactions": {
+            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/18/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "timeline_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/18/timeline",
+          "performed_via_github_app": null,
+          "state_reason": null,
+          "pinned_comment": null
+        },
+        "comment": {
+          "url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/comments/5834313929",
+          "html_url": "https://github.com/yjydist/supplyledger-lab/issues/18#issuecomment-5834313929",
+          "issue_url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/18",
+          "id": 5834313929,
+          "node_id": "IC_kwDOUnh3Vs8AAAABW8CQyQ",
+          "user": {
+            "login": "yjydist",
+            "id": 149930809,
+            "node_id": "U_kgDOCO_DOQ",
+            "avatar_url": "https://avatars.githubusercontent.com/u/149930809?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/yjydist",
+            "html_url": "https://github.com/yjydist",
+            "followers_url": "https://api.github.com/users/yjydist/followers",
+            "following_url": "https://api.github.com/users/yjydist/following{/other_user}",
+            "gists_url": "https://api.github.com/users/yjydist/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/yjydist/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/yjydist/subscriptions",
+            "organizations_url": "https://api.github.com/users/yjydist/orgs",
+            "repos_url": "https://api.github.com/users/yjydist/repos",
+            "events_url": "https://api.github.com/users/yjydist/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/yjydist/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "created_at": "2026-09-25T14:44:38Z",
+          "updated_at": "2026-09-25T14:44:38Z",
+          "body": "The first #18 native checkpoint is recorded at [`f87ed3a`](https://github.com/yjydist/supplyledger-lab/commit/f87ed3aab3ec99062a342145381ed584eef47525) in `evidence/m2/issue-18.md`.\n\nAll 12 individual admin TLS checks ran on the three channel-less Orderers: each dedicated client obtained HTTP 200 with `systemChannel:null` and `channels:null`; each no-cert request failed at TLS with `certificate required`; each valid ordinary Orderer TLS client and Seller Peer TLS client failed at TLS with `unknown ca`. The nine curl negatives verified the admin server root and exact DNS first.\n\nThe first native Orderer0 join used the original 27,946-byte #17 block and the dedicated client. `osnadmin` exited 0 but returned **HTTP 400** (`multipart: NextPart: http: request body too large`), so the join **FAILED** at request parsing. The three effective Orderer configs have `ChannelParticipation.MaxRequestBodySize=0`; #16's reviewed explicit size-limit fix is pending. An immediate post-failure native channel list remained HTTP 200 with both channel fields null, confirming no channel was created by that request.\n\nOrderer1/2 joins, active status, Peer/CouchDB startup and full **T-NET-04** remain **NOT RUN**. The candidate block file checksum is not a live `genesisHash`. #18 remains open.\n",
+          "pin": null,
+          "reactions": {
+            "url": "https://api.github.com/repos/yjydist/supplyledger-lab/issues/comments/5834313929/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "performed_via_github_app": null,
+          "minimized": null
         }
       }
     }
@@ -2405,8 +2395,8 @@
     },
     {
       "date": "2026-09-25",
-      "count": 0,
-      "level": 0
+      "count": 14,
+      "level": 1
     }
   ]
 }
