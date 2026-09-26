@@ -21,7 +21,10 @@ describe('M3 Expressive theme', () => {
       expect(getContrastRatio(m3Roles.onSurfaceVariant, surface)).toBeGreaterThanOrEqual(4.5)
     }
     expect(getContrastRatio(m3Roles.onPrimaryContainer, m3Roles.primaryContainer)).toBeGreaterThanOrEqual(4.5)
+    expect(getContrastRatio(m3Roles.onSecondaryContainer, m3Roles.secondaryContainer)).toBeGreaterThanOrEqual(4.5)
     expect(getContrastRatio(m3Roles.onTertiaryContainer, m3Roles.tertiaryContainer)).toBeGreaterThanOrEqual(4.5)
+    expect(getContrastRatio(m3Roles.primary, m3Roles.surface)).toBeGreaterThanOrEqual(4.5)
+    expect(getContrastRatio(m3Roles.primary, m3Roles.surfaceContainerLow)).toBeGreaterThanOrEqual(4.5)
   })
 
   test('keeps prominent icons distinct from their backgrounds', () => {
