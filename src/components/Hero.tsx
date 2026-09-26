@@ -60,7 +60,7 @@ export default function Hero() {
             <Typography component="h1" variant="h1" sx={{ overflowWrap: 'anywhere' }}>
               {site.name}
             </Typography>
-            <Typography variant="subtitle1" sx={{ mt: 4, maxWidth: 620, color: 'inherit' }}>
+            <Typography component="p" variant="subtitle1" sx={{ mt: 4, maxWidth: 620, color: 'inherit' }}>
               {profile.tagline}
             </Typography>
           </Box>

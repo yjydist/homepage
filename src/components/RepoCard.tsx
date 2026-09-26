@@ -62,7 +62,7 @@ export default function RepoCard({ name, url, description, stars, language, tags
       component="article"
       sx={(theme) => ({
         height: '100%',
-        minHeight: 220,
+        minHeight: { xs: 168, sm: 200 },
         border: `1px solid ${theme.m3.outlineVariant}`,
         transition: theme.transitions.create(['background-color', 'border-color', 'transform'], { duration: theme.transitions.duration.standard, easing: theme.transitions.easing.easeOut }),
         ...(url && {
