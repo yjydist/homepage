@@ -1,3 +1,8 @@
+import Box from '@mui/material/Box'
+import Link from '@mui/material/Link'
+import List from '@mui/material/List'
+import ListItem from '@mui/material/ListItem'
+import Typography from '@mui/material/Typography'
 import { toEventDisplay } from '../lib/events'
 import { publicEvents } from '../lib/github'
 import { timeAgo } from '../lib/time'
@@ -6,48 +11,51 @@ import Icon from './Icon'
 
 export default function EventsFeed() {
   const events = publicEvents()
-  if (events.length === 0) {
-    return <Empty message="暂无公开动态。" />
-  }
+  if (events.length === 0) return <Empty message="暂无公开动态。" />
 
   return (
-    <ul className="space-y-3">
+    <List sx={{ display: 'grid', gap: 3, p: 0 }}>
       {events.map((event) => {
         const { icon, description } = toEventDisplay(event)
         return (
-          <li
+          <ListItem
             key={event.id}
-            className="rounded-xl border border-line bg-surface-container-low/70 p-4"
+            sx={(theme) => ({
+              display: 'flex',
+              alignItems: 'flex-start',
+              gap: 3,
+              p: 5,
+              borderRadius: 6,
+              bgcolor: theme.m3.surfaceContainerLow,
+              border: `1px solid ${theme.m3.outlineVariant}`,
+            })}
           >
-            <div className="flex items-start justify-between gap-4">
-              <p className="flex items-start gap-2 text-base leading-relaxed">
-                <Icon name={icon} className="mt-0.5 shrink-0" />
-                <span>
-                  {description}
-                  <span className="text-muted">
-                    {' '}
-                    在{' '}
-                    <a
-                      href={`https://github.com/${event.repo.name}`}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="rounded-sm px-1 py-0.5 underline decoration-line underline-offset-4 transition-all duration-short ease-standard hover:bg-accent/10 hover:text-accent hover:decoration-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-                    >
-                      {event.repo.name}
-                    </a>
-                  </span>
-                </span>
-              </p>
-              <time
-                dateTime={event.created_at}
-                className="shrink-0 text-xs text-muted"
-              >
+            <Box sx={(theme) => ({ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 40, height: 40, borderRadius: 4, flexShrink: 0, bgcolor: theme.m3.tertiaryContainer, color: theme.m3.onTertiaryContainer })}>
+              <Icon name={icon} size={22} />
+            </Box>
+            <Box sx={{ minWidth: 0, flex: 1, display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'space-between', gap: 2 }}>
+              <Typography variant="body1" component="p" sx={{ minWidth: 0, overflowWrap: 'anywhere' }}>
+                {description}{' '}
+                <Typography component="span" variant="body1" color="text.secondary">
+                  在{' '}
+                  <Link
+                    href={`https://github.com/${event.repo.name}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    underline="always"
+                    sx={{ color: 'primary.main', borderRadius: 1, overflowWrap: 'anywhere', '&:focus-visible': { outline: '2px solid', outlineColor: 'primary.main', outlineOffset: 2 } }}
+                  >
+                    {event.repo.name}
+                  </Link>
+                </Typography>
+              </Typography>
+              <Typography component="time" dateTime={event.created_at} variant="caption" color="text.secondary" sx={{ flexShrink: 0, pt: 1 }}>
                 {timeAgo(event.created_at)}
-              </time>
-            </div>
-          </li>
+              </Typography>
+            </Box>
+          </ListItem>
         )
       })}
-    </ul>
+    </List>
   )
 }

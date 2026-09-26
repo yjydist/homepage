@@ -1,3 +1,8 @@
+import Box from '@mui/material/Box'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import Typography from '@mui/material/Typography'
+import { useTheme } from '@mui/material/styles'
 import { monthLabels, parseDay, toWeeks } from '../lib/contributions'
 import { contributionDays } from '../lib/github'
 import { Empty } from './Empty'
@@ -5,89 +10,69 @@ import { Empty } from './Empty'
 const CELL = 10
 const GAP = 3
 const LABEL_HEIGHT = 14
-const LEVEL_CLASS = [
-  'fill-line',
-  'fill-accent/20',
-  'fill-accent/45',
-  'fill-accent/70',
-  'fill-accent',
-]
-const LEGEND_CLASS = [
-  'bg-line',
-  'bg-accent/20',
-  'bg-accent/45',
-  'bg-accent/70',
-  'bg-accent',
-]
 
 export default function ContributionsCalendar() {
+  const theme = useTheme()
   const days = contributionDays()
-  if (days.length === 0) {
-    return <Empty message="暂无贡献数据。" />
-  }
+  if (days.length === 0) return <Empty message="暂无贡献数据。" />
 
   const weeks = toWeeks(days)
   const width = weeks.length * (CELL + GAP)
   const height = LABEL_HEIGHT + 7 * (CELL + GAP)
 
   return (
-    <div className="overflow-x-auto">
-      {/* w-fit keeps the block at the calendar's own width, so mx-auto
-          centers it while it fits and resolves to 0 (left-aligned, fully
-          scrollable) once it does not. */}
-      <div className="mx-auto w-fit">
-        <svg
-          width={width}
-          height={height}
-          role="img"
-          aria-label="GitHub 贡献日历"
+    <Card variant="outlined" sx={{ borderColor: theme.m3.outlineVariant }}>
+      <CardContent sx={{ p: 6, '&:last-child': { pb: 6 } }}>
+        <Box
+          role="region"
+          aria-label="贡献日历，可横向滚动"
+          tabIndex={0}
+          sx={{ overflowX: 'auto', pb: 1, borderRadius: 2, '&:focus-visible': { outline: `2px solid ${theme.m3.primary}`, outlineOffset: 2 }, '& .contribution-cell': { transition: theme.transitions.create('opacity', { duration: theme.transitions.duration.short }) }, '& .contribution-cell:hover': { opacity: 0.68 } }}
         >
-          {monthLabels(weeks).map(({ weekIndex, label }) => (
-            <text
-              key={label + weekIndex}
-              x={weekIndex * (CELL + GAP)}
-              y={LABEL_HEIGHT - 4}
-              className="fill-muted text-[9px]"
-            >
-              {label}
-            </text>
-          ))}
-          {weeks.map((week, col) =>
-            week.map((day) => {
-              const row = parseDay(day.date).getDay()
-              const level = Math.min(
-                Math.max(day.level, 0),
-                LEVEL_CLASS.length - 1,
-              )
-              return (
-                <rect
-                  key={day.date}
-                  x={col * (CELL + GAP)}
-                  y={LABEL_HEIGHT + row * (CELL + GAP)}
-                  width={CELL}
-                  height={CELL}
-                  rx={3}
-                  className={`${LEVEL_CLASS[level]} transition-opacity duration-short ease-standard hover:opacity-75`}
+          <Box sx={{ width: 'max-content', mx: 'auto' }}>
+            <svg width={width} height={height} role="img" aria-label="GitHub 贡献日历">
+              {monthLabels(weeks).map(({ weekIndex, label }) => (
+                <text
+                  key={label + weekIndex}
+                  x={weekIndex * (CELL + GAP)}
+                  y={LABEL_HEIGHT - 4}
+                  fill={theme.m3.onSurfaceVariant}
+                  fontSize="9"
                 >
-                  <title>
-                    {day.count} 次贡献 · {day.date}
-                  </title>
-                </rect>
-              )
-            }),
-          )}
-        </svg>
-        <div className="mt-2 flex items-center gap-1.5 text-xs text-muted">
-          <span>少</span>
-          {LEGEND_CLASS.map((className) => (
-            <span
-              key={className}
-              className={`size-2.5 rounded-[3px] ${className}`}
-            />
-          ))}
-          <span>多</span>
-        </div>
-      </div>
-    </div>
+                  {label}
+                </text>
+              ))}
+              {weeks.map((week, col) =>
+                week.map((day) => {
+                  const row = parseDay(day.date).getDay()
+                  const level = Math.min(Math.max(day.level, 0), theme.m3.contribution.length - 1)
+                  return (
+                    <rect
+                      key={day.date}
+                      className="contribution-cell"
+                      x={col * (CELL + GAP)}
+                      y={LABEL_HEIGHT + row * (CELL + GAP)}
+                      width={CELL}
+                      height={CELL}
+                      rx={4}
+                      fill={theme.m3.contribution[level]}
+                    >
+                      <title>{day.count} 次贡献 · {day.date}</title>
+                    </rect>
+                  )
+                }),
+              )}
+            </svg>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mt: 2 }}>
+              <Typography variant="caption" color="text.secondary">少</Typography>
+              {theme.m3.contribution.map((color) => (
+                <Box key={color} sx={{ width: 10, height: 10, borderRadius: 1, bgcolor: color }} />
+              ))}
+              <Typography variant="caption" color="text.secondary">多</Typography>
+            </Box>
+          </Box>
+        </Box>
+      </CardContent>
+    </Card>
   )
 }
