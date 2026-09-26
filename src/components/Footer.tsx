@@ -1,3 +1,8 @@
+import Box from '@mui/material/Box'
+import Container from '@mui/material/Container'
+import Link from '@mui/material/Link'
+import Stack from '@mui/material/Stack'
+import Typography from '@mui/material/Typography'
 import { content } from '../content'
 import { socialIcon } from '../lib/socialIcons'
 import Icon from './Icon'
@@ -5,27 +10,28 @@ import Icon from './Icon'
 export default function Footer() {
   const { site, profile } = content
   return (
-    <footer className="border-t border-line bg-paper">
-      <div className="mx-auto flex max-w-content flex-wrap items-baseline justify-between gap-y-2 px-6 py-4 text-sm text-muted">
-        <span>
+    <Box component="footer" sx={(theme) => ({ borderTop: `1px solid ${theme.m3.outlineVariant}`, bgcolor: theme.m3.surfaceContainerLow })}>
+      <Container maxWidth="lg" sx={{ py: 4, display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', columnGap: 6, rowGap: 2 }}>
+        <Typography variant="body2" color="text.secondary">
           © {site.year ?? new Date().getFullYear()} {site.name}
-        </span>
-        <ul className="flex gap-4">
+        </Typography>
+        <Stack component="ul" direction="row" spacing={3} sx={{ m: 0, p: 0, listStyle: 'none', flexWrap: 'wrap' }}>
           {profile.socials.map((social) => (
-            <li key={social.label}>
-              <a
+            <Box component="li" key={social.label}>
+              <Link
                 href={social.url}
-                target="_blank"
-                rel="noreferrer"
-                className="-mx-1 -my-1.5 inline-flex items-center gap-1.5 rounded-xs px-1 py-1.5 transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                target={social.url.startsWith('mailto:') ? undefined : '_blank'}
+                rel={social.url.startsWith('mailto:') ? undefined : 'noreferrer'}
+                underline="hover"
+                sx={{ display: 'inline-flex', alignItems: 'center', gap: 1, minHeight: 44, color: 'text.secondary', borderRadius: 2, '&:hover': { color: 'primary.main' }, '&:focus-visible': { outline: '2px solid', outlineColor: 'primary.main', outlineOffset: 2 } }}
               >
-                <Icon name={socialIcon(social.label)} size={16} />
+                <Icon name={socialIcon(social.label)} size={18} />
                 {social.label}
-              </a>
-            </li>
+              </Link>
+            </Box>
           ))}
-        </ul>
-      </div>
-    </footer>
+        </Stack>
+      </Container>
+    </Box>
   )
 }

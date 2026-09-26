@@ -1,4 +1,6 @@
 import { useEffect } from 'react'
+import Box from '@mui/material/Box'
+import Link from '@mui/material/Link'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import Footer from './components/Footer'
 import Nav from './components/Nav'
@@ -16,18 +18,16 @@ export default function App() {
   }, [])
 
   return (
-    // min-h-dvh + flex-col + flex-1 main pins the footer to the viewport
-    // bottom even when the page content is shorter than the screen.
-    <div className="flex min-h-dvh flex-col">
+    <Box sx={{ display: 'flex', minHeight: '100dvh', flexDirection: 'column', pb: { xs: 'calc(96px + env(safe-area-inset-bottom))', sm: 'calc(80px + env(safe-area-inset-bottom))', md: 0 } }}>
       <ScrollToTop />
-      <a
+      <Link
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-sm focus:bg-paper focus:px-4 focus:py-2 focus:text-sm focus:text-accent focus:shadow-xs focus:outline-2 focus:outline-offset-2 focus:outline-accent"
+        sx={(theme) => ({ position: 'fixed', top: 16, left: 16, zIndex: theme.zIndex.tooltip + 1, transform: 'translateY(-160%)', bgcolor: theme.m3.primaryContainer, color: theme.m3.onPrimaryContainer, px: 4, py: 2, borderRadius: 3, '&:focus-visible': { transform: 'translateY(0)', outline: '2px solid', outlineColor: theme.m3.primary, outlineOffset: 2 } })}
       >
         跳到正文
-      </a>
+      </Link>
       <Nav />
-      <main id="main-content" tabIndex={-1} className="flex-1">
+      <Box component="main" id="main-content" tabIndex={-1} sx={{ flex: 1, minWidth: 0, outline: 'none' }}>
         <Routes>
           {routes.map((route) => (
             <Route
@@ -38,8 +38,8 @@ export default function App() {
           ))}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
-      </main>
+      </Box>
       <Footer />
-    </div>
+    </Box>
   )
 }

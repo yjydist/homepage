@@ -139,6 +139,12 @@ export const theme = createTheme({
     duration: { shortest: 100, shorter: 150, short: 200, standard: 300, complex: 400, enteringScreen: 350, leavingScreen: 200 },
   },
   components: {
+    MuiContainer: {
+      styleOverrides: {
+        root: { paddingLeft: 24, paddingRight: 24 },
+        maxWidthLg: { '@media (min-width:1200px)': { maxWidth: 1024 } },
+      },
+    },
     MuiCssBaseline: {
       styleOverrides: {
         body: { backgroundColor: m3Roles.surface, color: m3Roles.onSurface },

@@ -1,18 +1,20 @@
+import Container from '@mui/material/Container'
+import Typography from '@mui/material/Typography'
 import type { ReactNode } from 'react'
 
 interface SectionProps {
   title: string
   children: ReactNode
+  headingLevel?: 'h1' | 'h2'
 }
 
-/** Shared section wrapper: consistent max-width, spacing and heading. */
-export default function Section({ title, children }: SectionProps) {
+export default function Section({ title, children, headingLevel = 'h2' }: SectionProps) {
   return (
-    <section className="mx-auto w-full max-w-content px-6 py-16">
-      <h2 className="mb-8 text-xs font-bold tracking-widest text-muted uppercase">
+    <Container component="section" maxWidth="lg" sx={{ py: { xs: 12, md: 16 } }}>
+      <Typography component={headingLevel} variant="h2" sx={{ mb: 8 }}>
         {title}
-      </h2>
+      </Typography>
       {children}
-    </section>
+    </Container>
   )
 }
