@@ -7,6 +7,7 @@ describe('M3 Expressive theme', () => {
     expect(theme.breakpoints.values.sm).toBe(600)
     expect(theme.breakpoints.values.md).toBe(840)
     expect(theme.spacing(1)).toBe('4px')
+    expect(theme.shape.borderRadius).toBe(4)
   })
 
   test('keeps text readable on every used surface', () => {

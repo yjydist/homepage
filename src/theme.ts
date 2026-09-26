@@ -111,7 +111,7 @@ export const theme = createTheme({
   },
   spacing: 4,
   breakpoints: { values: { xs: 0, sm: 600, md: 840, lg: 1200, xl: 1536 } },
-  shape: { borderRadius: 20 },
+  shape: { borderRadius: 4 },
   typography: {
     fontFamily: '"Google Sans Flex Variable", "Noto Sans SC", sans-serif',
     h1: {
