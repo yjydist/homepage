@@ -1,8 +1,3 @@
-import 'lxgw-wenkai-webfont/lxgwwenkai-regular.css'
-import 'lxgw-wenkai-webfont/lxgwwenkai-bold.css'
-import '@fontsource-variable/material-symbols-outlined/wght.css'
-import '@fontsource/noto-sans-sc/chinese-simplified-400.css'
-import '@fontsource/noto-sans-sc/chinese-simplified-700.css'
 import './fonts.css'
 import { CssBaseline, ThemeProvider } from '@mui/material'
 import { StrictMode } from 'react'
