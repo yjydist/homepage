@@ -1,8 +1,19 @@
-/** Placeholder for a section whose snapshot data is empty. */
+import Alert from '@mui/material/Alert'
+
 export function Empty({ message }: { message: string }) {
   return (
-    <div className="rounded-lg border border-line/40 bg-surface-container-low p-4 text-sm text-muted">
-      <p>{message}</p>
-    </div>
+    <Alert
+      severity="info"
+      role="status"
+      sx={(theme) => ({
+        borderRadius: 5,
+        border: `1px solid ${theme.m3.outlineVariant}`,
+        bgcolor: theme.m3.surfaceContainerLow,
+        color: theme.m3.onSurfaceVariant,
+        '& .MuiAlert-icon': { color: theme.m3.primary },
+      })}
+    >
+      {message}
+    </Alert>
   )
 }
