@@ -1,39 +1,100 @@
+import Avatar from '@mui/material/Avatar'
+import Box from '@mui/material/Box'
+import Container from '@mui/material/Container'
+import Link from '@mui/material/Link'
+import Stack from '@mui/material/Stack'
+import Typography from '@mui/material/Typography'
 import { content } from '../content'
 import { socialIcon } from '../lib/socialIcons'
 import Icon from './Icon'
 
 export default function Hero() {
-  const { profile } = content
+  const { profile, site } = content
   return (
-    <section className="mx-auto w-full max-w-content px-6 pt-28 pb-16">
-      {profile.avatar && (
-        <img
-          src={profile.avatar}
-          alt={content.site.name}
-          className="mb-8 size-20 animate-hero-avatar-spring rounded-[24px] border border-line bg-surface-container object-cover shadow-xs transition-transform duration-medium ease-spring hover:scale-105"
+    <Container component="header" maxWidth="lg" sx={{ pt: { xs: 12, md: 20 }, pb: { xs: 4, md: 8 } }}>
+      <Box
+        sx={(theme) => ({
+          position: 'relative',
+          overflow: 'hidden',
+          borderRadius: { xs: 7, md: 10 },
+          bgcolor: theme.m3.primaryContainer,
+          color: theme.m3.onPrimaryContainer,
+          p: { xs: 7, sm: 10, md: 14 },
+        })}
+      >
+        <Box
+          aria-hidden="true"
+          sx={(theme) => ({
+            position: 'absolute',
+            top: { xs: -66, md: -100 },
+            right: { xs: -92, md: -76 },
+            width: { xs: 190, md: 280 },
+            height: { xs: 190, md: 280 },
+            borderRadius: '40%',
+            transform: 'rotate(24deg)',
+            bgcolor: theme.m3.tertiaryContainer,
+            opacity: 0.85,
+            pointerEvents: 'none',
+          })}
         />
-      )}
-      <h1 className="text-4xl font-bold tracking-tight">
-        {content.site.name}
-      </h1>
-      <p className="mt-4 text-lg text-accent">{profile.tagline}</p>
-      <ul className="mt-8 flex flex-wrap gap-1 text-sm text-muted">
-        {profile.socials.map((social) => (
-          <li key={social.label}>
-            <a
-              href={social.url}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex min-h-[48px] items-center gap-1.5 rounded-full px-3 py-2 transition-all duration-medium ease-standard hover:bg-accent/10 hover:text-on-primary-container focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-            >
-              <Icon name={socialIcon(social.label)} size={18} />
-              <span className="underline decoration-line underline-offset-4 transition-colors">
-                {social.label}
-              </span>
-            </a>
-          </li>
-        ))}
-      </ul>
-    </section>
+        <Stack spacing={6} sx={{ position: 'relative', zIndex: 1, maxWidth: 730 }}>
+          {profile.avatar && (
+            <Avatar
+              src={profile.avatar}
+              alt={site.name}
+              variant="rounded"
+              sx={(theme) => ({
+                width: 96,
+                height: 96,
+                borderRadius: 8,
+                border: `3px solid ${theme.m3.surface}`,
+                bgcolor: theme.m3.surfaceContainer,
+                boxShadow: theme.shadows[2],
+                animation: 'hero-appear 500ms cubic-bezier(0.05, 0.7, 0.1, 1) both',
+                transition: theme.transitions.create('transform', { duration: theme.transitions.duration.standard, easing: theme.transitions.easing.easeOut }),
+                '&:hover': { transform: 'scale(1.05)' },
+              })}
+            />
+          )}
+          <Box>
+            <Typography component="h1" variant="h1" sx={{ overflowWrap: 'anywhere' }}>
+              {site.name}
+            </Typography>
+            <Typography variant="subtitle1" sx={{ mt: 4, maxWidth: 620, color: 'inherit' }}>
+              {profile.tagline}
+            </Typography>
+          </Box>
+          <Stack component="ul" direction="row" useFlexGap sx={{ m: 0, p: 0, listStyle: 'none', flexWrap: 'wrap', gap: 2 }}>
+            {profile.socials.map((social) => (
+              <Box component="li" key={social.label}>
+                <Link
+                  href={social.url}
+                  target={social.url.startsWith('mailto:') ? undefined : '_blank'}
+                  rel={social.url.startsWith('mailto:') ? undefined : 'noreferrer'}
+                  underline="none"
+                  sx={(theme) => ({
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: 2,
+                    minHeight: 48,
+                    px: 4,
+                    borderRadius: 99,
+                    bgcolor: theme.m3.surface,
+                    color: theme.m3.primary,
+                    fontWeight: 700,
+                    transition: theme.transitions.create(['background-color', 'transform'], { duration: theme.transitions.duration.short, easing: theme.transitions.easing.easeOut }),
+                    '&:hover': { bgcolor: theme.m3.tertiaryContainer, color: theme.m3.onTertiaryContainer, transform: 'translateY(-2px)' },
+                    '&:focus-visible': { outline: `2px solid ${theme.m3.primary}`, outlineOffset: 2 },
+                  })}
+                >
+                  <Icon name={socialIcon(social.label)} size={20} />
+                  {social.label}
+                </Link>
+              </Box>
+            ))}
+          </Stack>
+        </Stack>
+      </Box>
+    </Container>
   )
 }
