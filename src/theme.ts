@@ -113,21 +113,20 @@ export const theme = createTheme({
   breakpoints: { values: { xs: 0, sm: 600, md: 840, lg: 1200, xl: 1536 } },
   shape: { borderRadius: 4 },
   typography: {
-    fontFamily: '"Google Sans Flex Variable", "Noto Sans SC", sans-serif',
+    fontFamily: '"Alimama FangYuanTi VF", sans-serif',
     h1: {
       fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-      fontWeight: 750,
+      fontWeight: 700,
       lineHeight: 1.16,
       letterSpacing: '-0.04em',
-      fontVariationSettings: '"wdth" 105, "opsz" 48',
     },
-    h2: { fontSize: '2rem', fontWeight: 720, lineHeight: 1.3, letterSpacing: '-0.025em' },
-    h3: { fontSize: '1.25rem', fontWeight: 680, lineHeight: 1.4 },
-    subtitle1: { fontSize: '1.125rem', lineHeight: 1.65, fontWeight: 520 },
+    h2: { fontSize: '2rem', fontWeight: 650, lineHeight: 1.3, letterSpacing: '-0.025em' },
+    h3: { fontSize: '1.25rem', fontWeight: 650, lineHeight: 1.4 },
+    subtitle1: { fontSize: '1.125rem', lineHeight: 1.65, fontWeight: 500 },
     body1: { fontSize: '1rem', lineHeight: 1.8 },
     body2: { fontSize: '0.875rem', lineHeight: 1.7 },
     caption: { fontSize: '0.75rem', lineHeight: 1.5 },
-    button: { fontWeight: 680, textTransform: 'none', letterSpacing: 0 },
+    button: { fontWeight: 600, textTransform: 'none', letterSpacing: 0 },
   },
   transitions: {
     easing: {
