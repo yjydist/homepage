@@ -22,8 +22,8 @@ export default function Experience() {
                 p: { xs: 6, sm: 8 },
                 alignItems: 'stretch',
                 borderRadius: 7,
-                bgcolor: theme.m3.surfaceContainerLow,
-                border: `1px solid ${theme.m3.outlineVariant}`,
+                bgcolor: theme.swiss.backgroundAlt,
+                border: `1px solid ${theme.swiss.divider}`,
               })}
             >
               <Stack spacing={3} sx={{ width: '100%' }}>

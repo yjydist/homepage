@@ -17,8 +17,8 @@ export default function Hero() {
           position: 'relative',
           overflow: 'hidden',
           borderRadius: { xs: 7, md: 10 },
-          bgcolor: theme.m3.primaryContainer,
-          color: theme.m3.onPrimaryContainer,
+          bgcolor: theme.swiss.accent,
+          color: '#FFFFFF',
           p: { xs: 7, sm: 10, md: 14 },
         })}
       >
@@ -32,7 +32,7 @@ export default function Hero() {
             height: { xs: 190, md: 280 },
             borderRadius: '40%',
             transform: 'rotate(24deg)',
-            bgcolor: theme.m3.tertiaryContainer,
+            bgcolor: theme.swiss.accent,
             opacity: 0.85,
             pointerEvents: 'none',
           })}
@@ -47,8 +47,8 @@ export default function Hero() {
                 width: 96,
                 height: 96,
                 borderRadius: 8,
-                border: `3px solid ${theme.m3.surface}`,
-                bgcolor: theme.m3.surfaceContainer,
+                border: `3px solid ${theme.swiss.background}`,
+                bgcolor: theme.swiss.backgroundAlt,
                 boxShadow: theme.shadows[2],
                 animation: 'hero-appear 500ms cubic-bezier(0.05, 0.7, 0.1, 1) both',
                 transition: theme.transitions.create('transform', { duration: theme.transitions.duration.standard, easing: theme.transitions.easing.easeOut }),
@@ -79,12 +79,12 @@ export default function Hero() {
                     minHeight: 48,
                     px: 4,
                     borderRadius: 99,
-                    bgcolor: theme.m3.surface,
-                    color: theme.m3.primary,
+                    bgcolor: theme.swiss.background,
+                    color: theme.swiss.accent,
                     fontWeight: 700,
                     transition: theme.transitions.create(['background-color', 'transform'], { duration: theme.transitions.duration.short, easing: theme.transitions.easing.easeOut }),
-                    '&:hover': { bgcolor: theme.m3.tertiaryContainer, color: theme.m3.onTertiaryContainer, transform: 'translateY(-2px)' },
-                    '&:focus-visible': { outline: `2px solid ${theme.m3.primary}`, outlineOffset: 2 },
+                    '&:hover': { bgcolor: theme.swiss.accent, color: '#FFFFFF', transform: 'translateY(-2px)' },
+                    '&:focus-visible': { outline: `2px solid ${theme.swiss.accent}`, outlineOffset: 2 },
                   })}
                 >
                   <Icon name={socialIcon(social.label)} size={20} />

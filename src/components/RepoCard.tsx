@@ -63,11 +63,11 @@ export default function RepoCard({ name, url, description, stars, language, tags
       sx={(theme) => ({
         height: '100%',
         minHeight: { xs: 168, sm: 200 },
-        border: `1px solid ${theme.m3.outlineVariant}`,
+        border: `1px solid ${theme.swiss.divider}`,
         transition: theme.transitions.create(['background-color', 'border-color', 'transform'], { duration: theme.transitions.duration.standard, easing: theme.transitions.easing.easeOut }),
         ...(url && {
-          '&:hover': { bgcolor: theme.m3.surfaceContainer, borderColor: theme.m3.primary, transform: 'translateY(-3px)' },
-          '&:hover h2': { color: theme.m3.primary },
+          '&:hover': { bgcolor: theme.swiss.backgroundAlt, borderColor: theme.swiss.accent, transform: 'translateY(-3px)' },
+          '&:hover h2': { color: theme.swiss.accent },
         }),
       })}
     >
@@ -84,7 +84,7 @@ export default function RepoCard({ name, url, description, stars, language, tags
             display: 'flex',
             alignItems: 'stretch',
             textAlign: 'left',
-            '&.Mui-focusVisible': { outline: `2px solid ${theme.m3.primary}`, outlineOffset: -3 },
+            '&.Mui-focusVisible': { outline: `2px solid ${theme.swiss.accent}`, outlineOffset: -3 },
           })}
         >
           {content}

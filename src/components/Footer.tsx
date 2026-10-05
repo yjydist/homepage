@@ -10,7 +10,7 @@ import Icon from './Icon'
 export default function Footer() {
   const { site, profile } = content
   return (
-    <Box component="footer" sx={(theme) => ({ borderTop: `1px solid ${theme.m3.outlineVariant}`, bgcolor: theme.m3.surfaceContainerLow })}>
+    <Box component="footer" sx={(theme) => ({ borderTop: `1px solid ${theme.swiss.divider}`, bgcolor: theme.swiss.backgroundAlt })}>
       <Container maxWidth="lg" sx={{ py: 4, display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', columnGap: 6, rowGap: 2 }}>
         <Typography variant="body2" color="text.secondary">
           © {site.year ?? new Date().getFullYear()} {site.name}

@@ -21,9 +21,9 @@ export default function Nav() {
         elevation={0}
         sx={(theme) => ({
           display: { xs: 'none', md: 'block' },
-          bgcolor: theme.m3.surfaceContainerLow,
-          color: theme.m3.onSurface,
-          borderBottom: `1px solid ${theme.m3.outlineVariant}`,
+          bgcolor: theme.swiss.backgroundAlt,
+          color: theme.swiss.text.primary,
+          borderBottom: `1px solid ${theme.swiss.divider}`,
         })}
       >
         <Container maxWidth="lg">
@@ -48,14 +48,14 @@ export default function Nav() {
                       alignItems: 'center',
                       gap: 2,
                       borderRadius: 99,
-                      bgcolor: selected ? theme.m3.primaryContainer : 'transparent',
-                      color: selected ? theme.m3.onPrimaryContainer : theme.m3.onSurfaceVariant,
+                      bgcolor: selected ? theme.swiss.accent : 'transparent',
+                      color: selected ? '#FFFFFF' : theme.swiss.text.secondary,
                       fontWeight: selected ? 750 : 580,
                       fontSize: 14,
                       textDecoration: 'none',
                       transition: theme.transitions.create(['background-color', 'color'], { duration: theme.transitions.duration.short }),
-                      '&:hover': { bgcolor: selected ? theme.m3.primaryContainer : theme.m3.surfaceContainerHigh },
-                      '&:focus-visible': { outline: `2px solid ${theme.m3.primary}`, outlineOffset: 2 },
+                      '&:hover': { bgcolor: selected ? theme.swiss.accent : theme.swiss.backgroundAlt },
+                      '&:focus-visible': { outline: `2px solid ${theme.swiss.accent}`, outlineOffset: 2 },
                     })}
                   >
                     <Icon name={route.icon} filled={selected} size={21} />
@@ -84,8 +84,8 @@ export default function Nav() {
           pb: 'env(safe-area-inset-bottom)',
           px: { xs: 1, sm: 4 },
           alignItems: 'stretch',
-          bgcolor: theme.m3.surfaceContainer,
-          borderTop: `1px solid ${theme.m3.outlineVariant}`,
+          bgcolor: theme.swiss.backgroundAlt,
+          borderTop: `1px solid ${theme.swiss.divider}`,
         })}
       >
         {routes.map((route) => {
@@ -108,7 +108,7 @@ export default function Nav() {
                     alignItems: 'center',
                     justifyContent: 'center',
                     borderRadius: 99,
-                    bgcolor: selected ? theme.m3.primaryContainer : 'transparent',
+                    bgcolor: selected ? theme.swiss.accent : 'transparent',
                     transform: selected ? 'scale(1)' : 'scale(0.88)',
                     transition: theme.transitions.create(['background-color', 'transform'], { duration: theme.transitions.duration.complex, easing: theme.transitions.easing.easeOut }),
                   })}
@@ -123,12 +123,12 @@ export default function Nav() {
                 py: 2,
                 gap: { xs: 1, sm: 2 },
                 flexDirection: { xs: 'column', sm: 'row' },
-                color: selected ? theme.m3.onPrimaryContainer : theme.m3.onSurfaceVariant,
-                '&.Mui-selected': { color: theme.m3.onPrimaryContainer },
+                color: selected ? '#FFFFFF' : theme.swiss.text.secondary,
+                '&.Mui-selected': { color: '#FFFFFF' },
                 '& .MuiBottomNavigationAction-label': { fontSize: 12, fontWeight: selected ? 750 : 600, lineHeight: 1.4, whiteSpace: 'nowrap' },
                 '& .MuiBottomNavigationAction-label.Mui-selected': { fontSize: 12 },
-                '&:hover .nav-indicator': { bgcolor: selected ? theme.m3.primaryContainer : theme.m3.surfaceContainerHigh },
-                '&:focus-visible': { outline: `2px solid ${theme.m3.primary}`, outlineOffset: -4, borderRadius: 3 },
+                '&:hover .nav-indicator': { bgcolor: selected ? theme.swiss.accent : theme.swiss.backgroundAlt },
+                '&:focus-visible': { outline: `2px solid ${theme.swiss.accent}`, outlineOffset: -4, borderRadius: 3 },
               })}
             />
           )

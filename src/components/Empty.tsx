@@ -7,10 +7,10 @@ export function Empty({ message }: { message: string }) {
       role="status"
       sx={(theme) => ({
         borderRadius: 5,
-        border: `1px solid ${theme.m3.outlineVariant}`,
-        bgcolor: theme.m3.surfaceContainerLow,
-        color: theme.m3.onSurfaceVariant,
-        '& .MuiAlert-icon': { color: theme.m3.primary },
+        border: `1px solid ${theme.swiss.divider}`,
+        bgcolor: theme.swiss.backgroundAlt,
+        color: theme.swiss.text.secondary,
+        '& .MuiAlert-icon': { color: theme.swiss.accent },
       })}
     >
       {message}

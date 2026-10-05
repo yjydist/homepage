@@ -1,8 +1,8 @@
 import { describe, expect, test } from 'bun:test'
 import { getContrastRatio } from '@mui/material/styles'
-import { m3Roles, theme } from '../src/theme'
+import { swissTokens, theme } from '../src/theme'
 
-describe('M3 Expressive theme', () => {
+describe('Swiss theme', () => {
   test('uses the planned layout breakpoints and spacing', () => {
     expect(theme.breakpoints.values.sm).toBe(600)
     expect(theme.breakpoints.values.md).toBe(840)
@@ -11,25 +11,26 @@ describe('M3 Expressive theme', () => {
   })
 
   test('keeps text readable on every used surface', () => {
-    for (const surface of [
-      m3Roles.surface,
-      m3Roles.surfaceContainerLow,
-      m3Roles.surfaceContainer,
-      m3Roles.surfaceContainerHigh,
-    ]) {
-      expect(getContrastRatio(m3Roles.onSurface, surface)).toBeGreaterThanOrEqual(4.5)
-      expect(getContrastRatio(m3Roles.onSurfaceVariant, surface)).toBeGreaterThanOrEqual(4.5)
+    for (const surface of [swissTokens.background, swissTokens.backgroundAlt]) {
+      expect(getContrastRatio(swissTokens.text.primary, surface)).toBeGreaterThanOrEqual(4.5)
+      expect(getContrastRatio(swissTokens.text.secondary, surface)).toBeGreaterThanOrEqual(4.5)
     }
-    expect(getContrastRatio(m3Roles.onPrimaryContainer, m3Roles.primaryContainer)).toBeGreaterThanOrEqual(4.5)
-    expect(getContrastRatio(m3Roles.onSecondaryContainer, m3Roles.secondaryContainer)).toBeGreaterThanOrEqual(4.5)
-    expect(getContrastRatio(m3Roles.onTertiaryContainer, m3Roles.tertiaryContainer)).toBeGreaterThanOrEqual(4.5)
-    expect(getContrastRatio(m3Roles.primary, m3Roles.surface)).toBeGreaterThanOrEqual(4.5)
-    expect(getContrastRatio(m3Roles.primary, m3Roles.surfaceContainerLow)).toBeGreaterThanOrEqual(4.5)
+    expect(getContrastRatio(swissTokens.accent, swissTokens.background)).toBeGreaterThanOrEqual(4.5)
+    expect(getContrastRatio(swissTokens.accent, swissTokens.backgroundAlt)).toBeGreaterThanOrEqual(4.5)
+    expect(getContrastRatio(swissTokens.error, swissTokens.background)).toBeGreaterThanOrEqual(4.5)
   })
 
   test('keeps prominent icons distinct from their backgrounds', () => {
-    expect(getContrastRatio(m3Roles.primary, m3Roles.surface)).toBeGreaterThanOrEqual(3)
-    expect(getContrastRatio(m3Roles.tertiary, m3Roles.surface)).toBeGreaterThanOrEqual(3)
-    expect(getContrastRatio(m3Roles.onSurfaceVariant, m3Roles.surfaceContainerLow)).toBeGreaterThanOrEqual(3)
+    expect(getContrastRatio(swissTokens.accent, swissTokens.background)).toBeGreaterThanOrEqual(3)
+    expect(getContrastRatio(swissTokens.text.secondary, swissTokens.backgroundAlt)).toBeGreaterThanOrEqual(3)
+    expect(getContrastRatio(swissTokens.contribution[4], swissTokens.background)).toBeGreaterThanOrEqual(3)
+  })
+
+  test('orders contribution levels from lightest to darkest without duplicates', () => {
+    const levels = swissTokens.contribution
+    expect(new Set(levels).size).toBe(levels.length)
+    for (let i = 1; i < levels.length; i++) {
+      expect(getContrastRatio(levels[i], swissTokens.background)).toBeGreaterThan(getContrastRatio(levels[i - 1], swissTokens.background))
+    }
   })
 })

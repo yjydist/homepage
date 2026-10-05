@@ -26,11 +26,11 @@ export default function EventsFeed() {
               gap: 3,
               p: 5,
               borderRadius: 6,
-              bgcolor: theme.m3.surfaceContainerLow,
-              border: `1px solid ${theme.m3.outlineVariant}`,
+              bgcolor: theme.swiss.backgroundAlt,
+              border: `1px solid ${theme.swiss.divider}`,
             })}
           >
-            <Box sx={(theme) => ({ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 40, height: 40, borderRadius: 4, flexShrink: 0, bgcolor: theme.m3.tertiaryContainer, color: theme.m3.onTertiaryContainer })}>
+            <Box sx={(theme) => ({ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 40, height: 40, borderRadius: 4, flexShrink: 0, bgcolor: theme.swiss.accent, color: '#FFFFFF' })}>
               <Icon name={icon} size={22} />
             </Box>
             <Box sx={{ minWidth: 0, flex: 1, display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'space-between', gap: 2 }}>

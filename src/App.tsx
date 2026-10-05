@@ -22,7 +22,7 @@ export default function App() {
       <ScrollToTop />
       <Link
         href="#main-content"
-        sx={(theme) => ({ position: 'fixed', top: 16, left: 16, zIndex: theme.zIndex.tooltip + 1, transform: 'translateY(-160%)', bgcolor: theme.m3.primaryContainer, color: theme.m3.onPrimaryContainer, px: 4, py: 2, borderRadius: 3, '&:focus-visible': { transform: 'translateY(0)', outline: '2px solid', outlineColor: theme.m3.primary, outlineOffset: 2 } })}
+        sx={(theme) => ({ position: 'fixed', top: 16, left: 16, zIndex: theme.zIndex.tooltip + 1, transform: 'translateY(-160%)', bgcolor: theme.swiss.accent, color: '#FFFFFF', px: 4, py: 2, borderRadius: 3, '&:focus-visible': { transform: 'translateY(0)', outline: '2px solid', outlineColor: theme.swiss.accent, outlineOffset: 2 } })}
       >
         跳到正文
       </Link>

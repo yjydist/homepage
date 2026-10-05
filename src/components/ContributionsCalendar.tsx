@@ -21,13 +21,13 @@ export default function ContributionsCalendar() {
   const height = LABEL_HEIGHT + 7 * (CELL + GAP)
 
   return (
-    <Card variant="outlined" sx={{ borderColor: theme.m3.outlineVariant }}>
+    <Card variant="outlined" sx={{ borderColor: theme.swiss.divider }}>
       <CardContent sx={{ p: 6, '&:last-child': { pb: 6 } }}>
         <Box
           role="region"
           aria-label="贡献日历，可横向滚动"
           tabIndex={0}
-          sx={{ overflowX: 'auto', pb: 1, borderRadius: 2, '&:focus-visible': { outline: `2px solid ${theme.m3.primary}`, outlineOffset: 2 }, '& .contribution-cell': { transition: theme.transitions.create('opacity', { duration: theme.transitions.duration.short }) }, '& .contribution-cell:hover': { opacity: 0.68 } }}
+          sx={{ overflowX: 'auto', pb: 1, borderRadius: 2, '&:focus-visible': { outline: `2px solid ${theme.swiss.accent}`, outlineOffset: 2 }, '& .contribution-cell': { transition: theme.transitions.create('opacity', { duration: theme.transitions.duration.short }) }, '& .contribution-cell:hover': { opacity: 0.68 } }}
         >
           <Box sx={{ width: 'max-content', mx: 'auto' }}>
             <svg width={width} height={height} role="img" aria-label="GitHub 贡献日历">
@@ -36,7 +36,7 @@ export default function ContributionsCalendar() {
                   key={label + weekIndex}
                   x={weekIndex * (CELL + GAP)}
                   y={LABEL_HEIGHT - 4}
-                  fill={theme.m3.onSurfaceVariant}
+                  fill={theme.swiss.text.secondary}
                   fontSize="9"
                 >
                   {label}
@@ -45,7 +45,7 @@ export default function ContributionsCalendar() {
               {weeks.map((week, col) =>
                 week.map((day) => {
                   const row = parseDay(day.date).getDay()
-                  const level = Math.min(Math.max(day.level, 0), theme.m3.contribution.length - 1)
+                  const level = Math.min(Math.max(day.level, 0), theme.swiss.contribution.length - 1)
                   return (
                     <rect
                       key={day.date}
@@ -55,7 +55,7 @@ export default function ContributionsCalendar() {
                       width={CELL}
                       height={CELL}
                       rx={4}
-                      fill={theme.m3.contribution[level]}
+                      fill={theme.swiss.contribution[level]}
                     >
                       <title>{day.count} 次贡献 · {day.date}</title>
                     </rect>
@@ -65,7 +65,7 @@ export default function ContributionsCalendar() {
             </svg>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mt: 2 }}>
               <Typography variant="caption" color="text.secondary">少</Typography>
-              {theme.m3.contribution.map((color) => (
+              {theme.swiss.contribution.map((color) => (
                 <Box key={color} sx={{ width: 10, height: 10, borderRadius: 1, bgcolor: color }} />
               ))}
               <Typography variant="caption" color="text.secondary">多</Typography>

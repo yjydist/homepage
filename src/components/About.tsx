@@ -17,8 +17,8 @@ export default function About() {
           maxWidth: 800,
           p: { xs: 6, sm: 8 },
           borderRadius: 7,
-          borderLeft: `4px solid ${theme.m3.tertiary}`,
-          bgcolor: theme.m3.surfaceContainerLow,
+          borderLeft: `4px solid ${theme.swiss.accent}`,
+          bgcolor: theme.swiss.backgroundAlt,
         })}
       >
         <Stack spacing={5}>

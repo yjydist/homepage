@@ -33,15 +33,15 @@ export default class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBo
           severity="error"
           sx={(theme) => ({
             borderRadius: 6,
-            bgcolor: theme.m3.surfaceContainerLow,
-            color: theme.m3.onSurface,
-            border: `1px solid ${theme.m3.error}`,
-            '& .MuiAlert-icon': { color: theme.m3.error },
+            bgcolor: theme.swiss.backgroundAlt,
+            color: theme.swiss.text.primary,
+            border: `1px solid ${theme.swiss.error}`,
+            '& .MuiAlert-icon': { color: theme.swiss.error },
           })}
         >
           <AlertTitle component="h1" sx={{ fontWeight: 700 }}>页面出错了</AlertTitle>
           请刷新重试；如果问题持续，可能是 content.toml 配置有误。
-          <Box component="pre" sx={(theme) => ({ mt: 4, mb: 0, p: 4, overflowX: 'auto', whiteSpace: 'pre-wrap', overflowWrap: 'anywhere', borderRadius: 3, bgcolor: theme.m3.surfaceContainer, color: theme.m3.onSurfaceVariant })}>
+          <Box component="pre" sx={(theme) => ({ mt: 4, mb: 0, p: 4, overflowX: 'auto', whiteSpace: 'pre-wrap', overflowWrap: 'anywhere', borderRadius: 3, bgcolor: theme.swiss.backgroundAlt, color: theme.swiss.text.secondary })}>
             {error.message}
           </Box>
         </Alert>
