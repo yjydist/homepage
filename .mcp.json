@@ -22,6 +22,14 @@
       "headers": {
         "Authorization": "Bearer ${GITHUB_PERSONAL_ACCESS_TOKEN}"
       }
+    },
+    "mui-mcp": {
+      "type": "stdio",
+      "command": "bunx",
+      "args": [
+        "-y",
+        "@mui/mcp@latest"
+      ]
     }
   }
 }
