@@ -19,7 +19,7 @@ The contribution calendar uses five colors from the same generated scheme, inclu
 
 ## Typography
 
-Google Sans Flex is the Latin face, with Noto Sans SC for Simplified Chinese. Both are self hosted from `src/fonts.css`. The body stays at 16px with a 1.8 line height for Chinese text. Page titles use MUI `h2` styling on semantic `h1` elements; the profile name uses a responsive 40–64px `h1`. Card and subsection titles use the `h3` style on semantic `h2` elements. Emphasis comes from weight and size rather than all caps or wide tracking. Google Sans Flex width and optical size axes strengthen the largest heading.
+Alimama FangYuanTi VF is the single typeface for both Latin and Simplified Chinese text. It is a variable font (wght 200-700) self hosted from `src/fonts.css`, with the woff2 file and its license kept under `src/fonts/`. The body stays at 16px with a 1.8 line height for Chinese text. Page titles use MUI `h2` styling on semantic `h1` elements; the profile name uses a responsive 40–64px `h1`. Card and subsection titles use the `h3` style on semantic `h2` elements. Emphasis comes from weight and size rather than all caps or wide tracking.
 
 ## Shape and spacing
 
