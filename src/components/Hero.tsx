@@ -12,32 +12,8 @@ export default function Hero() {
   const { profile, site } = content
   return (
     <Container component="header" maxWidth="lg" sx={{ pt: { xs: 12, md: 20 }, pb: { xs: 4, md: 8 } }}>
-      <Box
-        sx={(theme) => ({
-          position: 'relative',
-          overflow: 'hidden',
-          borderRadius: { xs: 7, md: 10 },
-          bgcolor: theme.swiss.accent,
-          color: '#FFFFFF',
-          p: { xs: 7, sm: 10, md: 14 },
-        })}
-      >
-        <Box
-          aria-hidden="true"
-          sx={(theme) => ({
-            position: 'absolute',
-            top: { xs: -66, md: -100 },
-            right: { xs: -92, md: -76 },
-            width: { xs: 190, md: 280 },
-            height: { xs: 190, md: 280 },
-            borderRadius: '40%',
-            transform: 'rotate(24deg)',
-            bgcolor: theme.swiss.accent,
-            opacity: 0.85,
-            pointerEvents: 'none',
-          })}
-        />
-        <Stack spacing={6} sx={{ position: 'relative', zIndex: 1, maxWidth: 730 }}>
+      <Box sx={(theme) => ({ borderTop: `2px solid ${theme.swiss.text.primary}`, pt: { xs: 6, md: 10 } })}>
+        <Stack spacing={6} sx={{ maxWidth: 730 }}>
           {profile.avatar && (
             <Avatar
               src={profile.avatar}
@@ -46,13 +22,9 @@ export default function Hero() {
               sx={(theme) => ({
                 width: 96,
                 height: 96,
-                borderRadius: 8,
-                border: `3px solid ${theme.swiss.background}`,
+                borderRadius: 0,
+                border: `1px solid ${theme.swiss.divider}`,
                 bgcolor: theme.swiss.backgroundAlt,
-                boxShadow: theme.shadows[2],
-                animation: 'hero-appear 500ms cubic-bezier(0.05, 0.7, 0.1, 1) both',
-                transition: theme.transitions.create('transform', { duration: theme.transitions.duration.standard, easing: theme.transitions.easing.easeOut }),
-                '&:hover': { transform: 'scale(1.05)' },
               })}
             />
           )}
@@ -77,13 +49,11 @@ export default function Hero() {
                     alignItems: 'center',
                     gap: 2,
                     minHeight: 48,
-                    px: 4,
-                    borderRadius: 99,
-                    bgcolor: theme.swiss.background,
-                    color: theme.swiss.accent,
-                    fontWeight: 700,
-                    transition: theme.transitions.create(['background-color', 'transform'], { duration: theme.transitions.duration.short, easing: theme.transitions.easing.easeOut }),
-                    '&:hover': { bgcolor: theme.swiss.accent, color: '#FFFFFF', transform: 'translateY(-2px)' },
+                    color: theme.swiss.text.primary,
+                    fontWeight: 500,
+                    borderBottom: '2px solid transparent',
+                    transition: theme.transitions.create(['color', 'border-color'], { duration: theme.transitions.duration.short }),
+                    '&:hover': { color: theme.swiss.accent, borderColor: theme.swiss.accent },
                     '&:focus-visible': { outline: `2px solid ${theme.swiss.accent}`, outlineOffset: 2 },
                   })}
                 >
