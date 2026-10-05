@@ -21,14 +21,14 @@ export default function Nav() {
         elevation={0}
         sx={(theme) => ({
           display: { xs: 'none', md: 'block' },
-          bgcolor: theme.swiss.backgroundAlt,
+          bgcolor: theme.swiss.background,
           color: theme.swiss.text.primary,
-          borderBottom: `1px solid ${theme.swiss.divider}`,
+          borderBottom: `2px solid ${theme.swiss.text.primary}`,
         })}
       >
         <Container maxWidth="lg">
           <Box component="nav" aria-label="主导航" sx={{ minHeight: 76, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 6 }}>
-            <Typography variant="h3" component="span" sx={{ fontSize: 18, fontWeight: 760, whiteSpace: 'nowrap' }}>
+            <Typography variant="h3" component="span" sx={{ fontSize: 18, fontWeight: 700, whiteSpace: 'nowrap' }}>
               {content.site.name}
             </Typography>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
@@ -47,14 +47,12 @@ export default function Nav() {
                       display: 'inline-flex',
                       alignItems: 'center',
                       gap: 2,
-                      borderRadius: 99,
-                      bgcolor: selected ? theme.swiss.accent : 'transparent',
-                      color: selected ? '#FFFFFF' : theme.swiss.text.secondary,
-                      fontWeight: selected ? 750 : 580,
+                      color: selected ? theme.swiss.accent : theme.swiss.text.secondary,
+                      fontWeight: selected ? 700 : 500,
                       fontSize: 14,
                       textDecoration: 'none',
-                      transition: theme.transitions.create(['background-color', 'color'], { duration: theme.transitions.duration.short }),
-                      '&:hover': { bgcolor: selected ? theme.swiss.accent : theme.swiss.backgroundAlt },
+                      transition: theme.transitions.create('color', { duration: theme.transitions.duration.short }),
+                      '&:hover': { color: selected ? theme.swiss.accent : theme.swiss.text.primary },
                       '&:focus-visible': { outline: `2px solid ${theme.swiss.accent}`, outlineOffset: 2 },
                     })}
                   >
@@ -84,8 +82,8 @@ export default function Nav() {
           pb: 'env(safe-area-inset-bottom)',
           px: { xs: 1, sm: 4 },
           alignItems: 'stretch',
-          bgcolor: theme.swiss.backgroundAlt,
-          borderTop: `1px solid ${theme.swiss.divider}`,
+          bgcolor: theme.swiss.background,
+          borderTop: `1px solid ${theme.swiss.text.primary}`,
         })}
       >
         {routes.map((route) => {
@@ -101,17 +99,13 @@ export default function Nav() {
               icon={
                 <Box
                   className="nav-indicator"
-                  sx={(theme) => ({
+                  sx={{
                     width: 64,
                     height: 32,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    borderRadius: 99,
-                    bgcolor: selected ? theme.swiss.accent : 'transparent',
-                    transform: selected ? 'scale(1)' : 'scale(0.88)',
-                    transition: theme.transitions.create(['background-color', 'transform'], { duration: theme.transitions.duration.complex, easing: theme.transitions.easing.easeOut }),
-                  })}
+                  }}
                 >
                   <Icon name={route.icon} filled={selected} size={24} />
                 </Box>
@@ -123,12 +117,11 @@ export default function Nav() {
                 py: 2,
                 gap: { xs: 1, sm: 2 },
                 flexDirection: { xs: 'column', sm: 'row' },
-                color: selected ? '#FFFFFF' : theme.swiss.text.secondary,
-                '&.Mui-selected': { color: '#FFFFFF' },
-                '& .MuiBottomNavigationAction-label': { fontSize: 12, fontWeight: selected ? 750 : 600, lineHeight: 1.4, whiteSpace: 'nowrap' },
+                color: theme.swiss.text.secondary,
+                '&.Mui-selected': { color: theme.swiss.text.primary },
+                '& .MuiBottomNavigationAction-label': { fontSize: 12, fontWeight: selected ? 700 : 500, lineHeight: 1.4, whiteSpace: 'nowrap' },
                 '& .MuiBottomNavigationAction-label.Mui-selected': { fontSize: 12 },
-                '&:hover .nav-indicator': { bgcolor: selected ? theme.swiss.accent : theme.swiss.backgroundAlt },
-                '&:focus-visible': { outline: `2px solid ${theme.swiss.accent}`, outlineOffset: -4, borderRadius: 3 },
+                '&:focus-visible': { outline: `2px solid ${theme.swiss.accent}`, outlineOffset: -4 },
               })}
             />
           )
