@@ -10,7 +10,7 @@ import { toCards } from '../lib/repos'
 function RepoList({ items }: { items: CardItem[] }) {
   if (items.length === 0) return <Empty message="暂无仓库。" />
   return (
-    <Box component="ul" sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, minmax(0, 1fr))' }, gap: 6, m: 0, p: 0, listStyle: 'none' }}>
+    <Box component="ul" sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, minmax(0, 1fr))' }, gap: { xs: 4, sm: 6 }, m: 0, p: 0, listStyle: 'none' }}>
       {items.map(({ key, card }) => (
         <li key={key}>
           <RepoCard {...card} />

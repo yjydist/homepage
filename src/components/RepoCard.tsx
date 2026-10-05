@@ -64,9 +64,9 @@ export default function RepoCard({ name, url, description, stars, language, tags
         height: '100%',
         minHeight: { xs: 168, sm: 200 },
         border: `1px solid ${theme.swiss.divider}`,
-        transition: theme.transitions.create(['background-color', 'border-color', 'transform'], { duration: theme.transitions.duration.standard, easing: theme.transitions.easing.easeOut }),
+        transition: theme.transitions.create('border-color', { duration: theme.transitions.duration.standard, easing: theme.transitions.easing.easeOut }),
         ...(url && {
-          '&:hover': { bgcolor: theme.swiss.backgroundAlt, borderColor: theme.swiss.accent, transform: 'translateY(-3px)' },
+          '&:hover': { borderColor: theme.swiss.text.primary },
           '&:hover h2': { color: theme.swiss.accent },
         }),
       })}

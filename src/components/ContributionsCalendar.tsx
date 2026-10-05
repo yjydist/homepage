@@ -27,7 +27,7 @@ export default function ContributionsCalendar() {
           role="region"
           aria-label="贡献日历，可横向滚动"
           tabIndex={0}
-          sx={{ overflowX: 'auto', pb: 1, borderRadius: 2, '&:focus-visible': { outline: `2px solid ${theme.swiss.accent}`, outlineOffset: 2 }, '& .contribution-cell': { transition: theme.transitions.create('opacity', { duration: theme.transitions.duration.short }) }, '& .contribution-cell:hover': { opacity: 0.68 } }}
+          sx={{ overflowX: 'auto', pb: 1, '&:focus-visible': { outline: `2px solid ${theme.swiss.accent}`, outlineOffset: 2 }, '& .contribution-cell': { transition: theme.transitions.create('opacity', { duration: theme.transitions.duration.short }) }, '& .contribution-cell:hover': { opacity: 0.68 } }}
         >
           <Box sx={{ width: 'max-content', mx: 'auto' }}>
             <svg width={width} height={height} role="img" aria-label="GitHub 贡献日历">
@@ -54,7 +54,7 @@ export default function ContributionsCalendar() {
                       y={LABEL_HEIGHT + row * (CELL + GAP)}
                       width={CELL}
                       height={CELL}
-                      rx={4}
+                      rx={0}
                       fill={theme.swiss.contribution[level]}
                     >
                       <title>{day.count} 次贡献 · {day.date}</title>
@@ -66,7 +66,7 @@ export default function ContributionsCalendar() {
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mt: 2 }}>
               <Typography variant="caption" color="text.secondary">少</Typography>
               {theme.swiss.contribution.map((color) => (
-                <Box key={color} sx={{ width: 10, height: 10, borderRadius: 1, bgcolor: color }} />
+                <Box key={color} sx={{ width: 10, height: 10, bgcolor: color }} />
               ))}
               <Typography variant="caption" color="text.secondary">多</Typography>
             </Box>

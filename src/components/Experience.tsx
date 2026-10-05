@@ -14,22 +14,21 @@ export default function Experience() {
       {content.experience.length === 0 ? (
         <Empty message="暂无经历。" />
       ) : (
-        <List sx={{ display: 'grid', gap: 4, p: 0 }}>
+        <List sx={{ p: 0, m: 0 }}>
           {content.experience.map((entry) => (
             <ListItem
               key={`${entry.period}-${entry.role}`}
               sx={(theme) => ({
-                p: { xs: 6, sm: 8 },
+                px: 0,
+                py: 5,
                 alignItems: 'stretch',
-                borderRadius: 7,
-                bgcolor: theme.swiss.backgroundAlt,
-                border: `1px solid ${theme.swiss.divider}`,
+                borderBottom: `1px solid ${theme.swiss.divider}`,
               })}
             >
               <Stack spacing={3} sx={{ width: '100%' }}>
                 <Box><Chip label={entry.period} size="small" /></Box>
                 <Typography component="h2" variant="h3">{entry.role}</Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ fontWeight: 650 }}>
+                <Typography variant="body2" color="text.secondary" sx={{ fontWeight: 500 }}>
                   {entry.organization}
                 </Typography>
                 <Typography variant="body1" color="text.secondary">

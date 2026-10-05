@@ -14,7 +14,7 @@ export default function EventsFeed() {
   if (events.length === 0) return <Empty message="暂无公开动态。" />
 
   return (
-    <List sx={{ display: 'grid', gap: 3, p: 0 }}>
+    <List sx={{ p: 0, m: 0 }}>
       {events.map((event) => {
         const { icon, description } = toEventDisplay(event)
         return (
@@ -24,15 +24,12 @@ export default function EventsFeed() {
               display: 'flex',
               alignItems: 'flex-start',
               gap: 3,
-              p: 5,
-              borderRadius: 6,
-              bgcolor: theme.swiss.backgroundAlt,
-              border: `1px solid ${theme.swiss.divider}`,
+              px: 0,
+              py: 5,
+              borderBottom: `1px solid ${theme.swiss.divider}`,
             })}
           >
-            <Box sx={(theme) => ({ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 40, height: 40, borderRadius: 4, flexShrink: 0, bgcolor: theme.swiss.accent, color: '#FFFFFF' })}>
-              <Icon name={icon} size={22} />
-            </Box>
+            <Icon name={icon} size={20} sx={{ color: 'text.secondary', mt: 1 }} />
             <Box sx={{ minWidth: 0, flex: 1, display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'space-between', gap: 2 }}>
               <Typography variant="body1" component="p" sx={{ minWidth: 0, overflowWrap: 'anywhere' }}>
                 {description}{' '}

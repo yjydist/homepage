@@ -32,7 +32,7 @@ export default class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBo
         <Alert
           severity="error"
           sx={(theme) => ({
-            borderRadius: 6,
+            borderRadius: 0,
             bgcolor: theme.swiss.backgroundAlt,
             color: theme.swiss.text.primary,
             border: `1px solid ${theme.swiss.error}`,
@@ -41,7 +41,7 @@ export default class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBo
         >
           <AlertTitle component="h1" sx={{ fontWeight: 700 }}>页面出错了</AlertTitle>
           请刷新重试；如果问题持续，可能是 content.toml 配置有误。
-          <Box component="pre" sx={(theme) => ({ mt: 4, mb: 0, p: 4, overflowX: 'auto', whiteSpace: 'pre-wrap', overflowWrap: 'anywhere', borderRadius: 3, bgcolor: theme.swiss.backgroundAlt, color: theme.swiss.text.secondary })}>
+          <Box component="pre" sx={(theme) => ({ mt: 4, mb: 0, p: 4, overflowX: 'auto', whiteSpace: 'pre-wrap', overflowWrap: 'anywhere', borderRadius: 0, border: `1px solid ${theme.swiss.divider}`, bgcolor: theme.swiss.background, color: theme.swiss.text.secondary })}>
             {error.message}
           </Box>
         </Alert>

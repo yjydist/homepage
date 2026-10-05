@@ -1,4 +1,3 @@
-import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import { content } from '../content'
@@ -12,23 +11,13 @@ export default function About() {
 
   return (
     <Section title="关于">
-      <Box
-        sx={(theme) => ({
-          maxWidth: 800,
-          p: { xs: 6, sm: 8 },
-          borderRadius: 7,
-          borderLeft: `4px solid ${theme.swiss.accent}`,
-          bgcolor: theme.swiss.backgroundAlt,
-        })}
-      >
-        <Stack spacing={5}>
-          {paragraphs.map((text, i) => (
-            <Typography key={i} variant="body1" sx={{ whiteSpace: 'pre-line' }}>
-              {text}
-            </Typography>
-          ))}
-        </Stack>
-      </Box>
+      <Stack spacing={5} sx={{ maxWidth: '46rem' }}>
+        {paragraphs.map((text, i) => (
+          <Typography key={i} variant="body1" sx={{ whiteSpace: 'pre-line' }}>
+            {text}
+          </Typography>
+        ))}
+      </Stack>
     </Section>
   )
 }
