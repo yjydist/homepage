@@ -9,7 +9,6 @@
     /* Bundler mode: the script shares src/ types with the app. */
     "module": "esnext",
     "moduleResolution": "bundler",
-    "resolveJsonModule": true,
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
     "noEmit": true,

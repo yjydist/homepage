@@ -7,54 +7,15 @@
  * Any failed request aborts the run without touching the existing file,
  * so a bad upstream leaves the site on the last good snapshot.
  */
-import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { readFile, mkdir, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { content, usesGitHub } from '../src/content'
-import { pickEvent, pickRepo } from '../src/lib/githubData'
-import type {
-  ContributionDay,
-  GitHubData,
-  GitHubEvent,
-  GitHubRepo,
-} from '../src/lib/githubData'
+import { fetchGitHubData } from '../src/lib/githubData'
+import type { GitHubData } from '../src/lib/githubData'
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const SNAPSHOT_PATH = resolve(ROOT, 'src/generated/github-data.json')
-
-const API = 'https://api.github.com'
-const CONTRIBUTIONS_API = 'https://github-contributions-api.jogruber.de/v4'
-
-interface ContributionsResponse {
-  contributions: ContributionDay[]
-}
-
-async function fetchGitHub<T>(path: string, token: string): Promise<T> {
-  const res = await fetch(`${API}${path}`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-      Accept: 'application/vnd.github+json',
-      'X-GitHub-Api-Version': '2022-11-28',
-    },
-  })
-  if (!res.ok) {
-    throw new Error(`GitHub ${path} failed (${res.status} ${res.statusText}).`)
-  }
-  return (await res.json()) as T
-}
-
-// Third-party service, no token: it does not count against the GitHub limit.
-async function fetchContributions(
-  username: string,
-): Promise<ContributionDay[]> {
-  const url = `${CONTRIBUTIONS_API}/${encodeURIComponent(username)}?y=last`
-  const res = await fetch(url)
-  if (!res.ok) {
-    throw new Error(`Contributions request failed (${res.status}).`)
-  }
-  const body = (await res.json()) as ContributionsResponse
-  return body.contributions
-}
 
 /** Write only when the bytes change, so an unchanged run leaves no diff. */
 async function writeIfChanged(contents: string): Promise<boolean> {
@@ -83,22 +44,11 @@ async function main(): Promise<void> {
     throw new Error('content.toml is missing [github].username.')
   }
 
-  const repos: Record<string, GitHubRepo> = {}
-  for (const entry of content.repos.filter(usesGitHub)) {
-    repos[entry.repo] = pickRepo(
-      await fetchGitHub<GitHubRepo>(`/repos/${entry.repo}`, token),
-    )
-  }
-
-  const events = (
-    await fetchGitHub<GitHubEvent[]>(
-      `/users/${encodeURIComponent(username)}/events/public?per_page=6`,
-      token,
-    )
-  ).map(pickEvent)
-  const contributions = await fetchContributions(username)
-
-  const data: GitHubData = { repos, events, contributions }
+  const data: GitHubData = await fetchGitHubData(
+    username,
+    content.repos.filter(usesGitHub).map((e) => e.repo),
+    { token },
+  )
   const written = await writeIfChanged(`${JSON.stringify(data, null, 2)}\n`)
   console.log(written ? `Wrote ${SNAPSHOT_PATH}` : 'Snapshot unchanged.')
 }
