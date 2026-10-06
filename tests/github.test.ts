@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test'
-import { fetchLiveGitHubData } from '../src/lib/github'
+import { fetchGitHubData } from '../src/lib/githubData'
 
 const repoRaw = {
   name: 'handnote',
@@ -46,7 +46,7 @@ function errorResponse(status: number): { ok: boolean; status: number; json: () 
   return { ok: false, status, json: () => Promise.resolve({}) }
 }
 
-describe('fetchLiveGitHubData', () => {
+describe('fetchGitHubData', () => {
   test('assembles the snapshot schema via pickRepo/pickEvent projections', async () => {
     const urls: string[] = []
     stubFetch((input) => {
@@ -58,7 +58,7 @@ describe('fetchLiveGitHubData', () => {
       return errorResponse(404)
     })
 
-    const data = await fetchLiveGitHubData('yjydist', ['yjydist/handnote'])
+    const data = await fetchGitHubData('yjydist', ['yjydist/handnote'])
     expect(data.repos['yjydist/handnote']).toEqual({
       name: 'handnote',
       full_name: 'yjydist/handnote',
@@ -94,7 +94,7 @@ describe('fetchLiveGitHubData', () => {
       return jsonResponse(contributionsRaw)
     })
 
-    const data = await fetchLiveGitHubData('yjydist', ['yjydist/handnote', 'yjydist/agents'])
+    const data = await fetchGitHubData('yjydist', ['yjydist/handnote', 'yjydist/agents'])
     expect(Object.keys(data.repos)).toEqual(['yjydist/handnote', 'yjydist/agents'])
   })
 
@@ -107,7 +107,7 @@ describe('fetchLiveGitHubData', () => {
     })
 
     expect(
-      fetchLiveGitHubData('yjydist', ['yjydist/handnote']),
+      fetchGitHubData('yjydist', ['yjydist/handnote']),
     ).rejects.toThrow('GitHub events failed (403).')
   })
 
@@ -120,7 +120,7 @@ describe('fetchLiveGitHubData', () => {
     })
 
     expect(
-      fetchLiveGitHubData('yjydist', ['yjydist/handnote']),
+      fetchGitHubData('yjydist', ['yjydist/handnote']),
     ).rejects.toThrow('Contributions request failed (500).')
   })
 })
