@@ -10,8 +10,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { parse } from 'toml'
-import type { Content } from '../src/content'
+import { content, usesGitHub } from '../src/content'
 import { pickEvent, pickRepo } from '../src/lib/githubSnapshot'
 import type {
   ContributionDay,
@@ -19,10 +18,8 @@ import type {
   GitHubEvent,
   GitHubRepo,
 } from '../src/lib/githubSnapshot'
-import { usesGitHub } from '../src/content'
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
-const CONTENT_PATH = resolve(ROOT, 'content.toml')
 const SNAPSHOT_PATH = resolve(ROOT, 'src/generated/github-data.json')
 
 const API = 'https://api.github.com'
@@ -79,14 +76,15 @@ async function main(): Promise<void> {
     throw new Error('GITHUB_TOKEN is not set (locally: `gh auth token`).')
   }
 
-  const parsed = parse(await readFile(CONTENT_PATH, 'utf8')) as Partial<Content>
-  const username = parsed.github?.username
+  // content.ts types github.username as required, but a missing [github]
+  // table in content.toml still slips through, so guard at runtime.
+  const username = content.github?.username
   if (!username) {
     throw new Error('content.toml is missing [github].username.')
   }
 
   const repos: Record<string, GitHubRepo> = {}
-  for (const entry of (parsed.repos ?? []).filter(usesGitHub)) {
+  for (const entry of content.repos.filter(usesGitHub)) {
     repos[entry.repo] = pickRepo(
       await fetchGitHub<GitHubRepo>(`/repos/${entry.repo}`, token),
     )
