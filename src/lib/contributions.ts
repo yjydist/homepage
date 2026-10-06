@@ -1,4 +1,4 @@
-import type { ContributionDay } from './github'
+import type { ContributionDay } from './githubData'
 
 /**
  * Parse a `YYYY-MM-DD` date as local midnight. Date-only strings parse as

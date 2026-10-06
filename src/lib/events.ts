@@ -1,4 +1,4 @@
-import type { GitHubEvent } from './github'
+import type { GitHubEvent } from './githubData'
 
 // Payload fields are loosely typed, so reads go through small guards.
 function str(value: unknown): string | undefined {

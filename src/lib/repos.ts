@@ -1,6 +1,6 @@
 import { usesGitHub } from '../content'
 import type { RepoEntry } from '../content'
-import type { GitHubRepo } from './github'
+import type { GitHubRepo } from './githubData'
 
 /** What RepoCard renders: merged display fields, nothing else. */
 export interface CardData {

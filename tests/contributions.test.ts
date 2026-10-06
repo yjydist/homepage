@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test'
 import { monthLabels, parseDay, toWeeks } from '../src/lib/contributions'
-import type { ContributionDay } from '../src/lib/github'
+import type { ContributionDay } from '../src/lib/githubData'
 
 function day(date: string): ContributionDay {
   return { date, count: 1, level: 1 }

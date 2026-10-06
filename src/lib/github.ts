@@ -1,34 +1,25 @@
 import { useEffect, useState } from 'react'
-import { content } from '../content'
+import { content, usesGitHub } from '../content'
 import raw from '../generated/github-data.json'
 import { fetchGitHubData } from './githubData'
-import type {
-  ContributionDay,
-  GitHubData,
-  GitHubEvent,
-  GitHubRepo,
-} from './githubData'
-import { usesGitHub } from '../content'
-
-export type { ContributionDay, GitHubData, GitHubEvent, GitHubRepo }
+import type { GitHubData } from './githubData'
 
 /** The committed snapshot, used for the first render and as fallback. */
 const snapshot = raw as GitHubData
 
-/** One in-flight/completed fetch per target set, shared across components. */
-const pending = new Map<string, Promise<GitHubData>>()
+/**
+ * The single live fetch, shared across components. Failures are cached
+ * too (the hook silently keeps the snapshot), and HMR resets module
+ * state, which is the only way to retry after a rejection.
+ */
+let live: Promise<GitHubData> | undefined
 
 function liveData(): Promise<GitHubData> {
   const username = content.github?.username
   if (!username) return Promise.reject(new Error('No [github].username.'))
   const repoFullNames = content.repos.filter(usesGitHub).map((e) => e.repo)
-  const key = `${username}|${repoFullNames.join(',')}`
-  let promise = pending.get(key)
-  if (!promise) {
-    promise = fetchGitHubData(username, repoFullNames)
-    pending.set(key, promise)
-  }
-  return promise
+  live ??= fetchGitHubData(username, repoFullNames)
+  return live
 }
 
 /**

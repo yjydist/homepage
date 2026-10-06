@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test'
 import type { RepoEntry } from '../src/content'
 import { usesGitHub } from '../src/content'
-import type { GitHubRepo } from '../src/lib/github'
+import type { GitHubRepo } from '../src/lib/githubData'
 import {
   byDisplayOrder,
   cardKey,

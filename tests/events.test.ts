@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test'
 import { toEventDisplay } from '../src/lib/events'
-import type { GitHubEvent } from '../src/lib/github'
+import type { GitHubEvent } from '../src/lib/githubData'
 
 function event(
   type: string,
