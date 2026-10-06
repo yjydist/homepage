@@ -43,10 +43,6 @@ username = "yjydist"
 mode = "github"
 repo = "yjydist/handnote"
 
-[[repos]]
-mode = "github"
-repo = "yjydist/agents"
-
 [[experience]]
 period = "2023 — 至今"
 role = "软件工程本科"

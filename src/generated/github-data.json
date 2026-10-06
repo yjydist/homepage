@@ -9,251 +9,87 @@
       "language": "TypeScript",
       "topics": [],
       "updated_at": "2026-09-06T03:54:05Z"
-    },
-    "yjydist/agents": {
-      "name": "agents",
-      "full_name": "yjydist/agents",
-      "html_url": "https://github.com/yjydist/agents",
-      "description": null,
-      "stargazers_count": 0,
-      "language": null,
-      "topics": [],
-      "updated_at": "2026-09-10T06:24:43Z"
     }
   },
   "events": [
     {
-      "id": "20657611856",
-      "type": "PushEvent",
-      "created_at": "2026-09-10T06:24:40Z",
-      "repo": {
-        "name": "yjydist/agents"
-      },
-      "payload": {
-        "repository_id": 1358063701,
-        "push_id": 43169754663,
-        "ref": "refs/heads/main",
-        "head": "d25391d880d0a3b54a025e09e06fb66800783b88",
-        "before": "10ba08479c4bf9d813710986f67087b49a4a7802"
-      }
-    },
-    {
-      "id": "20654097081",
+      "id": "23046004546",
       "type": "CreateEvent",
-      "created_at": "2026-09-10T05:36:39Z",
+      "created_at": "2026-10-05T06:27:14Z",
       "repo": {
-        "name": "yjydist/handnote"
+        "name": "yjydist/homepage"
       },
       "payload": {
-        "ref": "v1.3.0",
+        "ref": "main",
         "ref_type": "branch",
-        "full_ref": "refs/heads/v1.3.0",
+        "full_ref": "refs/heads/main",
         "master_branch": "main",
         "description": null,
         "pusher_type": "user"
       }
     },
     {
-      "id": "20610697878",
+      "id": "22973720832",
       "type": "PushEvent",
-      "created_at": "2026-09-08T10:55:48Z",
+      "created_at": "2026-10-04T14:26:37Z",
       "repo": {
-        "name": "yjydist/homepage"
+        "name": "yjydist/skills"
       },
       "payload": {
-        "repository_id": 1354853559,
-        "push_id": 42920350490,
+        "repository_id": 1396846999,
+        "push_id": 45420074086,
         "ref": "refs/heads/main",
-        "head": "958227d418cfea4fc0266b2351f2f178c8491026",
-        "before": "e773e6d41ad8df029d13d48f2d84efbcfed72f22"
+        "head": "a85aa81bb7c881840c6745964501f9b1a5a99bac",
+        "before": "4d1cf19c396db4467ef54d3e15bb1e19225b2b57"
       }
     },
     {
-      "id": "20607262184",
-      "type": "DeleteEvent",
-      "created_at": "2026-09-08T10:58:00Z",
+      "id": "22973056793",
+      "type": "PushEvent",
+      "created_at": "2026-10-04T14:16:13Z",
       "repo": {
-        "name": "yjydist/homepage"
+        "name": "yjydist/skills"
       },
       "payload": {
-        "ref": "test/refresh-permissions",
-        "ref_type": "branch",
-        "full_ref": "refs/heads/test/refresh-permissions",
-        "pusher_type": "user"
+        "repository_id": 1396846999,
+        "push_id": 45419465627,
+        "ref": "refs/heads/main",
+        "head": "4d1cf19c396db4467ef54d3e15bb1e19225b2b57",
+        "before": "e0a9ff9626d33ff345ad2659094156f060cb0009"
       }
     },
     {
-      "id": "20598398199",
+      "id": "22971861292",
       "type": "PushEvent",
-      "created_at": "2026-09-08T07:55:44Z",
+      "created_at": "2026-10-04T13:57:35Z",
       "repo": {
-        "name": "yjydist/agents"
+        "name": "yjydist/skills"
       },
       "payload": {
-        "repository_id": 1358063701,
-        "push_id": 42902424601,
+        "repository_id": 1396846999,
+        "push_id": 45418359169,
         "ref": "refs/heads/main",
-        "head": "d9fbf7a505c84954a7045a609591b5ba52845cd2",
-        "before": "e70ca09600a157d20f52ad363628fdb458d9f064"
+        "head": "e0a9ff9626d33ff345ad2659094156f060cb0009",
+        "before": "c952522152a5d1d2d1154781d1ca089ae014643e"
       }
     },
     {
-      "id": "20570838984",
+      "id": "22551045568",
       "type": "PushEvent",
-      "created_at": "2026-09-08T09:18:55Z",
+      "created_at": "2026-09-30T04:27:18Z",
       "repo": {
-        "name": "yjydist/homepage"
+        "name": "yjydist/skills"
       },
       "payload": {
-        "repository_id": 1354853559,
-        "push_id": 42910485240,
+        "repository_id": 1396846999,
+        "push_id": 44995460668,
         "ref": "refs/heads/main",
-        "head": "e773e6d41ad8df029d13d48f2d84efbcfed72f22",
-        "before": "4fb52e1b9d616f1992f1e7b4f9e22b10fda6f85c"
+        "head": "c952522152a5d1d2d1154781d1ca089ae014643e",
+        "before": "821b7e4e9647cf97287d761e3a6870b067433f24"
       }
     }
   ],
   "contributions": [
-    {
-      "date": "2025-09-07",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-09-08",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-09-09",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-09-10",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-09-11",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-09-12",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-09-13",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-09-14",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-09-15",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-09-16",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-09-17",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-09-18",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-09-19",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-09-20",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-09-21",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-09-22",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-09-23",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-09-24",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-09-25",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-09-26",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-09-27",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-09-28",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-09-29",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-09-30",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-10-01",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-10-02",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-10-03",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-10-04",
-      "count": 0,
-      "level": 0
-    },
     {
       "date": "2025-10-05",
       "count": 0,
@@ -416,8 +252,8 @@
     },
     {
       "date": "2025-11-06",
-      "count": 2,
-      "level": 1
+      "count": 0,
+      "level": 0
     },
     {
       "date": "2025-11-07",
@@ -426,8 +262,8 @@
     },
     {
       "date": "2025-11-08",
-      "count": 3,
-      "level": 1
+      "count": 0,
+      "level": 0
     },
     {
       "date": "2025-11-09",
@@ -451,8 +287,8 @@
     },
     {
       "date": "2025-11-13",
-      "count": 2,
-      "level": 1
+      "count": 0,
+      "level": 0
     },
     {
       "date": "2025-11-14",
@@ -611,8 +447,8 @@
     },
     {
       "date": "2025-12-15",
-      "count": 2,
-      "level": 1
+      "count": 0,
+      "level": 0
     },
     {
       "date": "2025-12-16",
@@ -1031,8 +867,8 @@
     },
     {
       "date": "2026-03-09",
-      "count": 19,
-      "level": 2
+      "count": 0,
+      "level": 0
     },
     {
       "date": "2026-03-10",
@@ -1671,13 +1507,13 @@
     },
     {
       "date": "2026-07-15",
-      "count": 15,
-      "level": 1
+      "count": 0,
+      "level": 0
     },
     {
       "date": "2026-07-16",
-      "count": 8,
-      "level": 1
+      "count": 0,
+      "level": 0
     },
     {
       "date": "2026-07-17",
@@ -1731,23 +1567,23 @@
     },
     {
       "date": "2026-07-27",
-      "count": 0,
-      "level": 0
+      "count": 2,
+      "level": 1
     },
     {
       "date": "2026-07-28",
-      "count": 0,
-      "level": 0
+      "count": 5,
+      "level": 1
     },
     {
       "date": "2026-07-29",
-      "count": 0,
-      "level": 0
+      "count": 6,
+      "level": 1
     },
     {
       "date": "2026-07-30",
-      "count": 0,
-      "level": 0
+      "count": 1,
+      "level": 1
     },
     {
       "date": "2026-07-31",
@@ -1761,8 +1597,8 @@
     },
     {
       "date": "2026-08-02",
-      "count": 0,
-      "level": 0
+      "count": 2,
+      "level": 1
     },
     {
       "date": "2026-08-03",
@@ -1776,18 +1612,18 @@
     },
     {
       "date": "2026-08-05",
-      "count": 0,
-      "level": 0
+      "count": 1,
+      "level": 1
     },
     {
       "date": "2026-08-06",
-      "count": 0,
-      "level": 0
+      "count": 1,
+      "level": 1
     },
     {
       "date": "2026-08-07",
-      "count": 0,
-      "level": 0
+      "count": 1,
+      "level": 1
     },
     {
       "date": "2026-08-08",
@@ -1852,7 +1688,7 @@
     {
       "date": "2026-08-20",
       "count": 36,
-      "level": 2
+      "level": 3
     },
     {
       "date": "2026-08-21",
@@ -1916,12 +1752,12 @@
     },
     {
       "date": "2026-09-02",
-      "count": 11,
+      "count": 10,
       "level": 1
     },
     {
       "date": "2026-09-03",
-      "count": 37,
+      "count": 36,
       "level": 3
     },
     {
@@ -1931,12 +1767,12 @@
     },
     {
       "date": "2026-09-05",
-      "count": 73,
+      "count": 68,
       "level": 4
     },
     {
       "date": "2026-09-06",
-      "count": 33,
+      "count": 29,
       "level": 2
     },
     {
@@ -1946,8 +1782,8 @@
     },
     {
       "date": "2026-09-08",
-      "count": 22,
-      "level": 2
+      "count": 16,
+      "level": 1
     },
     {
       "date": "2026-09-09",
@@ -1956,8 +1792,138 @@
     },
     {
       "date": "2026-09-10",
+      "count": 1,
+      "level": 1
+    },
+    {
+      "date": "2026-09-11",
+      "count": 0,
+      "level": 0
+    },
+    {
+      "date": "2026-09-12",
+      "count": 0,
+      "level": 0
+    },
+    {
+      "date": "2026-09-13",
+      "count": 0,
+      "level": 0
+    },
+    {
+      "date": "2026-09-14",
+      "count": 0,
+      "level": 0
+    },
+    {
+      "date": "2026-09-15",
+      "count": 0,
+      "level": 0
+    },
+    {
+      "date": "2026-09-16",
+      "count": 0,
+      "level": 0
+    },
+    {
+      "date": "2026-09-17",
+      "count": 0,
+      "level": 0
+    },
+    {
+      "date": "2026-09-18",
+      "count": 0,
+      "level": 0
+    },
+    {
+      "date": "2026-09-19",
+      "count": 0,
+      "level": 0
+    },
+    {
+      "date": "2026-09-20",
+      "count": 0,
+      "level": 0
+    },
+    {
+      "date": "2026-09-21",
+      "count": 0,
+      "level": 0
+    },
+    {
+      "date": "2026-09-22",
+      "count": 0,
+      "level": 0
+    },
+    {
+      "date": "2026-09-23",
+      "count": 0,
+      "level": 0
+    },
+    {
+      "date": "2026-09-24",
+      "count": 0,
+      "level": 0
+    },
+    {
+      "date": "2026-09-25",
+      "count": 0,
+      "level": 0
+    },
+    {
+      "date": "2026-09-26",
+      "count": 12,
+      "level": 1
+    },
+    {
+      "date": "2026-09-27",
+      "count": 0,
+      "level": 0
+    },
+    {
+      "date": "2026-09-28",
+      "count": 0,
+      "level": 0
+    },
+    {
+      "date": "2026-09-29",
       "count": 3,
       "level": 1
+    },
+    {
+      "date": "2026-09-30",
+      "count": 2,
+      "level": 1
+    },
+    {
+      "date": "2026-10-01",
+      "count": 0,
+      "level": 0
+    },
+    {
+      "date": "2026-10-02",
+      "count": 4,
+      "level": 1
+    },
+    {
+      "date": "2026-10-03",
+      "count": 3,
+      "level": 1
+    },
+    {
+      "date": "2026-10-04",
+      "count": 6,
+      "level": 1
+    },
+    {
+      "date": "2026-10-05",
+      "count": 9,
+      "level": 1
+    },
+    {
+      "date": "2026-10-06",
+      "count": 0,
+      "level": 0
     }
   ]
 }
