@@ -11,13 +11,13 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { content, usesGitHub } from '../src/content'
-import { pickEvent, pickRepo } from '../src/lib/githubSnapshot'
+import { pickEvent, pickRepo } from '../src/lib/githubData'
 import type {
   ContributionDay,
   GitHubData,
   GitHubEvent,
   GitHubRepo,
-} from '../src/lib/githubSnapshot'
+} from '../src/lib/githubData'
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const SNAPSHOT_PATH = resolve(ROOT, 'src/generated/github-data.json')

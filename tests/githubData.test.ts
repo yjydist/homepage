@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'bun:test'
-import { pickEvent, pickRepo } from '../src/lib/githubSnapshot'
+import { pickEvent, pickRepo } from '../src/lib/githubData'
 
 describe('pickRepo', () => {
   test('projects required repository fields and drops extraneous attributes', () => {

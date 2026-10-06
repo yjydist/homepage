@@ -24,8 +24,8 @@ export interface ContributionDay {
 }
 
 /**
- * The snapshot schema that `scripts/fetch-github-data.ts` writes and that
- * the application uses for the first render and as fallback.
+ * The GitHub data schema that `scripts/fetch-github-data.ts` writes and
+ * that the application uses for the first render and as fallback.
  */
 export interface GitHubData {
   /** Keyed by the `repo` value from content.toml, e.g. "owner/name". */

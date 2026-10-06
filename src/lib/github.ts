@@ -6,8 +6,8 @@ import type {
   GitHubData,
   GitHubEvent,
   GitHubRepo,
-} from './githubSnapshot'
-import { pickEvent, pickRepo } from './githubSnapshot'
+} from './githubData'
+import { pickEvent, pickRepo } from './githubData'
 import { usesGitHub } from '../content'
 
 export type { ContributionDay, GitHubData, GitHubEvent, GitHubRepo }
