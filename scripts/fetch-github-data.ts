@@ -1,8 +1,8 @@
 /**
- * Refresh the committed GitHub snapshot that the site renders from. Run
- * by `.github/workflows/refresh-github-data.yml` with a GITHUB_TOKEN; the
- * browser never talks to the API itself, so the 60 req/hr/IP anonymous
- * limit cannot break the pages.
+ * Refresh the committed GitHub snapshot that the site falls back to. Run
+ * manually with a GITHUB_TOKEN; at runtime the browser fetches live data
+ * anonymously and only uses this snapshot for the first render and when
+ * any live request fails.
  *
  * Any failed request aborts the run without touching the existing file,
  * so a bad upstream leaves the site on the last good snapshot.

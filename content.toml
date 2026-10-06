@@ -24,10 +24,11 @@ label = "邮箱"
 url = "mailto:yjydist@qq.com"
 
 [github]
-# Used by scripts/fetch-github-data.ts for the public events and the
+# Used by the browser at runtime for the public events and the
 # contributions calendar. The /repos page uses each entry's own `repo`
-# key instead. Both read the snapshot committed at
-# src/generated/github-data.json, refreshed every 6 hours.
+# key instead. Both render the snapshot committed at
+# src/generated/github-data.json first, then live data once fetched;
+# the snapshot is the fallback when any live request fails.
 username = "yjydist"
 
 # Each [[repos]] entry declares how its data is sourced via `mode`:

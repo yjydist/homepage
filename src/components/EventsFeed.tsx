@@ -4,13 +4,13 @@ import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import Typography from '@mui/material/Typography'
 import { toEventDisplay } from '../lib/events'
-import { publicEvents } from '../lib/github'
+import { useGitHubData } from '../lib/github'
 import { timeAgo } from '../lib/time'
 import { Empty } from './Empty'
 import Icon from './Icon'
 
 export default function EventsFeed() {
-  const events = publicEvents()
+  const { events } = useGitHubData()
   if (events.length === 0) return <Empty message="暂无公开动态。" />
 
   return (

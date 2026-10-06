@@ -4,7 +4,7 @@ import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
 import { useTheme } from '@mui/material/styles'
 import { monthLabels, parseDay, toWeeks } from '../lib/contributions'
-import { contributionDays } from '../lib/github'
+import { useGitHubData } from '../lib/github'
 import { Empty } from './Empty'
 
 const CELL = 10
@@ -13,7 +13,7 @@ const LABEL_HEIGHT = 14
 
 export default function ContributionsCalendar() {
   const theme = useTheme()
-  const days = contributionDays()
+  const { contributions: days } = useGitHubData()
   if (days.length === 0) return <Empty message="暂无贡献数据。" />
 
   const weeks = toWeeks(days)

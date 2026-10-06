@@ -26,10 +26,11 @@ orange source colors. Layout and navigation adapt at 600px and 840px.
 icons are bundled locally; the browser does not need a font CDN.
 
 GitHub data (repo metadata, public events, the contributions calendar)
-comes from the committed snapshot at `src/generated/github-data.json`, so
-the browser makes no API calls. `.github/workflows/refresh-github-data.yml`
-refreshes it every 6 hours and commits only when the data changed. To
-refresh it locally, provide a token:
+renders from the committed snapshot at `src/generated/github-data.json`
+on first paint, then the browser fetches live data anonymously (no token)
+and replaces it in place; the snapshot stays as the fallback whenever any
+live request fails (e.g. rate limiting, offline). To refresh the snapshot
+locally, provide a token:
 
 ```sh
 GITHUB_TOKEN=$(gh auth token) bun run fetch:github
@@ -42,10 +43,10 @@ All site content and config are in `content.toml`:
 - `[site]` — title, meta description, owner name
 - `[profile]` — tagline, bio, avatar (image URL or path under `public/`),
   social links
-- `[github]` — username the snapshot fetch uses for the contributions
-  calendar and public events; /repos uses each entry's own `repo` key
+- `[github]` — username used at runtime for the contributions calendar
+  and public events; /repos uses each entry's own `repo` key
 - `[[repos]]` — repo cards, sourced by `mode`: `github` reads metadata
-  from the committed snapshot via the `repo` key (other keys override the
+  from the snapshot/live data via the `repo` key (other keys override the
   snapshot values); `custom` is fully manual and uses no snapshot data
 - `[[experience]]` — experience entries (period, role, organization,
   description)
