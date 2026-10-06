@@ -126,16 +126,3 @@ export function useGitHubData(): GitHubData {
   }, [])
   return data
 }
-
-/** Snapshot metadata for one `mode = "github"` entry. */
-export function repoFor(fullName: string): GitHubRepo | undefined {
-  return snapshot.repos[fullName]
-}
-
-export function publicEvents(): GitHubEvent[] {
-  return snapshot.events
-}
-
-export function contributionDays(): ContributionDay[] {
-  return snapshot.contributions
-}
