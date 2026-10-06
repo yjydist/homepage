@@ -40,6 +40,13 @@ export interface RepoEntry {
   order?: number
 }
 
+/** Whether this entry takes its metadata from the GitHub snapshot. */
+export function usesGitHub(
+  entry: RepoEntry,
+): entry is RepoEntry & { repo: string } {
+  return entry.mode === 'github' && typeof entry.repo === 'string'
+}
+
 export interface ExperienceEntry {
   period: string
   role: string

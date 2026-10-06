@@ -8,7 +8,7 @@ import type {
   GitHubRepo,
 } from './githubSnapshot'
 import { pickEvent, pickRepo } from './githubSnapshot'
-import { usesGitHub } from './repos'
+import { usesGitHub } from '../content'
 
 export type { ContributionDay, GitHubData, GitHubEvent, GitHubRepo }
 

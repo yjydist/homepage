@@ -19,7 +19,7 @@ import type {
   GitHubEvent,
   GitHubRepo,
 } from '../src/lib/githubSnapshot'
-import { usesGitHub } from '../src/lib/repos'
+import { usesGitHub } from '../src/content'
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const CONTENT_PATH = resolve(ROOT, 'content.toml')

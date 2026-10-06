@@ -1,3 +1,4 @@
+import { usesGitHub } from '../content'
 import type { RepoEntry } from '../content'
 import type { GitHubRepo } from './github'
 
@@ -31,13 +32,6 @@ export function toCard(entry: RepoEntry, live?: GitHubRepo): CardData {
     tags: entry.tags ?? live?.topics ?? [],
     updatedAt: live?.updated_at ?? null,
   }
-}
-
-/** Whether this entry takes its metadata from the GitHub snapshot. */
-export function usesGitHub(
-  entry: RepoEntry,
-): entry is RepoEntry & { repo: string } {
-  return entry.mode === 'github' && typeof entry.repo === 'string'
 }
 
 /** Pinned first, then explicit order, then content.toml position. */

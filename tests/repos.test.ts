@@ -1,12 +1,12 @@
 import { describe, expect, test } from 'bun:test'
 import type { RepoEntry } from '../src/content'
+import { usesGitHub } from '../src/content'
 import type { GitHubRepo } from '../src/lib/github'
 import {
   byDisplayOrder,
   cardKey,
   toCard,
   toCards,
-  usesGitHub,
 } from '../src/lib/repos'
 
 function entry(overrides: Partial<RepoEntry>): RepoEntry {
